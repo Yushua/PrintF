@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_printf_u.c                                      :+:    :+:            */
+/*   ft_printf_c.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/12/07 15:32:00 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/08 14:52:09 by ybakker       ########   odam.nl         */
+/*   Created: 2019/12/07 15:32:13 by ybakker        #+#    #+#                */
+/*   Updated: 2019/12/08 14:38:28 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-ft_printf_u(int i)
+char    ft_printf_c(char c)
 {
-    char    str;
-
-    str = ft_itoa(i);
-    return (str);
+    i = strlen(c);
+    if (c[0] == 39) && (c[i] == 39);//maybe not needed
+    {
+       write(1, &c, 1);
+    }
+    return //error;
 }
+
+//write 1 character
+
 /*
-**use itoa to print the number, but be warned of the flags 
-*/
+** needs to be withing 'a'
+** only the first character, you can place more than 1, 
+** but it wil always do the first character
+ */

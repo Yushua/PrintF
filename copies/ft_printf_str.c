@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_printf_u.c                                      :+:    :+:            */
+/*   ft_printf_str.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/12/07 15:32:00 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/08 14:52:09 by ybakker       ########   odam.nl         */
+/*   Created: 2019/12/07 15:32:07 by ybakker        #+#    #+#                */
+/*   Updated: 2019/12/08 14:37:51 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-ft_printf_u(int i)
+void	ft_printf_str(char *s)
 {
-    char    str;
+	int		i;
+	char	c;
 
-    str = ft_itoa(i);
-    return (str);
+	if (s == 0)
+		return ;
+	i = 0;
+	while (s[i] != '\0')
+	{
+		c = (char)s[i];
+		ft_putchar(c);
+		i += 1;
+	}
 }
-/*
-**use itoa to print the number, but be warned of the flags 
-*/
+
+//write whole string unless its a % character
+//so you get the ap, but is the " " included? if so, 
+//make sure they're there and then print the inbetween

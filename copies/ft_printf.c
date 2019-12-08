@@ -6,7 +6,7 @@
 /*   By: ybakker <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/05 13:47:11 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/08 17:41:43 by ybakker       ########   odam.nl         */
+/*   Updated: 2019/12/08 14:41:58 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	cleanap(void **ap)
 	*ap = NULL;
 }
 
-/*
 int		check_percentage(char str, int i, va_list ap, const char *format)
 {
 	format[i + 1] //next character after %
@@ -46,25 +45,19 @@ int		check_percentage(char str, int i, va_list ap, const char *format)
 	i += 1;
 	return (ft_printf(-1)); //if failed return with -1, not good, but fix later
 }
-*/
 
-t_print		check_printf(const char *format, char str, va_list ap)
+int		check_printf(const char *format, char str, va_list ap)
 {
 	int		i;
-	t_print *print;
 
-    struct_zero(&print);
-	i = (*print)->begin;
 	while(format[i] != '\0')
 	{
 		if (format == '%')
-			{
-				print->size = i +;
-				return (che_perc(&print, str, ap, format));
-			}
-		i += 1;
+			return (check_percentage(str, i, ap, format));
+		else
+			i += 1;
 	}
-	return (0);
+	return (0); //fix later
 }
 
 int		ft_printf(const char *format, ...)
@@ -79,7 +72,3 @@ int		ft_printf(const char *format, ...)
 	va_end(ap);
 	return (len);
 }
-
-/*
-**somewhere here is the loop
-*/

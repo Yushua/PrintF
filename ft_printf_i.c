@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 15:32:00 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/08 14:10:39 by ybakker       ########   odam.nl         */
+/*   Updated: 2019/12/08 14:52:17 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,11 @@ char		*ft_itoa(int n)
 	return (str);
 }
 
-ft_printf_i(int i)
+ft_printf_i(int nb)
 {
     char    str;
 
-    str = ft_itoa(i);
+    str = ft_itoa(nb);
     return (str);
 }
 /*

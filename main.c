@@ -6,14 +6,14 @@
 /*   By: ybakker <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 14:54:52 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/08 14:41:43 by ybakker       ########   odam.nl         */
+/*   Updated: 2019/12/08 16:43:51 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
 /*
-** c = character "g"
+** c = character "g" yes +,  no 0
 ** s = string "hello"
 ** p = pointer adress ptr
 ** d = signed integer (dec)
@@ -24,10 +24,9 @@
 ** % = '%' start. look after that %%
 **
 ** .* = precision but an integer
-** - = width but spaces after
 ** 0 = width but spaces are zero
 ** * = width but another integer
-** - = srtarts str on the left
+** .
 ** + = normal
 */
 
@@ -50,10 +49,13 @@ int     main(void)
 	ui = -1;
 	hex = 1235454;
 	hhex = 1235454;
-	printf("%% \n");
-	printf("%p \n", &ptr);
-	printf("Preceding with blanks: %u \n", 1977);
-	printf("|%d|", printf(INPUT));
+	printf("%00+-6i \n", 1);
+	//printf("%c%c%c%c", 'hellz', 'b', 'c', 'd');
+	//printf("Preceding with blanks: \n %0c \n %+0s \n %0p \n %0d \n %0i \n %0u \n %0x \n %0X \n %0% \n ", 'a', "hello", 123, 123, 123, 123, 132, 132, 123);
+	//printf("Preceding with blanks:\n%0d\n%0i\n%0u\n%0x\n%0X\n%0%\n",123, 123, 123, 123, 123, 123, 123);
+	//printf("|%d|", printf(INPUT));
 	//ft_printf("|%d|", printf(INPUT));
 	return (0);
 }
+
+//make one long string, put it in trim and use \n as the cut, the print that out using write, character by character

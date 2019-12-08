@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 15:31:56 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/08 14:52:05 by ybakker       ########   odam.nl         */
+/*   Updated: 2019/12/08 14:10:15 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static int	ft_min(int n)
 	return (0);
 }
 
-char		*ft_itoa(int n) //right to left
+char		*ft_itoa(int n) // right to left
 {
 	long	nn;
 	long	l;
