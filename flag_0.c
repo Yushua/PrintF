@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/08 15:55:21 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/08 18:11:43 by ybakker       ########   odam.nl         */
+/*   Updated: 2019/12/08 18:36:55 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_print     flag_0(t_print **print, const char (*format), int i)
 
 	y = i;
 	i++;
-	while (i != (*print)->end || format[i] =< '1' || format[i] => '9')
+	while (i != (*print)->end || format[i] => '1' || format[i] =< '9')
 	{
 		if (format[i] == '+')
 			(*print)->positive = 1;
@@ -29,8 +29,10 @@ t_print     flag_0(t_print **print, const char (*format), int i)
 			flag_plus(&print, format, i);
 		i++;
 	}
-	(*print)->flags = str_zero(&print, format, y)
-	return ();
+	(*print)->widthf = str_zero(&print, format, y)
+	y = (*print)->widthf;
+	(*print)->flags = ft_bzero(y);
+	return (0);
 }
 /*
 **check if any ov the flag overrides are stil there for 0, if not,
@@ -50,14 +52,18 @@ t_print		str_zero(t_print **print, const char (*format), int y)
 	i = 0;
 	while (y != (*print)->end || format[y] =< '1' || format[iy] => '9')
 	{
-		if (format[y] =< '1' || format[y] => '9')
+		if (format[y] => '1' || format[y] =< '9')
 			nb[i] = format[y]
 			i++;
 		y++;
 	}
+	if (nb[0] == '\0')
+		return (0);
+	return (ft_itoa(nb));
+
 }
 
 /*
 ** e - b = widthf
-**
+** i don't have to do - but I could?
 */

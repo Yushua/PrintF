@@ -6,7 +6,7 @@
 /*   By: ybakker <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 14:54:52 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/08 16:43:51 by ybakker       ########   odam.nl         */
+/*   Updated: 2019/12/08 18:32:46 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int     main(void)
 	ui = -1;
 	hex = 1235454;
 	hhex = 1235454;
-	printf("%00+-6i \n", 1);
+	printf("%060605i \n", 1);
 	//printf("%c%c%c%c", 'hellz', 'b', 'c', 'd');
 	//printf("Preceding with blanks: \n %0c \n %+0s \n %0p \n %0d \n %0i \n %0u \n %0x \n %0X \n %0% \n ", 'a', "hello", 123, 123, 123, 123, 132, 132, 123);
 	//printf("Preceding with blanks:\n%0d\n%0i\n%0u\n%0x\n%0X\n%0%\n",123, 123, 123, 123, 123, 123, 123);
