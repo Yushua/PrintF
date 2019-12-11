@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/11 14:54:47 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/11 17:07:32 by ybakker       ########   odam.nl         */
+/*   Updated: 2019/12/11 18:18:28 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int		ft_print_pre(t_print **print, const char *format, int  i, va_list ap)
 
 t_print		ft_per_before(t_print **print, const char *format, int  i, va_list ap)
 {
-	
+	//width so ft_check_star
 }
 
 t_print		ft_per_both(t_print **print, const char *format, int  i, va_list ap)
@@ -96,6 +96,11 @@ is number after dot, it becmoes bzero and 0 becomes nothing, dot is plced at the
 if - is before zero, remove 0
 
 before and after:
+
+0 or -  
+getal or *
+then .
+after getal or star
 
 
 
