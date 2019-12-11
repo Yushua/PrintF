@@ -6,18 +6,12 @@
 /*   By: ybakker <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/05 13:47:11 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/08 17:41:43 by ybakker       ########   odam.nl         */
+/*   Updated: 2019/12/10 21:30:48 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	cleanap(void **ap)
-{
-	if (!ap || !*ap)
-		return ;
-	free(*ap);
-	*ap = NULL;
-}
-
+#include "/libft/libft.h"
+#include "ft_printf.h"
 /*
 int		check_percentage(char str, int i, va_list ap, const char *format)
 {
@@ -48,28 +42,38 @@ int		check_percentage(char str, int i, va_list ap, const char *format)
 }
 */
 
-t_print		check_printf(const char *format, char str, va_list ap)
+int		check_printf(const char *format, char str, va_list ap)
 {
 	int		i;
 	t_print *print;
-
-    struct_zero(&print);
-	i = (*print)->begin;
+	char	*cache; //input the string that needs to be writen down after initial
+	
+	struct_zero(&print);
+	i = 0;
 	while(format[i] != '\0')
 	{
-		if (format == '%')
+		struct_zero(&print); //sets everything to 0 in struct during the loop
+		if (format[i] == '%')
 			{
-				print->size = i +;
-				return (che_perc(&print, str, ap, format));
+				(*print)->begin = i; //after & for everything.
+				printcache(&print, str, ap, format); //print the enxt peice if there is a %
+				i = (*print)->end; //now the end, so its onverance, one furder starts anew
 			}
-		i += 1;
+		else (format[i] != '%')
+			write(1, format[i], 1); //if not %, write it down that character.
+		i++; //continue to the next character in the format
 	}
-	return (0);
+	//make sure I keeps on track with the format end says where the loop must begin unless i > end
+	//free everything
+	if ((*print)->(*error) == 1)
+		return (0); // nog fout
+	return (0); //everything is printed so return 0
 }
 
-int		ft_printf(const char *format, ...)
+int		ft_printf(const char *format, ...) //function is bad because of end
 {
 	int			len;
+	char		**endstr;
 	char		str;
 	va_list		ap;
 
@@ -82,4 +86,5 @@ int		ft_printf(const char *format, ...)
 
 /*
 **somewhere here is the loop
+how do i return my trimmed string?
 */

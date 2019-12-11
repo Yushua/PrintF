@@ -6,22 +6,26 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/08 17:02:47 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/08 17:44:27 by ybakker       ########   odam.nl         */
+/*   Updated: 2019/12/10 16:28:53 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
+
 t_print     struct_zero(t_print **print);
 {
-    (*print)->width = 0;
-    (*print)->widthf = 0;
-    (*print)->convergions = strdup("");
-    (*print)->flags = strdup("");
-    (*print)->(*input) = strdup("");
-    (*print)->end = 0;
-    (*print)->positive = 0;
-    (*print)->negative = 0;
-    (*print)->(*error) = strdup("");
-    (*print)->size = 0;
+	(*print)->width = 0;
+	(*print)->widthf = 0;
+	(*print)->convergions = strdup("");
+	(*print)->flags = strdup("");
+	(*print)->(*input) = strdup("");
+	(*print)->begin = 0; 
+	(*print)->positive = 0;
+	(*print)->negative = 0;
+	(*print)->locationper = 0;
+//  (*print)->precisionc = 0;
+//	(*print)->widthc = 0;
+//  (*print)->zero = 0;
 }
 
 /*
