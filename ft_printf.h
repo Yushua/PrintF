@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 16:10:06 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/11 16:07:38 by ybakker       ########   odam.nl         */
+/*   Updated: 2019/12/13 15:53:05 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,34 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
-# include "libf/libft.h"
+# include <stdio.h>
+# include "libft/libft.h"
 
-typedef struct	s_print;
+typedef struct	s_print
 {
-	int		width; //width of the input string
-	int		widthf; //width of the flags string
-	char	convergions; //if is c, s, p , d, i, u, x, X
-	int		ccode; //inlcuded if con is a int or a char 1 = str 2 = int
-	char	*flags; //flags
-	char	*input; // input like 1234
-	int		begin; //begin after %
-	int		end; //end of convergance
-	int		negative; //if negative - flag is used
-	char	*error //error
-	int		locationper; //location of percentage two
-	int		locationmin; //is there a min
-	int		zero;
-	int		min;
-}			t_print;
+	int			begin;
+	int			end;
+	char		convergions;
+	char		flag_str;
+	char		input_str;
+	int			pre_c; //precision cordinate
+	int			pre;//value
+	int			pre_n_c;// n_c, so the vallue
+	int			width_v;
+	int			width_nb;
+	int			min;
+	int			zero;
+	int			value; //remmeebr the value if its not 0, - . if - or 0, then its width
+}				t_print;
+
+int			ft_printf(const char *format, ...);
+int			ft_printf_check(const char *format, va_list ap);
+void		ft_end(t_print **print, va_list ap, const char *format);
+void		struct_zero(t_print **print);
+
+#endif
 
 /*
-**end is not the ebginning, its just before the supposed next part, meaning after the convergance, between end and the next
-**% you put those chaarcters in the string, this way i know where it ends
+check - and zero before the other flags, so numbers, * and .
+remmeebr the numberS
 */

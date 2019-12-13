@@ -6,11 +6,11 @@
 /*   By: ybakker <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 14:54:52 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/11 16:53:41 by ybakker       ########   odam.nl         */
+/*   Updated: 2019/12/13 15:56:13 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include "ft_printf.h"
 
 /*
 ** str c = character "g" yes +,  no 0
@@ -50,46 +50,18 @@ int     main(void)
 	hex = 1235454;
 	hhex = 1235454;
 	
-	printf("only   .|%5.i \n", 10);
+	//printf("hello \n");
+	//ft_printf("hello\n");
+	printf("%.3i\n%3.i\n%3.3i%.03i\n", 10, 10, 10, 10);
+	printf("precision1\n");
+	printf("%-6i\n%-06.i\n%-*.i\n", 10, 10, 5, 10);
+	printf("min\n");
+	printf("%*.i\n", 10, 10); //first - and 0 then the rest
+	printf("width, no more -, zero and numbers\n");
+	printf("\n");
+	printf("\n");
+	//ft_printf("%%\n");
+	//printf("%c", "a");
+	//ft_printf("%c", "a");
 	return (0);
 }
-
-//make one long string, put it in trim and use \n as the cut, the print that out using write, character by character
-
-//hwo does . work?
-/*
-	//printf("i dot 0 %08.6i \n", 1);
-	//printf("c dot 0 %06s \n", "hello");
-	//printf("i dot 0%08.6i \n", 1);
-	//printf("c dot 0%06s \n", "hello");
-	//printf("i dot 0%08.6i \n", 1);
-	//printf("c dot width 0%06s \n", "hello");
-	//printf("only *  |%3i \n", 1); //star test int
-	//printf("only *  |%*i \n",3, 1); //star test
-	//printf("only *  .|%3.5i \n", 1); //star test int
-	//printf("only   .|%5.i \n", 10); //star test number for is empty line
-	//printf("only   .|%.5i \n", 1); //star test number after is zero
-	//printf("only 0  .|%05.6i \n", 1); //star test int iz . is is 0 meaning, . becomes bzero and 0 becomes memset " "
-	//printf("only -0 .|%-05.6i \n", 1); //star test int iz . is is 0 meaning, . becomes bzero and 0 becomes memset " "
-	//printf("only 0  .|%05.6i \n", 1234);
-	//printf("only -0 .|%3.i \n", 1234);
-	//printf("only.|%.3s \n", "hello");
-	//printf("only.|%20.3s \n", "hello");
-	//printf("only *  |%3i \n", 1); //star test int
-	//printf("only *  |%*i \n",3, 1); //star test
-	//printf("only *- |%3i \n", -1); //star test
-	//printf("only *- |%3-i \n", -1); //star test
-	//printf("only *- |%*i \n",3, -1); //star test
-	//printf("hello %i \n", 1);
-	//printf("%20.7s \n", "hier staat tekst");
-	//printf("%20.12i \n", 100000); // 20 spaces big, the n  creates 7 spaces of 0 then places the in there
-	//printf("%20.4i \n", 100000);
-	//printf("only .%*i \n",20, 100000);
-	//printf("%*.7s \n", 20, "hier staat tekst");
-	//printf("%-*.7i\n", 20, 100000000000000);
-	//printf("%c\n%c\n%c\n%c\n", 'a', 'b', 'c', 'd');
-	//printf("Preceding with blanks: \n %0c \n %+0s \n %0p \n %0d \n %0i \n %0u \n %0x \n %0X \n %0% \n ", 'a', "hello", 123, 123, 123, 123, 132, 132, 123);
-	//printf("Preceding with blanks:\n%0d\n%0i\n%0u\n%0x\n%0X\n%0%\n",123, 123, 123, 123, 123, 123, 123);
-	//printf("|%d|", printf(INPUT));
-	//ft_printf("|%d|", printf(INPUT));
-*/

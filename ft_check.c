@@ -5,45 +5,94 @@
 /*                                                     +:+                    */
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2019/12/10 12:56:03 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/11 15:59:14 by ybakker       ########   odam.nl         */
+/*   Created: 2019/12/13 14:17:17 by ybakker        #+#    #+#                */
+/*   Updated: 2019/12/13 15:51:43 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-/*
-**check *
-**check .
-**check -
-**check 0
-***/
-char    ft_flag_check(t_print **print, const char *format, int  i, va_list ap) //i is where its last used, but i cna use begin
+char	ft_convergance(const char (*format), t_print **print, int i)
 {
-    i = (*print)->begin; //begin whrre to look for, so it doens't stop the loop
-    i++; //looks after %
-    if (ft_is_there_pre(&print, format, i, ap) == 1)//check dot '.' precision for everything combination of * and 0 and -
-    {
-        ft_print_pre(&print, format, i, ap);
-        return(0);
-    }
-    else if (ft_check_star(&print, format, i, ap) == 1) //check * and 0 and -
-        return (0);
-    else if (ft_check_min(&print, format, i, ap) == 1) //check min '-' and 0
-        return (0);
-    else if (ft_check_zero(&print, format, i, ap) == 1) //check if only 0 used
-        return (0);
-    return (0); //no flags, improve this
-}
-/*
-** check for 0, if minus is in it before the converagnce go to minus
-**
-**
-*/
-
-ft_convergance_check() //print with va_arg the value and make the input
-{
-
+	while (format[i] != '\0')
+	{
+		(*print)->end = i;
+		if (format[i] == 'c')
+			return ('c');
+		else if (format[i] == 's')
+			return ('s');
+		else if (format[i] == 'p')
+			return ('p');
+		else if (format[i] == 'd')
+			return ('d');
+		else if (format[i] == 'i')
+			return ('i');
+		else if (format[i] == 'u')
+			return ('u');
+		else if (format[i] == 'x')
+			return ('x');
+		else if (format[i] == 'X')
+			return ('X');
+		else if (format[i] == '%')
+			return ('%');
+		i++;
+	}
+	return (formation->error);
 }
 
-//check convergions with va_arg, then combine what you got and make the string you add to the main string
+int		ft_z_m(t_print **print, va_list ap, int i, const char *format)
+{
+	if (format[i] == '0')
+	{
+		(*print)->zero = 1;
+		while (format[i] == '0')
+			i++;
+	}
+	if (format[i] == '-')
+	{
+		(*print)->min = 1;
+		while (format[i] == '-')
+			i++;
+	}
+}
+
+int		ft_m(t_print **print, va_list ap, int i, const char *format)
+{
+	if (format[i] == '-')
+	{
+		(*print)->min = 1;
+		while (format[i] == '-')
+			i++;
+	}
+}
+
+void	ft_pre(t_print **print, va_list ap, int i, const char *format)
+{
+	while(format[i] != '\0' || i < (*print)->end)
+	{
+		if (format[i] == '.')
+		{
+			(*print)->pre = 1;
+			(*print)->pre_c  = i;
+			break ;			
+		}
+	}
+}
+
+void	ft_check(t_print **print, va_list ap, int i, const char *format)
+{
+	ft_pre(&print, ap, i, format);
+	ft_m_z(&print, ap, i, format);// chekc is the first is a min ignores 0 and  *
+	ft_z(&print, ap, i, format); 
+	if (format[i] == '*')
+	{
+		(*print)->width_v = 1;
+		(*print)->width_nb = va_arg(ap, int);
+		ft_width();
+	}
+	else if (format[i] => '1' || format[i] =< '9')
+	{
+		(*print)->width_v = 1;
+		ft_save_n(&print, ap, i, format);	
+	} //width. no messing with -
+}
