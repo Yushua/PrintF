@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/13 13:27:40 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/14 12:39:06 by ybakker       ########   odam.nl         */
+/*   Updated: 2019/12/14 14:04:17 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		ft_print(t_print **print, va_list ap, int i, const char *format)
 		write(1, &format[i], 1);
 		return (i);
 	}
-	else
+	else if ((*print)->convergance != '\0')
 	{
 		ft_print_f(print, ap, i, format);
 		//ft_print_str(&print, ap, i, format);
@@ -30,4 +30,3 @@ int		ft_print(t_print **print, va_list ap, int i, const char *format)
 		return (i);
 	}
 }
-

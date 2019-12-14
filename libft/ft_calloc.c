@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ybakker <ybakker@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/01 11:14:32 by ybakker           #+#    #+#             */
-/*   Updated: 2019/11/21 10:33:51 by ybakker          ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   ft_calloc.c                                        :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: ybakker <ybakker@student.42.fr>              +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2019/11/01 11:14:32 by ybakker        #+#    #+#                */
+/*   Updated: 2019/12/14 13:42:21 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,16 @@
 void	*ft_calloc(size_t count, size_t size)
 {
 	size_t			i;
-	unsigned char	*r;
+	unsigned char	*str;
 
 	i = 0;
-	r = malloc(sizeof(char) * (count * size));
-	if (r == 0)
+	str = malloc(sizeof(char) * (count * size));
+	if (str == 0)
 		return (0);
 	while (i < (count * size))
 	{
-		r[i] = 0;
+		str[i] = 0;
 		i += 1;
 	}
-	return ((void*)r);
+	return ((void*)str);
 }

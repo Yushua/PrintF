@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 16:10:06 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/14 12:19:13 by ybakker       ########   odam.nl         */
+/*   Updated: 2019/12/14 14:42:24 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct	s_print
 	int			end;
 	char		convergance;
 	char		flag_str;
+	char		flag_str_pre;
 	char		input_str;
 	int			pre_c; //precision cordinate
 	int			pre;//value
@@ -45,7 +46,7 @@ void		ft_min_zero(t_print **print, va_list ap, int i, const char *format);
 void		ft_find_pre(t_print **print, va_list ap, int i, const char *format);
 void		ft_print_f(t_print **print, va_list ap, int i, const char *format);
 char		ft_convergance(t_print **print, int i, const char *format);
-int			ft_save_n(const char *format, t_print **print, int i);
+int			ft_save_nb(const char *format, t_print **print, int i);
 
 void		struct_zero(t_print **print);
 #endif
