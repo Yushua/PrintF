@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 16:10:06 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/14 12:12:30 by ybakker       ########   odam.nl         */
+/*   Updated: 2019/12/14 12:19:13 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ typedef struct	s_print
 }				t_print;
 
 int			ft_printf(const char *format, ...);
-int		ft_printf_check(const char *format, va_list ap);
-void		ft_print(t_print **print, va_list ap, int i, const char *format);
+int			ft_printf_check(const char *format, va_list ap);
+int			ft_print(t_print **print, va_list ap, int i, const char *format);
 void		ft_min_zero(t_print **print, va_list ap, int i, const char *format);
 void		ft_find_pre(t_print **print, va_list ap, int i, const char *format);
 void		ft_print_f(t_print **print, va_list ap, int i, const char *format);

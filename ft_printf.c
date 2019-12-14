@@ -6,7 +6,7 @@
 /*   By: ybakker <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/05 13:47:11 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/14 12:12:08 by ybakker       ########   odam.nl         */
+/*   Updated: 2019/12/14 12:23:33 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ int		ft_printf_check(const char *format, va_list ap)
 	{
 		if (format[i] == '%')
 		{
-			ft_print(&print, ap, i, format);
-			i = print->end;
+			i = ft_print(&print, ap, i, format);
 		}
 		else if (format[i] != '%')
 			write(1, &format[i], 1);

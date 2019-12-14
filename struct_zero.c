@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/08 17:02:47 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/13 17:32:10 by ybakker       ########   odam.nl         */
+/*   Updated: 2019/12/14 12:55:52 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,12 @@ void		struct_zero(t_print **print)
 	(*print)->zero = 0;
 	(*print)->position = 0;
 	(*print)->value = 0;
+	(*print)->width_v = 0;
+	(*print)->width_nb = 0;
 }
+
+/* 
+c == cordinates
+nb == number
+str == string
+*/
