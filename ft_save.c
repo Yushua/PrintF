@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/13 14:57:16 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/14 13:47:51 by ybakker       ########   odam.nl         */
+/*   Updated: 2019/12/15 15:06:13 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int			ft_save_nb(const char *format, t_print **print, int i)
 		i++;
 	}
 	nb = ((char *)malloc(sizeof(char) * (j + 1)));
+	(*print)->width_save_nb = j;
 	j = 0;
 	while ((format[b] >= '0') || (format[b] <= '9') || b < e)
 	{

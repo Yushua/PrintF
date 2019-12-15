@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 16:10:06 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/14 14:42:24 by ybakker       ########   odam.nl         */
+/*   Updated: 2019/12/15 16:41:05 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ typedef struct	s_print
 	char		flag_str;
 	char		flag_str_pre;
 	char		input_str;
-	int			pre_c; //precision cordinate
-	int			pre;//value
 	int			pre_n_c;// n_c, so the vallue
 	int			width_v;
 	int			width_nb; //width number
