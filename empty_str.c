@@ -6,14 +6,16 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/15 15:19:26 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/15 16:17:02 by ybakker       ########   odam.nl         */
+/*   Updated: 2019/12/16 17:57:55 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-char		ft_empty_str(t_pritnt **prin, va_list ap, int i, const char *format)
+#include "ft_printf.h"
+
+char		ft_empty_str(t_print **print, va_list ap, int i, const char *format)
 {
 	char	str;
-	int		y;
+	long	y;
 
 	y = 0;
 	y = (*print)->width_nb;
@@ -24,7 +26,7 @@ char		ft_empty_str(t_pritnt **prin, va_list ap, int i, const char *format)
 	while (y != 0)
 	{
 		str[y] = ' ';
-		y--;
+		y -= 1;
 	}
 	return (str);
 }

@@ -27,7 +27,7 @@ int			ft_save_nb(const char *format, t_print **print, int i)
 		i++;
 	}
 	nb = ((char *)malloc(sizeof(char) * (j + 1)));
-	(*print)->width_save_nb = j;
+	//protect
 	j = 0;
 	while ((format[b] >= '0') || (format[b] <= '9') || b < e)
 	{
@@ -35,7 +35,7 @@ int			ft_save_nb(const char *format, t_print **print, int i)
 		j++;
 		b++;
 	}
-	(*print)->width_nb = ft_atoi(nb);
+	(*print)->width_nb = ft_atoi(nb); //how big the string
 	free(nb);
 	return (i);
 }

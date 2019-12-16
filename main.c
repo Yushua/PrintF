@@ -6,7 +6,7 @@
 /*   By: ybakker <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 14:54:52 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/15 16:56:47 by ybakker       ########   odam.nl         */
+/*   Updated: 2019/12/16 17:30:15 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int     main(void)
 	//printf("width, no more -, zero and numbers\n");
 	//printf("%01.10i\n", 10);// for min, check if ther ei somethign ebhind dot
 	//printf("%*i\n%*.20i\n\n%5.i\n%5.10i\n\n%5i\n", 10, 10, 10, 10, 10, 10, 10);
-	printf("%6i\n%-10.i\n", 10, 10, 10);
+	printf("%10.12i\n", 10);
 	//ft_printf("%5.10i\n", 10, 10);
 	//ft_printf("%%\n");
 	//printf("%c", "a");

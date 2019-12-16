@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 16:10:06 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/15 16:41:05 by ybakker       ########   odam.nl         */
+/*   Updated: 2019/12/16 17:48:36 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,25 +28,38 @@ typedef struct	s_print
 	char		flag_str_pre;
 	char		input_str;
 	int			pre_n_c;// n_c, so the vallue
+	int			precision; //is there a precision
+	int			pre_value;
 	int			width_v;
 	int			width_nb; //width number
 	int			min;
 	int			zero;
 	int			position;//position of 0 or -
 	int			value;//remmember the value if its not 0, - . if - or 0, then its width
+	int			width_save_nb;
 	int			value_c;
 }				t_print;
 
-int			ft_printf(const char *format, ...);
-int			ft_printf_check(const char *format, va_list ap);
-int			ft_print(t_print **print, va_list ap, int i, const char *format);
+int			ft_save_nb(const char *format, t_print **print, int i);
+void		ft_flag_min(long s, long p);
+void		ft_flag_no(long s, long p);
+void		ft_flag_str(t_print **print, va_list ap, int i, const char *format);
 void		ft_min_zero(t_print **print, va_list ap, int i, const char *format);
 void		ft_find_pre(t_print **print, va_list ap, int i, const char *format);
+void		ft_find_flag(t_print **print, va_list ap, int i, const char *format);
+void		ft_find_nb(t_print **print, va_list ap, int i, const char *format);
 void		ft_print_f(t_print **print, va_list ap, int i, const char *format);
+int			ft_printf_check(const char *format, va_list ap);
+void		ft_precision(t_print **print, va_list ap, int i, const char *format);
+void		ft_precision_nb(t_print **print, va_list ap, int i, const char *format);
+char		ft_empty_str(t_print **print, va_list ap, int i, const char *format);
 char		ft_convergance(t_print **print, int i, const char *format);
-int			ft_save_nb(const char *format, t_print **print, int i);
+int			ft_print(t_print **print, va_list ap, int i, const char *format);
+int			ft_printf(const char *format, ...);
 
 void		struct_zero(t_print **print);
+
+
 #endif
 
 /*
