@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/13 16:27:34 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/19 19:47:21 by ybakker       ########   odam.nl         */
+/*   Updated: 2019/12/19 22:24:38 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void		ft_find_flag(t_print **print, va_list ap, int i, const char *format)
 	{
 		(*print)->width_nb = (va_arg(ap, int)); //get the width
 		*str = ft_empty_str(print, ap, i, format);//empty str
-		(*print)->flag_str = *str;
+		*(*print)->flag_str = *str;
 		free(str);
 		i++;
 		if (format[i] == '.')
@@ -64,11 +64,11 @@ void		ft_find_nb(t_print **print, va_list ap, int i, const char *format)
 	{
 		i = ft_save_nb(print, i, format);
 		if ((*print)->zero == 1) //so zero, so full with zero's
-			ft_find_nb_z(print, str, nb);
+			ft_find_nb_z(print, nb);
 		else // min > 0
 		{
 			*str = ft_empty_str(print, ap, i, format);//empty str
-			(*print)->flag_str = *str;
+			*(*print)->flag_str = *str;
 			free(str);
 		}
 		(*print)->width_nb = 0; //if used, make 0
@@ -87,7 +87,6 @@ void		ft_print_f(t_print **print, va_list ap, int i, const char *format)
 	ft_find_flag(print, ap, i, format);//is the i a *
 	ft_find_nb(print, ap, i, format); //if its a number
 	ft_save_input(print, ap, i, format);
-	ft_print_string_1(print);// combining the 2 strings and print
 	//function that get a number and puts it into a str
 	//function finds if there is a width
 	//funtion that find if there is a .

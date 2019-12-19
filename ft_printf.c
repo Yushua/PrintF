@@ -6,7 +6,7 @@
 /*   By: ybakker <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/05 13:47:11 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/19 19:17:21 by ybakker       ########   odam.nl         */
+/*   Updated: 2019/12/19 20:40:28 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int		ft_printf_check(const char *format, va_list ap)
 			write(1, &format[i], 1);
 			len++;
 		}
-		print->len = len + print->len;
+		print->len = len += print->len;
 		struct_zero(&print);
 		i++;
 	}

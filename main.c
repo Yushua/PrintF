@@ -6,14 +6,14 @@
 /*   By: ybakker <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 14:54:52 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/19 20:02:38 by ybakker       ########   odam.nl         */
+/*   Updated: 2019/12/19 22:34:59 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 /*
-** str c = character "g" yes +,  no 0
+** str c = character "g" yes +,  no 0 **
 ** str s = string "hello"
 ** int p = pointer adress ptr
 ** int d = signed integer (dec)
@@ -51,8 +51,7 @@ int     main(void)
 	hhex = 1235454;
 	//printf("%c|%10c|%-10c\n", 'a', 'a', 'a');
 	//ft_printf("%c|%10c|%-10c\n", 'a', 'a', 'a');
-	ft_printf("%c|%c|%c\n", 'a', 'b', 'a');
-	ft_printf("%s", "hello");
+	ft_printf("%06c", 'a');
 	return (0);
 }
 

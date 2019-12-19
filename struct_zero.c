@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/08 17:02:47 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/19 19:12:20 by ybakker       ########   odam.nl         */
+/*   Updated: 2019/12/19 20:24:07 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void		struct_zero(t_print **print)
 {
 	(*print)->begin = 0;
 	(*print)->convergance = '\0';
-	(*print)->flag_str = '\0';
-	(*print)->flag_str_pre = '\0';
-	(*print)->input_str = '\0';
+	(*print)->flag_str = NULL;
+	(*print)->flag_str_pre = NULL;
+	(*print)->input_str = NULL;
 	(*print)->precision = 0;
 	(*print)->pre_value = 0;
 	(*print)->pre_n_c = 0;

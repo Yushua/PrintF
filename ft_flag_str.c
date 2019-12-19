@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/15 17:07:56 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/19 16:59:39 by ybakker       ########   odam.nl         */
+/*   Updated: 2019/12/19 20:14:12 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ char		ft_flag_min(long s, t_print **print, long width)
 	char	*str_p;
 	long	i;
 
-	*str = (*print)->flag_str;
-	*str_p = (*print)->flag_str_pre;
+	*str = *(*print)->flag_str;
+	*str_p = *(*print)->flag_str_pre;
 	i = 0;
 	while (i != width)
 	{
@@ -34,8 +34,8 @@ char		ft_flag_no(long s, long p, t_print **print, long width)
 	char	*str;
 	char	*str_p;
 
-	*str = (*print)->flag_str;
-	*str_p = (*print)->flag_str_pre;
+	*str = *(*print)->flag_str;
+	*str_p = *(*print)->flag_str_pre;
 	while (s != 0)
 	{
 		str[p] = str_p[width];
@@ -53,8 +53,8 @@ void		ft_flag_str(t_print **print)
 	long	p; //len str_p
 	long	width; //width to print
 
-	*str = (*print)->flag_str;
-	*str_p = (*print)->flag_str_pre;
+	*str = *(*print)->flag_str;
+	*str_p = *(*print)->flag_str_pre;
 	s = ft_strlen(str); //first, place where it begins
 	p = ft_strlen(str_p); //second
 	if ((*print)->width_nb < -1)
@@ -65,11 +65,11 @@ void		ft_flag_str(t_print **print)
 	else if (s >= p)
 	{
 		if ((*print)->min == 1)
-			(*print)->flag_str = ft_flag_min(s, print, width);
+			*(*print)->flag_str = ft_flag_min(s, print, width);
 		else //else min != 1;
-			(*print)->flag_str = ft_flag_no(s, p, print, width);
+			*(*print)->flag_str = ft_flag_no(s, p, print, width);
 	}
 	else if (p > s)
-		(*print)->flag_str = *str_p;
-	(*print)->flag_str_pre = '\0';
+		*(*print)->flag_str = *str_p;
+	*(*print)->flag_str_pre = '\0';
 }

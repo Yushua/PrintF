@@ -6,24 +6,28 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/17 15:29:29 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/17 15:32:10 by ybakker       ########   odam.nl         */
+/*   Updated: 2019/12/19 22:34:52 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		ft_find_nb_z(t_print **print, char *str, long nb)
+void		ft_find_nb_z(t_print **print, long nb)
 {
-	str = ((char *)malloc(sizeof(char) * ((*print)->width_nb + 1)));
+	char	*str;
+	char	c;
+
+	c = '0';
+	nb = (*print)->width_nb;
+	str = ((char *)malloc(sizeof(nb + 1)));
 	if (str == NULL)
 		return ;
-	nb = (*print)->width_nb;
-	nb++;
-	while (nb != 0)
+	while (nb)
 	{
-		str[nb] = '0';
+		*str = (unsigned char)c;
+		str++;
 		nb -= 1;
 	}
-	(*print)->flag_str = *str; //save the space
+	*(*print)->flag_str = *str;
 	free(str);
 }

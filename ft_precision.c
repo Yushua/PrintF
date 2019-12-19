@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/14 14:05:35 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/19 15:59:51 by ybakker       ########   odam.nl         */
+/*   Updated: 2019/12/19 20:15:12 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,6 @@ void		ft_precision_nb(t_print **print, va_list ap, int i, const char *format)
 			str[nb] = '0';
 			nb -= 1;
 		}
-		(*print)->flag_str_pre = *str;
+		*(*print)->flag_str_pre = *str;
 	}
 }

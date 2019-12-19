@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/13 13:27:40 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/19 19:30:57 by ybakker       ########   odam.nl         */
+/*   Updated: 2019/12/19 20:33:03 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_print_string_1(t_print **print)
 {
-	char	*str;
+	char	**str;
 	long	i;
 	int		len; //lenght to return at the end of printf
 

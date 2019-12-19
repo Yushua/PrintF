@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 16:10:06 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/19 20:08:38 by ybakker       ########   odam.nl         */
+/*   Updated: 2019/12/19 22:23:50 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ char		ft_empty_str(t_print **print, va_list ap, int i, const char *format);
 char		ft_convergance(t_print **print, int i, const char *format);
 void		ft_print(t_print **print, va_list ap, int i, const char *format);
 int			ft_printf(const char *format, ...);
-void		ft_find_nb_z(t_print **print, char *str, long nb);
+void		ft_find_nb_z(t_print **print, long nb);
 
 void		struct_zero(t_print **print);
 
