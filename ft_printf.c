@@ -6,7 +6,7 @@
 /*   By: ybakker <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/05 13:47:11 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/14 12:23:33 by ybakker       ########   odam.nl         */
+/*   Updated: 2019/12/19 19:17:21 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,35 @@
 
 int		ft_printf_check(const char *format, va_list ap)
 {
-	int			i;
+	long		i;
+	int			len;
 	t_print		*print;
 
-	print = (t_print*)malloc(sizeof(t_print));
+	len = 0;
+	print = (t_print *)malloc(sizeof(t_print));
 	if (print == NULL)
-		return (NULL);
+		return (0);
 	struct_zero(&print);
 	i = 0;
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
 		{
-			i = ft_print(&print, ap, i, format);
+			ft_print(&print, ap, i, format);
+			i = print->position;
+			i++;
 		}
-		else if (format[i] != '%')
+		if (format[i] != '%')
+		{
 			write(1, &format[i], 1);
+			len++;
+		}
+		print->len = len + print->len;
 		struct_zero(&print);
 		i++;
 	}
 	//free everything
-	return (0);
+	return (len);
 }
 
 int		ft_printf(const char *format, ...)
@@ -47,5 +55,5 @@ int		ft_printf(const char *format, ...)
 	va_start(ap, format);
 	ft_printf_check(format, ap);
 	va_end(ap);
-	return (0);
+	return (len);
 }

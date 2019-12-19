@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/14 14:05:35 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/16 17:47:33 by ybakker       ########   odam.nl         */
+/*   Updated: 2019/12/19 15:59:51 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,31 @@ void		ft_precision(t_print **print, va_list ap, int i, const char *format)
 	ft_precision_nb(print, ap, i, format); //the str after .
 }
 
-void	ft_precision_nb(t_print **print, va_list ap, int i, const char *format)
+void		ft_precision_nb(t_print **print, va_list ap, int i, const char *format)
 {
+	long	nb;
+	char	*str;
+
 	i++; //after precision
+	while (format[i] >= '0')
+	{
+		(*print)->width_nb = -1;
+		i++;
+	}
 	if (format[i] >= '1' || format[i] <= '9')
 	{
-		ft_save_nb(print, ap, i, format); //get number into width_nb
-		nb == (*print)->width_nb; //places number in nb
+		ft_save_nb(print, i, format); //get number into width_nb
+		nb = (*print)->width_nb; //places number in nb
+		(*print)->width = nb; //width after
 		(*print)->width_nb = 0; //empties width
 		str = ((char *)malloc(sizeof(char) * (nb + 1)));
-		if (s != NULL)
+		if (str != NULL)
 			return ; //defence
-		(*print)->flag_str_pre = ft_bzero(str, nb);
-		(*print)->position = i; //do you need it, because this is the end?
+		while (nb != 0)
+		{
+			str[nb] = '0';
+			nb -= 1;
+		}
+		(*print)->flag_str_pre = *str;
 	}
 }

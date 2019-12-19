@@ -6,7 +6,7 @@
 /*   By: ybakker <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 14:54:52 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/16 17:30:15 by ybakker       ########   odam.nl         */
+/*   Updated: 2019/12/19 20:02:38 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,17 @@ int     main(void)
 	ui = -1;
 	hex = 1235454;
 	hhex = 1235454;
-	
+	//printf("%c|%10c|%-10c\n", 'a', 'a', 'a');
+	//ft_printf("%c|%10c|%-10c\n", 'a', 'a', 'a');
+	ft_printf("%c|%c|%c\n", 'a', 'b', 'a');
+	ft_printf("%s", "hello");
+	return (0);
+}
+
+//everytime you write you increase th len
+
+//gcc libft/*.c *.c -g
+
 	//printf("hello \n");
 	//ft_printf("hello\n");
 	//printf("%.3i\n%3.i\n%3.3i%.03i\n", 10, 10, 10, 10);
@@ -61,12 +71,8 @@ int     main(void)
 	//printf("width, no more -, zero and numbers\n");
 	//printf("%01.10i\n", 10);// for min, check if ther ei somethign ebhind dot
 	//printf("%*i\n%*.20i\n\n%5.i\n%5.10i\n\n%5i\n", 10, 10, 10, 10, 10, 10, 10);
-	printf("%10.12i\n", 10);
+	//ft_printf("%%\nhello\n", 10);
 	//ft_printf("%5.10i\n", 10, 10);
 	//ft_printf("%%\n");
 	//printf("%c", "a");
 	//ft_printf("%c", "a");
-	return (0);
-}
-
-//gcc libft/*.c *.c -g
