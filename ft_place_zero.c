@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/17 15:29:29 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/19 22:34:52 by ybakker       ########   odam.nl         */
+/*   Updated: 2019/12/21 19:16:01 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,17 @@
 
 void		ft_find_nb_z(t_print **print, long nb)
 {
-	char	*str;
-	char	c;
+	char			*str;
 
-	c = '0';
 	nb = (*print)->width_nb;
-	str = ((char *)malloc(sizeof(nb + 1)));
+	str = ((char *)malloc(nb * sizeof(char)));
 	if (str == NULL)
 		return ;
 	while (nb)
 	{
-		*str = (unsigned char)c;
-		str++;
 		nb -= 1;
+		str[nb] = '0';
 	}
-	*(*print)->flag_str = *str;
-	free(str);
+	printf("%s", str);
+	(*print)->flag_str = str;
 }
