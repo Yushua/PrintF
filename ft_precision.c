@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/14 14:05:35 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/19 20:15:12 by ybakker       ########   odam.nl         */
+/*   Updated: 2019/12/22 15:18:35 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void		ft_precision(t_print **print, va_list ap, int i, const char *format)
 void		ft_precision_nb(t_print **print, va_list ap, int i, const char *format)
 {
 	long	nb;
-	char	*str;
 
 	i++; //after precision
 	while (format[i] >= '0')
@@ -38,15 +37,36 @@ void		ft_precision_nb(t_print **print, va_list ap, int i, const char *format)
 		ft_save_nb(print, i, format); //get number into width_nb
 		nb = (*print)->width_nb; //places number in nb
 		(*print)->width = nb; //width after
-		(*print)->width_nb = 0; //empties width
-		str = ((char *)malloc(sizeof(char) * (nb + 1)));
-		if (str != NULL)
-			return ; //defence
-		while (nb != 0)
-		{
-			str[nb] = '0';
-			nb -= 1;
-		}
-		*(*print)->flag_str_pre = *str;
+		(*print)->flag_str_pre  = ft_find_nb_z(print);
 	}
+}
+
+int			ft_save_nb(t_print **print, int i, const char *format)
+{
+	int		e;
+	char	*nb;
+	int		j;
+	int		b;
+
+	e = (*print)->end;
+	b = i;
+	j = 0;
+	while (format[i] >= '0' && format[i] <= '9')
+	{
+		j++;
+		i++;
+	}
+	nb = ((char *)malloc(j * sizeof(char)));
+	if (nb == NULL)
+		return (0);
+	j = 0;
+	while (format[b] >= '0' && format[b] <= '9')
+	{
+		nb[j] = format[b];
+		j++;
+		b++;
+	}
+	(*print)->width_nb = ft_atoi(nb);
+	free(nb);
+	return (i);
 }

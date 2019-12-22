@@ -6,11 +6,68 @@
 /*   By: ybakker <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/05 13:47:11 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/19 20:40:28 by ybakker       ########   odam.nl         */
+/*   Updated: 2019/12/22 15:31:10 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int		ft_printf(const char *format, ...)
+{
+	int			len;
+	char		**endstr;
+	char		str;
+	va_list		ap;
+
+	va_start(ap, format);
+	ft_printf_check(format, ap);
+	va_end(ap);
+	return (len);
+}
+
+void		ft_print(t_print **print, va_list ap, int i, const char *format)
+{
+	i++; //next character after the first %
+	(*print)->convergance = ft_convergance(print, i, format); //get the ending
+	if ((*print)->convergance == '%')
+	{
+		write(1, &format[i], 1);
+		(*print)->position = i;
+	}
+	else if ((*print)->convergance != '\0')
+	{
+		ft_print_f(print, ap, i, format); //in flag_str
+		(*print)->position = (*print)->end;
+	}
+}
+
+char	ft_convergance(t_print **print, int i, const char *format)
+{
+	while (format[i] != '\0')
+	{
+		(*print)->end = i;
+		if (format[i] == 'c')
+			return ('c');
+		else if (format[i] == 's')
+			return ('s');
+		else if (format[i] == 'p')
+			return ('p');
+		else if (format[i] == 'd')
+			return ('d');
+		else if (format[i] == 'i')
+			return ('i');
+		else if (format[i] == 'u')
+			return ('u');
+		else if (format[i] == 'x')
+			return ('x');
+		else if (format[i] == 'X')
+			return ('X');
+		else if (format[i] == '%')
+			return ('%');
+		i++;
+	}
+	return (0);
+}
 
 int		ft_printf_check(const char *format, va_list ap)
 {
@@ -42,18 +99,5 @@ int		ft_printf_check(const char *format, va_list ap)
 		i++;
 	}
 	//free everything
-	return (len);
-}
-
-int		ft_printf(const char *format, ...)
-{
-	int			len;
-	char		**endstr;
-	char		str;
-	va_list		ap;
-
-	va_start(ap, format);
-	ft_printf_check(format, ap);
-	va_end(ap);
 	return (len);
 }
