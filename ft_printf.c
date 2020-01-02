@@ -6,7 +6,7 @@
 /*   By: ybakker <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/05 13:47:11 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/22 15:31:10 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/02 16:23:46 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,20 +28,20 @@ int		ft_printf(const char *format, ...)
 void		ft_print(t_print **print, va_list ap, int i, const char *format)
 {
 	i++; //next character after the first %
-	(*print)->convergance = ft_convergance(print, i, format); //get the ending
-	if ((*print)->convergance == '%')
+	(*print)->convergence = ft_convergence(print, i, format); //get the ending
+	if ((*print)->convergence == '%')
 	{
 		write(1, &format[i], 1);
 		(*print)->position = i;
 	}
-	else if ((*print)->convergance != '\0')
+	else if ((*print)->convergence != '\0')
 	{
 		ft_print_f(print, ap, i, format); //in flag_str
 		(*print)->position = (*print)->end;
 	}
 }
 
-char	ft_convergance(t_print **print, int i, const char *format)
+char	ft_convergence(t_print **print, int i, const char *format)
 {
 	while (format[i] != '\0')
 	{

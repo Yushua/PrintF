@@ -6,7 +6,7 @@
 /*   By: ybakker <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 14:54:52 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/19 22:34:59 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/02 16:26:30 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int     main(void)
 	hhex = 1235454;
 	//printf("%c|%10c|%-10c\n", 'a', 'a', 'a');
 	//ft_printf("%c|%10c|%-10c\n", 'a', 'a', 'a');
-	ft_printf("%06c", 'a');
+	ft_printf("%c", 'a');
 	return (0);
 }
 

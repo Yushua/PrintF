@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/02 15:19:07 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/02 16:12:06 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/02 16:40:30 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ char		ft_write_str(t_print **print)
 	if ((*print)->width_nb < -1)
 		(*print)->width_nb = -1;
 	if ((*print)->width_nb == -1)
-		(*print)->input_str = (*print)->flag_str; //because the precsion is smaller, it means nothing should be pprinted
+		(*print)->input_str = (*print)->flag_str; //because the precsion is smaller, it means nothing should be printed
 	else if (s >= f)
 	{
 		if ((*print)->min == 1)
@@ -75,17 +75,17 @@ char		*ft_str_min(long s, t_print **print, long width)
 	return (str);
 }
 
-char		*ft_str_no(long s, long p, t_print **print, long width)
+char		*ft_str_no(long s, long f, t_print **print, long width)
 {
 	char	*str;
-	char	*str_p;
+	char	*str_f;
 
 	str = (*print)->input_str;
-	str_p = (*print)->flag_str;
-	while (p != 0)
+	str_f = (*print)->flag_str;
+	while (s != 0)
 	{
-		str[p] = str_p[width];
-		p -= 1;
+		str[f] = str_f[width];
+		f -= 1;
 		width -= 1;
 	}
 	return (str);
