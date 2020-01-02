@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/13 16:27:34 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/22 16:11:21 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/02 16:13:48 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ void		ft_min_zero(t_print **print, va_list ap, int i, const char *format)
 		}
 		i++;
 	}
+	if ((*print)->min == 1)
+		(*print)->zero = 0;
 }
 
 void		ft_find_pre(t_print **print, va_list ap, int i, const char *format)

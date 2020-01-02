@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/22 14:44:47 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/22 16:20:36 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/02 16:12:11 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void		ft_flag_str(t_print **print)
 			(*print)->flag_str = ft_flag_no(s, p, print, width);
 	}
 	else if (p > s)
-		(*print)->flag_str = str_p;
+		(*print)->flag_str = str_p;//now pointer flag string is it.
 	(*print)->flag_str_pre = NULL;
 }
 
@@ -65,29 +65,11 @@ char		*ft_flag_no(long s, long p, t_print **print, long width)
 
 	str = (*print)->flag_str;
 	str_p = (*print)->flag_str_pre;
-	while (s != 0)
+	while (p != 0)
 	{
 		str[p] = str_p[width];
 		p -= 1;
 		width -= 1;
 	}
 	return (str);
-}
-
-void	ft_print_string_1(t_print **print)
-{
-	char	*str;
-	long	i;
-	int		len; //lenght to return at the end of printf
-
-	i = 0;
-	len = (*print)->len;
-	str = (*print)->input_str;
-	while (str[i] != '\0')
-	{
-		write(1, &str[i], 1);
-		i++;
-		len++;
-	}
-	(*print)->len = len += (*print)->len;
 }

@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/14 14:05:35 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/22 15:18:35 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/02 15:31:37 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,12 @@ void		ft_precision(t_print **print, va_list ap, int i, const char *format)
 	ft_precision_nb(print, ap, i, format); //the str after .
 }
 
-void		ft_precision_nb(t_print **print, va_list ap, int i, const char *format)
+void		ft_precision_nb(t_print **print, va_list ap, int i,
+			const char *format)
 {
 	long	nb;
 
-	i++; //after precision
+	i++;
 	while (format[i] >= '0')
 	{
 		(*print)->width_nb = -1;

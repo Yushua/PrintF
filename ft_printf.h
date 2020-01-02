@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 16:10:06 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/22 16:21:03 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/02 15:46:17 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,11 +57,15 @@ void	ft_precision_nb(t_print **print, va_list ap, int i, const char *format);
 void	ft_save_input(t_print **print, va_list ap, int i, const char *format);
 void	ft_save_c(t_print **print, va_list ap, int i, const char *format);
 void	ft_print_s(t_print **print, va_list ap, int i, const char *format);
-void	ft_print_string_1(t_print **print);
+void	ft_write_string_1(t_print **print);
 
 void	ft_flag_str(t_print **print);
 char	*ft_flag_min(long s, t_print **print, long width);
 char	*ft_flag_no(long s, long p, t_print **print, long width);
+
+void	ft_write_str(t_print **print);
+char	*ft_str_min(long s, t_print **print, long width);
+char	*ft_str_no(long s, long p, t_print **print, long width);
 
 #endif
 

@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/17 15:38:38 by ybakker        #+#    #+#                */
-/*   Updated: 2019/12/22 15:40:55 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/02 16:10:07 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	ft_save_input(t_print **print, va_list ap, int i, const char *format)
 	c = (*print)->convergance;
 	if (c == 'c')
 		ft_save_c(print, ap, i, format);
-	//else if (c == 's')
-		//ft_print_s(print, ap, i, format);
+	else if (c == 's')
+		ft_print_s(print, ap, i, format);
 }
 
 void	ft_save_c(t_print **print, va_list ap, int i, const char *format)
@@ -39,5 +39,6 @@ void	ft_print_s(t_print **print, va_list ap, int i, const char *format)
 	str = (va_arg(ap, char *));
 	(*print)->input_str = str;
 	ft_flag_str(print);
-	ft_print_string_1(print);
+	ft_write_str(print)
+	ft_write_string_1(print);
 }
