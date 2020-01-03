@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/02 15:19:07 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/03 16:58:20 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/03 17:37:26 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void		ft_write_string_1(t_print **print)
 		i++;
 		len++;
 	}
-	(*print)->len = len += (*print)->len;
+	(*print)->len = len + (*print)->len;
 }
 
 void		ft_write_str(t_print **print)

@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/03 15:30:09 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/03 17:02:15 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/03 17:12:54 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ char	*ft_hex_two(char *str, t_print **print, int j, int i)
 	{
 		str = ft_pointer(str, print, jj);
 		jj = 2;
+		j -= 2;
 	}
 	while (j != 0)
 	{
