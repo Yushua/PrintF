@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/03 15:30:09 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/03 16:48:11 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/03 17:02:15 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 char	*ft_hex(int i, int j, t_print **print)
 {
-	int		j;
 	int		nb;
 	char	*str;
 
@@ -38,18 +37,24 @@ char	*ft_hex(int i, int j, t_print **print)
 
 char	*ft_hex_two(char *str, t_print **print, int j, int i)
 {
+	int		jj;
+
+	jj = 0;
 	str = ((char *)malloc(j * sizeof(char)));
 	if (str == NULL)
 		return (NULL);
 	if ((*print)->convergence == 'p')
-		str = ft_pointer(str, print);
+	{
+		str = ft_pointer(str, print, jj);
+		jj = 2;
+	}
 	while (j != 0)
 	{
 		if (i <= 16)
 			str[jj] = ft_turn_hex(i, print);
 		j -= 1;
 		i = (*print)->start;
-		i = (i /= 16);
+		i = (i / 16);
 		(*print)->start = i;
 		while (i >= 16)
 			i = (i / 16);
@@ -75,18 +80,16 @@ char	ft_turn_hex(int i, t_print **print)
 	return (c);
 }
 
-char	*ft_pointer(char *str, t_print **print)
+char	*ft_pointer(char *str, t_print **print, int jj)
 {
-	int		i;
 	char	con;
 
 	con = (*print)->convergence;
-	i = 0;
 	if (con == 'p')
 	{
-		str[i] = '0';
-		i++;
-		str[i] = 'x';
+		str[jj] = '0';
+		jj++;
+		str[jj] = 'x';
 	}
 	return (str);
 }

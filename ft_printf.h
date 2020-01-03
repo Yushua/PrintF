@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 16:10:06 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/03 16:34:03 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/03 17:04:08 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ typedef struct	s_print
 	int			precision;
 	int			pre_value;
 	int			len;
-
 	int			start;
 }				t_print;
 
@@ -60,6 +59,8 @@ void	ft_save_input(t_print **print, va_list ap, int i, const char *format);
 void	ft_print_c(t_print **print, va_list ap, int i, const char *format);
 void	ft_print_s(t_print **print, va_list ap, int i, const char *format);
 void	ft_print_i(t_print **print, va_list ap, int i, const char *format);
+void	ft_print_u(t_print **print, va_list ap, int i, const char *format);
+void	ft_print_x(t_print **print, va_list ap, int i, const char *format);
 void	ft_write_string_1(t_print **print);
 
 void	ft_flag_str(t_print **print);
@@ -70,29 +71,9 @@ void	ft_write_str(t_print **print);
 char	*ft_str_min(long s, t_print **print, long width);
 char	*ft_str_no(long s, long p, t_print **print, long width);
 
+char	*ft_hex(int i, int j, t_print **print);
+char	*ft_hex_two(char *str, t_print **print, int j, int i);
+char	ft_turn_hex(int i, t_print **print);
+char	*ft_pointer(char *str, t_print **print, int jj);
+
 #endif
-
-/*
-check - and zero before the other flags, so numbers, * and .
-remmeebr the numberS
-
-	int			end;
-	char		convergence;
-	char		*flag_str;
-	char		*flag_str_pre;
-	char		*input_str;
-	int			pre_n_c;// n_c, so the vallue
-	int			precision; //is there a precision
-	int			pre_value;
-	int			width_v;
-	int			width_nb; //width number
-	int			width;
-	int			min;
-	int			zero;
-	int			position;//position of 0 or -
-	int			value;//remmember the value if its not 0, - . if - or 0, then its width
-	int			width_save_nb;
-	int			value_c;
-	int			len;
-
-*/

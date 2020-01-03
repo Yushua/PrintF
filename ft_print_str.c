@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/17 15:38:38 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/03 16:50:06 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/03 16:59:53 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	ft_print_i(t_print **print, va_list ap, int i, const char *format)
 	i = (va_arg(ap, int));
 	(*print)->input_str  = ft_itoa(i);
 	ft_flag_str(print);
-	ft_write_str(print)
+	ft_write_str(print);
 	ft_write_string_1(print);
 }
 
@@ -60,7 +60,7 @@ void	ft_print_u(t_print **print, va_list ap, int i, const char *format)
 	i = (va_arg(ap, unsigned int));
 	(*print)->input_str  = ft_itoa(i);
 	ft_flag_str(print);
-	ft_write_str(print)
+	ft_write_str(print);
 	ft_write_string_1(print);
 }
 
@@ -69,9 +69,11 @@ void	ft_print_x(t_print **print, va_list ap, int i, const char *format)
 	int		j;
 
 	j = 0;
+	if ((*print)->convergence == 'p')
+		j = 2;
 	i = (va_arg(ap, int));
 	(*print)->input_str  = ft_hex(i, j, print);
 	ft_flag_str(print);
-	ft_write_str(print)
+	ft_write_str(print);
 	ft_write_string_1(print);
 }

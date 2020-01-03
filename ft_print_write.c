@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/02 15:19:07 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/02 16:40:30 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/03 16:58:20 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void		ft_write_string_1(t_print **print)
 	(*print)->len = len += (*print)->len;
 }
 
-char		ft_write_str(t_print **print)
+void		ft_write_str(t_print **print)
 {
 	char	*str;
 	char	*str_f;

@@ -6,7 +6,7 @@
 /*   By: ybakker <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 14:54:52 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/03 15:54:20 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/03 16:55:59 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ int     main(void)
 	hhex = 1235445;
 	//printf("%c|%10c|%-10c\n", 'a', 'a', 'a');
 	//ft_printf("%c|%10c|%-10c\n", 'a', 'a', 'a');
-	printf("%x\n", hex);
-	printf("%p\n", hex);
-	printf("%-u\n", 66, hex);
+	ft_printf("%x\n", hex);
+	ft_printf("%p\n", hex);
+	ft_printf("%-u\n", 66, hex);
 	return (0);
 }
 
