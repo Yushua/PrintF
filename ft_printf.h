@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 16:10:06 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/02 16:46:35 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/03 16:34:03 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct	s_print
 {
 	int			end;
 	int			position;
-	char		convergence; //wreong name
+	char		convergence;
 	int			min;
 	int			zero;
 	char		*flag_str;
@@ -34,6 +34,8 @@ typedef struct	s_print
 	int			precision;
 	int			pre_value;
 	int			len;
+
+	int			start;
 }				t_print;
 
 int		ft_printf(const char *format, ...);
