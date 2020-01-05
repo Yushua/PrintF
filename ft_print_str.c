@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/17 15:38:38 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/05 15:33:21 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/05 16:07:44 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,33 +69,6 @@ void	ft_print_u(t_print **print, va_list ap, const char *format)
 	if (i < 0)
 		i = 4294967196;
 	(*print)->input_str  = ft_long_itoa(i);
-	ft_flag_str(print);
-	ft_write_str(print);
-	ft_write_string_1(print);
-}
-
-void	ft_print_x(t_print **print, va_list ap, int i, const char *format)
-{
-	int		j;
-
-	j = 0;
-	i = (va_arg(ap, unsigned long));
-	(*print)->input_str  = ft_hex(i, j, print);
-	ft_flag_str(print);
-	ft_write_str(print);
-	ft_write_string_1(print);
-}
-
-void	ft_print_p(t_print **print, va_list ap, const char *format)
-{
-	int		j;
-	long	ii;
-	char	*str;
-
-	j = 0;
-	ii = (va_arg(ap, unsigned long));
-	str  = ft_hex(ii, j, print);
-	(*print)->input_str = ft_strjoin("0x", str);
 	ft_flag_str(print);
 	ft_write_str(print);
 	ft_write_string_1(print);

@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/22 14:44:47 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/05 11:48:51 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/05 15:47:27 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,9 @@ char		*ft_flag_no(long s, long p, t_print **print, long width)
 
 	str = (*print)->flag_str;
 	str_p = (*print)->flag_str_pre;
-	while (s != 0)
+	if (p == 0)
+		return (str);
+	while (s != 0) //take a look at this
 	{
 		str[p] = str_p[width];
 		p -= 1;

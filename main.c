@@ -6,7 +6,7 @@
 /*   By: ybakker <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 14:54:52 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/05 15:33:41 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/05 15:42:09 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,17 +49,15 @@ int     main(void)
 	ui = -10;
 	hex = 276447232;
 	hhex = 1235445;
-	//printf("%c|%10c|%-10c\n", 'a', 'a', 'a');
-	//ft_printf("%c|%10c|%-10c\n", 'a', 'a', 'a');
-	//printf("%i\n", i);
-	//ft_printf("%i\n\n", i);
+	printf("%06s\n", str);
+	ft_printf("%06s\n", str);
 	//printf("%c\n", c);
 	//ft_printf("%c\n\n", c);
 	//printf("%s\n", str);
 	//ft_printf("%s\n\n", str);
-	printf(INPUT);
-	printf("\n");
-	ft_printf(INPUT);
+	//printf(INPUT);
+	//printf("\n");
+	//ft_printf(INPUT);
 	//printf("%p\n", &ptr);
 	//printf("%06i\n", i);
 	//ft_printf("%06i\n\n", i);

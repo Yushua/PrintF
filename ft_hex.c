@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/03 15:30:09 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/05 13:58:54 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/05 16:07:33 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,4 +66,31 @@ char	ft_turn_hex(long remain, t_print **print)
 	else
 		c = (remain + 'A' - 10);
 	return (c);
+}
+
+void	ft_print_x(t_print **print, va_list ap, int i, const char *format)
+{
+	int		j;
+
+	j = 0;
+	i = (va_arg(ap, unsigned long));
+	(*print)->input_str  = ft_hex(i, j, print);
+	ft_flag_str(print);
+	ft_write_str(print);
+	ft_write_string_1(print);
+}
+
+void	ft_print_p(t_print **print, va_list ap, const char *format)
+{
+	int		j;
+	long	ii;
+	char	*str;
+
+	j = 0;
+	ii = (va_arg(ap, unsigned long));
+	str  = ft_hex(ii, j, print);
+	(*print)->input_str = ft_strjoin("0x", str);
+	ft_flag_str(print);
+	ft_write_str(print);
+	ft_write_string_1(print);
 }

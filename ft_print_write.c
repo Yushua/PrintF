@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/02 15:19:07 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/05 11:53:59 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/05 16:06:34 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ void		ft_write_str(t_print **print)
 {
 	char	*str;
 	char	*str_f;
-	long	s; //len str
-	long	f; //len str_f
-	long	width; //width to print
+	long	s;
+	long	f;
+	long	width;
 
 	str = (*print)->input_str;
 	str_f = (*print)->flag_str;
@@ -47,7 +47,7 @@ void		ft_write_str(t_print **print)
 		(*print)->width_nb = -1;
 	if ((*print)->width_nb == -1)
 		(*print)->input_str = (*print)->flag_str; //because the precsion is smaller, it means nothing should be printed
-	else if (s >= f)
+	else if (s <= f)
 	{
 		if ((*print)->min == 1)
 			(*print)->input_str = ft_str_min(s, print, width);
@@ -69,25 +69,26 @@ char		*ft_str_min(long s, t_print **print, long width)
 	i = 0;
 	while (i != width)
 	{
-		str[i] = str_f[i];
+		str_f[i] = str[i];
 		i++;
 	}
-	return (str);
+	return (str_f);
 }
 
 char		*ft_str_no(long s, long f, t_print **print, long width)
 {
 	char	*str;
 	char	*str_f;
+	char	c;
 
 	str = (*print)->input_str;
 	str_f = (*print)->flag_str;
-	while (s != 0 && str_f != '\0')
+	while (s >= 0 && str_f != '\0')
 	{
-		str[f] = str_f[width];
+		str_f[f] = str[s];
 		f -= 1;
 		width -= 1;
 		s -= 1;
 	}
-	return (str);
+	return (str_f);
 }
