@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/13 16:27:34 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/02 16:13:48 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/05 11:11:31 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,6 @@ void		ft_print_f(t_print **print, va_list ap, int i, const char *format)
 	ft_find_flag(print, ap, i, format);//is the i a *
 	ft_find_nb(print, ap, i, format); //if its a number
 	ft_save_input(print, ap, i, format);
-	//function that get a number and puts it into a str
-	//function finds if there is a width
-	//funtion that find if there is a .
 }
 
 void		ft_min_zero(t_print **print, va_list ap, int i, const char *format)

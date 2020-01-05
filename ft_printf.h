@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 16:10:06 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/03 17:04:08 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/05 13:33:14 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,9 @@ void	ft_write_str(t_print **print);
 char	*ft_str_min(long s, t_print **print, long width);
 char	*ft_str_no(long s, long p, t_print **print, long width);
 
-char	*ft_hex(int i, int j, t_print **print);
-char	*ft_hex_two(char *str, t_print **print, int j, int i);
-char	ft_turn_hex(int i, t_print **print);
-char	*ft_pointer(char *str, t_print **print, int jj);
+char	*ft_hex(long i, long j, t_print **print);
+char	*ft_hex_two(char *str, t_print **print, long j, long i);
+char	ft_turn_hex(long remain, t_print **print);
+char	*ft_pointer(char *str, t_print **print, long jj);
 
 #endif

@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_hex.c                                           :+:    :+:            */
+/*   ft_hex.1.c                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/03 15:30:09 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/05 13:37:44 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/05 13:07:37 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-char	*ft_hex(long i, long j, t_print **print)
+char	*ft_hex(int i, int j, t_print **print)
 {
-	long		nb;
+	int		nb;
 	char	*str;
 
 	nb = i;
@@ -22,63 +20,77 @@ char	*ft_hex(long i, long j, t_print **print)
 		j++;
 	else
 	{
-		nb = i;
-		while (i != 0)
+		i = (i / 16);
+		(*print)->start = nb - i;
+		j++;
+		if (i <= 16)
 		{
-			i = i / 16;
+			j++;
+		}
+		while (i >= 16)
+		{
+			i = (i / 16);
 			j++;
 		}
 	}
-	str = ((char *)malloc(j * sizeof(char)));
-	if (str == NULL)
-		return (NULL);
-	i = nb;
 	str = ft_hex_two(str, print, j, i);
 	return (str);
 }
 
-char	*ft_hex_two(char *str, t_print **print, long j, long i)
+char	*ft_hex_two(char *str, t_print **print, int j, int i)
 {
-	long		jj;
-	long		remain;
+	int		jj;
 
 	jj = 0;
+	str = ((char *)malloc(j * sizeof(char)));
+	if (str == NULL)
+		return (NULL);
 	if ((*print)->convergence == 'p')
 	{
 		str = ft_pointer(str, print, jj);
 		jj = 2;
+		j -= 2;
 	}
-	while (i > 0)
+	while (j != 0)
 	{
+		if (i <= 16)
+		{
+			str[jj] = ft_turn_hex(i, print);
+			jj++;
+		}
 		j -= 1;
-		remain = i % 16;
-		i = i / 16;
-		str[j] = ft_turn_hex(remain, print);
+		i = (*print)->start;
+		i = (i / 16);
+		(*print)->start = i;
+		while (i >= 16)
+			i = (i / 16);
 	}
 	return (str);
 }
 
-char	ft_turn_hex(long remain, t_print **print)
+char	ft_turn_hex(int i, t_print **print)
 {
 	char	c;
 	char	con;
 
-	con = (*print)->convergence;
-	if (remain >= 0 && remain <= 9)
-		c = (remain + '0');
+	if (i >= 1 && i <= 9)
+		c = (i + '0');
 	else if (con == 'x' || con == 'p')
-		c = (remain + 'a' - 10);
+	{
+		c = (i + 'a');
+	}
 	else
-		c = (remain + 'A' - 10);
+	{
+		c = (i + 'A');
+	}
 	return (c);
 }
 
-char	*ft_pointer(char *str, t_print **print, long jj)
+char	*ft_pointer(char *str, t_print **print, int jj)
 {
 	char	con;
 
 	con = (*print)->convergence;
-	ft_printf("%c", con);
 	if (con == 'p')
 	{
 		str[jj] = '0';

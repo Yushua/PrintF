@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/02 15:19:07 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/03 17:37:26 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/05 11:53:59 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,11 +82,12 @@ char		*ft_str_no(long s, long f, t_print **print, long width)
 
 	str = (*print)->input_str;
 	str_f = (*print)->flag_str;
-	while (s != 0)
+	while (s != 0 && str_f != '\0')
 	{
 		str[f] = str_f[width];
 		f -= 1;
 		width -= 1;
+		s -= 1;
 	}
 	return (str);
 }
