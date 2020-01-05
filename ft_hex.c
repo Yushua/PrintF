@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/03 15:30:09 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/05 13:37:44 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/05 13:58:54 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,6 @@ char	*ft_hex_two(char *str, t_print **print, long j, long i)
 	long		remain;
 
 	jj = 0;
-	if ((*print)->convergence == 'p')
-	{
-		str = ft_pointer(str, print, jj);
-		jj = 2;
-	}
 	while (i > 0)
 	{
 		j -= 1;
@@ -71,19 +66,4 @@ char	ft_turn_hex(long remain, t_print **print)
 	else
 		c = (remain + 'A' - 10);
 	return (c);
-}
-
-char	*ft_pointer(char *str, t_print **print, long jj)
-{
-	char	con;
-
-	con = (*print)->convergence;
-	ft_printf("%c", con);
-	if (con == 'p')
-	{
-		str[jj] = '0';
-		jj++;
-		str[jj] = 'x';
-	}
-	return (str);
 }

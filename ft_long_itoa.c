@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_itoa.c                                          :+:    :+:            */
+/*   ft_long_itoa.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: ybakker <ybakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/09 14:18:07 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/05 15:30:03 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/05 15:31:32 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-static int	ft_len(long nb)
+static long long	ft_len(long long nb)
 {
-	size_t	size;
+	long long	size;
 
 	if (nb == 0)
 		return (nb + 1);
@@ -32,17 +32,17 @@ static int	ft_len(long nb)
 	return (size);
 }
 
-static int	ft_min(int n)
+static long long	ft_min(long long n)
 {
 	if (n < 0)
 		return (1);
 	return (0);
 }
 
-char		*ft_itoa(int n)
+char		*ft_long_itoa(long long n)
 {
-	long	nn;
-	long	l;
+	long long	nn;
+	long long	l;
 	char	*str;
 
 	nn = n;
