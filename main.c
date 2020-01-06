@@ -6,7 +6,7 @@
 /*   By: ybakker <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 14:54:52 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/06 14:48:12 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/06 15:45:36 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int     main(void)
 
 //everytime you write you increase th len
 
-//gcc libft/*.c *.c -g
+//gcc libft/*.c *.c -g -fsanitize=address
 
 	//printf("hello \n");
 	//ft_printf("hello\n");

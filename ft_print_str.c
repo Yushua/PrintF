@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/17 15:38:38 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/06 14:47:25 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/06 16:05:33 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ void	ft_print_s(t_print **print, va_list ap, int i, const char *format)
 
 void	ft_print_i(t_print **print, va_list ap, int i, const char *format)
 {
+	ft_flag_str(print);
 	i = (va_arg(ap, int));
 	(*print)->input_str  = ft_itoa(i);
-	ft_flag_str(print);
 	ft_write_str(print);
 	ft_write_string_1(print);
 }
