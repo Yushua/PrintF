@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/22 14:44:47 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/05 15:47:27 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/06 14:47:21 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void		ft_flag_str(t_print **print)
 	if ((*print)->width_nb < -1)
 		(*print)->width_nb = -1;
 	if ((*print)->width_nb == -1)
-		(*print)->input_str = (*print)->flag_str;
+		(*print)->input_str = NULL;
 	else if (s == 0 && p == 0)
 		(*print)->flag_str = NULL;
 	else if (s >= p)
@@ -38,7 +38,9 @@ void		ft_flag_str(t_print **print)
 		else if ((*print)->min != 1)
 			(*print)->flag_str = ft_flag_no(s, p, print, width);
 	}
-	else if (p > s)
+	else if (s > 0 || p == 0)
+		(*print)->flag_str = str;
+	else if (p < s)
 		(*print)->flag_str = str_p;//now pointer flag string is it.
 	(*print)->flag_str_pre = NULL;
 }

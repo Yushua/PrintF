@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/13 16:27:34 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/05 11:11:31 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/06 14:03:09 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void		ft_find_flag(t_print **print, va_list ap, int i, const char *format)
 	{
 		(*print)->width_nb = (va_arg(ap, int));
 		(*print)->flag_str = ft_empty_str(print);
+		printf("%s|flagstr\n|", (*print)->flag_str);
 		i++;
 		if (format[i] == '.')
 			ft_precision(print, ap, i, format);

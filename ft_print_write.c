@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/02 15:19:07 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/05 16:06:34 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/06 13:58:18 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,13 @@ void		ft_write_str(t_print **print)
 
 	str = (*print)->input_str;
 	str_f = (*print)->flag_str;
-	s = ft_strlen(str); //first, place where it begins
-	f = ft_strlen(str_f); //second
+	s = ft_strlen(str);
+	f = ft_strlen(str_f);
 	width = (*print)->width_nb;
 	if ((*print)->width_nb < -1)
 		(*print)->width_nb = -1;
 	if ((*print)->width_nb == -1)
-		(*print)->input_str = (*print)->flag_str; //because the precsion is smaller, it means nothing should be printed
+		(*print)->input_str = NULL;
 	else if (s <= f)
 	{
 		if ((*print)->min == 1)
@@ -54,8 +54,8 @@ void		ft_write_str(t_print **print)
 		else if ((*print)->min != 1)
 			(*print)->input_str = ft_str_no(s, f, print, width);
 	}
-	else if (f > s)
-		(*print)->input_str = str_f;//now pointer flag string is it.
+	else if (f < s)
+		(*print)->input_str = str;
 }
 
 char		*ft_str_min(long s, t_print **print, long width)
@@ -67,6 +67,8 @@ char		*ft_str_min(long s, t_print **print, long width)
 	str = (*print)->input_str;
 	str_f = (*print)->flag_str;
 	i = 0;
+	if (width == 0)
+		width = s;
 	while (i != width)
 	{
 		str_f[i] = str[i];
@@ -83,9 +85,11 @@ char		*ft_str_no(long s, long f, t_print **print, long width)
 
 	str = (*print)->input_str;
 	str_f = (*print)->flag_str;
-	while (s >= 0 && str_f != '\0')
+	if (width == 0)
+		width = s;
+	while (width >= 0 && str_f != '\0')
 	{
-		str_f[f] = str[s];
+		str_f[f] = str[width];
 		f -= 1;
 		width -= 1;
 		s -= 1;

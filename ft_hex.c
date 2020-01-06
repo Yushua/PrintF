@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/03 15:30:09 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/05 16:07:33 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/06 14:29:51 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_hex(long i, long j, t_print **print)
 {
 	long		nb;
-	char	*str;
+	char		*str;
 
 	nb = i;
 	if (i <= 16)
@@ -43,12 +43,18 @@ char	*ft_hex_two(char *str, t_print **print, long j, long i)
 	long		remain;
 
 	jj = 0;
+	str[jj] = '0';
+	jj++;
+	str[jj] = 'x';
+	jj++;
 	while (i > 0)
 	{
 		j -= 1;
 		remain = i % 16;
 		i = i / 16;
-		str[j] = ft_turn_hex(remain, print);
+		jj = j + 2;
+		str[jj] = ft_turn_hex(remain, print);
+		jj -= 1;
 	}
 	return (str);
 }
@@ -89,7 +95,6 @@ void	ft_print_p(t_print **print, va_list ap, const char *format)
 	j = 0;
 	ii = (va_arg(ap, unsigned long));
 	str  = ft_hex(ii, j, print);
-	(*print)->input_str = ft_strjoin("0x", str);
 	ft_flag_str(print);
 	ft_write_str(print);
 	ft_write_string_1(print);
