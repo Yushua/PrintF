@@ -6,7 +6,7 @@
 /*   By: ybakker <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 14:54:52 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/07 22:50:36 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/07 23:21:41 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,33 +49,18 @@ int     main(void)
 	ui = -10;
 	hex = 276447232;
 	hhex = 1235445;
-	//printf("|%-10x|\n", hhex);
-	//ft_printf("|%-10x|ft\n", hhex);
-	//printf("|%-10X|\n", hhex);
-	//ft_printf("|%-10X|ft\n", hhex);
-	//printf("|%-11p|\n", hhex);
-	//ft_printf("|%-11p|ft\n", hhex);
-	printf("|%-10i|\n", hhex);
-	ft_printf("|%-10i|ft\n", hhex);
-	//printf("%c\n", c);
-	//ft_printf("%c\n\n", c);
-	//printf("%s\n", str);
-	//ft_printf("%s\n\n", str);
-	//printf(INPUT);
-	//printf("\n");
-	//ft_printf(INPUT);
-	//printf("%p\n", &ptr);
-	//printf("%06i\n", i);
-	//ft_printf("%06i\n\n", i);
-	//printf("%c\n", c);
-	//ft_printf("%c\n\n", c);
+	printf("Kashim a %i histoires à raconter", 1001);
+	printf("\n");
+	ft_printf("Kashim a %i histoires à raconter", 1001);
+
 	return (0);
 }
 
 //everytime you write you increase th len
 
 //gcc libft/*.c *.c -g -fsanitize=address
-//gcc *.c *.c -g
+//gcc *.c -g
+//gcc *.c -g -fsanitize=address
 
 	//printf("hello \n");
 	//ft_printf("hello\n");

@@ -6,7 +6,7 @@
 #    By: ybakker <ybakker@student.42.fr>              +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/11/01 10:51:58 by ybakker        #+#    #+#                 #
-#    Updated: 2020/01/07 22:41:41 by ybakker       ########   odam.nl          #
+#    Updated: 2020/01/07 23:37:13 by ybakker       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,8 @@ SRCS		=	ft_empty_str.c \
 				ft_save_write.c \
 				ft_struct_zero.c \
 				ft_atoi.c \
-				ft_itoa \
-				ft_strlen \
+				ft_itoa.c \
+				
 
 OFILES = 		$(SRCS:.c=.o)
 FLAGS			=	-Wall -Wextra -Werror 

@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 16:10:06 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/07 22:50:08 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/07 23:25:12 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <stdlib.h>
 # include <stdarg.h>
 # include <stdio.h>
-# include "libft/libft.h"
 
 typedef struct	s_print
 {
@@ -79,7 +78,7 @@ char	*ft_hex_two(char *str, t_print **print, long j, long i);
 char	ft_turn_hex(long remain, t_print **print);
 
 int		ft_atoi(const char *str);
-size_t	ft_strlen(const char *s);
+size_t	ft_strlen(char *s);
 char	*ft_itoa(int n);
 
 #endif
