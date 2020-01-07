@@ -6,15 +6,15 @@
 /*   By: ybakker <ybakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/09 14:18:07 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/05 15:31:32 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/07 21:58:04 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static long long	ft_len(long long nb)
+static unsigned long	ft_len(unsigned long nb)
 {
-	long long	size;
+	unsigned long	size;
 
 	if (nb == 0)
 		return (nb + 1);
@@ -32,18 +32,18 @@ static long long	ft_len(long long nb)
 	return (size);
 }
 
-static long long	ft_min(long long n)
+static unsigned long	ft_min(unsigned long n)
 {
 	if (n < 0)
 		return (1);
 	return (0);
 }
 
-char		*ft_long_itoa(long long n)
+char					*ft_long_itoa(unsigned long n)
 {
-	long long	nn;
-	long long	l;
-	char	*str;
+	unsigned long	nn;
+	unsigned long	l;
+	char			*str;
 
 	nn = n;
 	l = ft_len(nn);

@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/02 15:19:07 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/06 16:06:08 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/07 22:22:59 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,15 @@ void		ft_write_string_1(t_print **print)
 {
 	char	*str;
 	long	i;
-	int		len; //lenght to return at the end of printf
 
 	i = 0;
-	len = (*print)->len;
 	str = (*print)->input_str;
 	while (str[i] != '\0')
 	{
 		write(1, &str[i], 1);
 		i++;
-		len++;
+		(*print)->len++;
 	}
-	(*print)->len = len + (*print)->len;
 }
 
 void		ft_write_str(t_print **print)
@@ -81,7 +78,6 @@ char		*ft_str_no(long s, long f, t_print **print, long width)
 {
 	char	*str;
 	char	*str_f;
-	char	c;
 
 	str = (*print)->input_str;
 	str_f = (*print)->flag_str;

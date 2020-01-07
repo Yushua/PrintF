@@ -6,23 +6,20 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/14 14:05:35 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/06 15:40:39 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/07 22:17:08 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		ft_precision(t_print **print, va_list ap, int i, const char *format)
+void		ft_precision(t_print **print, int i, const char *format)
 {
-	long int		nb;
-	char			*str;
-
 	(*print)->precision = i;
 	(*print)->pre_value = (*print)->width_nb;
-	ft_precision_nb(print, ap, i, format); //the str after .
+	ft_precision_nb(print, i, format);
 }
 
-void		ft_precision_nb(t_print **print, va_list ap, int i,
+void		ft_precision_nb(t_print **print, int i,
 			const char *format)
 {
 	long	nb;
@@ -35,10 +32,10 @@ void		ft_precision_nb(t_print **print, va_list ap, int i,
 	}
 	if (format[i] >= '1' || format[i] <= '9')
 	{
-		ft_save_nb(print, i, format); //get number into width_nb
-		nb = (*print)->width_nb; //places number in nb
-		(*print)->width = nb; //width after
-		(*print)->flag_str_pre  = ft_find_nb_z(print);
+		ft_save_nb(print, i, format);
+		nb = (*print)->width_nb;
+		(*print)->width = nb;
+		(*print)->flag_str_pre = ft_find_nb_z(print);
 	}
 }
 

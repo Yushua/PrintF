@@ -6,45 +6,42 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/17 15:38:38 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/06 16:05:33 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/07 22:22:30 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_save_input(t_print **print, va_list ap, int i, const char *format)
+void	ft_save_input(t_print **print, va_list ap, int i)
 {
 	char	c;
 
 	c = (*print)->convergence;
 	if (c == 'c')
-		ft_print_c(print, ap, i, format);
+		ft_print_c(print, ap);
 	else if (c == 's')
-		ft_print_s(print, ap, i, format);
+		ft_print_s(print, ap);
 	else if (c == 'i' || c == 'd')
-		ft_print_i(print, ap, i, format);
+		ft_print_i(print, ap, i);
 	else if (c == 'u')
-		ft_print_u(print, ap, format);
+		ft_print_u(print, ap);
 	else if (c == 'p')
-		ft_print_p(print, ap, format);
+		ft_print_p(print, ap);
 	else if (c == 'x' || c == 'X')
-		ft_print_x(print, ap, i, format);
+		ft_print_x(print, ap, i);
 }
 
-void	ft_print_c(t_print **print, va_list ap, int i, const char *format)
+void	ft_print_c(t_print **print, va_list ap)
 {
 	char	c;
-	int		len;
 
-	len = (*print)->len;
 	(*print)->input_str = NULL;
 	c = (va_arg(ap, int));
 	write(1, &c, 1);
-	len++;
-	(*print)->len = len;
+	(*print)->len++;
 }
 
-void	ft_print_s(t_print **print, va_list ap, int i, const char *format)
+void	ft_print_s(t_print **print, va_list ap)
 {
 	(*print)->input_str  = (va_arg(ap, char *));
 	ft_flag_str(print);
@@ -52,7 +49,7 @@ void	ft_print_s(t_print **print, va_list ap, int i, const char *format)
 	ft_write_string_1(print);
 }
 
-void	ft_print_i(t_print **print, va_list ap, int i, const char *format)
+void	ft_print_i(t_print **print, va_list ap, int i)
 {
 	ft_flag_str(print);
 	i = (va_arg(ap, int));
@@ -61,14 +58,9 @@ void	ft_print_i(t_print **print, va_list ap, int i, const char *format)
 	ft_write_string_1(print);
 }
 
-void	ft_print_u(t_print **print, va_list ap, const char *format)
+void	ft_print_u(t_print **print, va_list ap)
 {
-	unsigned int	i;
-
-	i = (va_arg(ap, unsigned int));
-	if (i < 0)
-		i = 4294967196;
-	(*print)->input_str  = ft_long_itoa(i);
+	(*print)->input_str  = ft_long_itoa((va_arg(ap, unsigned)));
 	ft_flag_str(print);
 	ft_write_str(print);
 	ft_write_string_1(print);

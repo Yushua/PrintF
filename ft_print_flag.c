@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/13 16:27:34 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/06 16:05:27 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/07 22:21:29 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 void		ft_print_f(t_print **print, va_list ap, int i, const char *format)
 {
 	(*print)->position = i;
-	ft_min_zero(print, ap, i, format);
+	ft_min_zero(print, i, format);
 	i = (*print)->position;
-	ft_find_pre(print, ap, i, format);//is the i a .
-	ft_find_flag(print, ap, i, format);//is the i a *
-	ft_find_nb(print, ap, i, format); //if its a number
-	ft_save_input(print, ap, i, format);
+	ft_find_pre(print, i, format);
+	ft_find_flag(print, ap, i, format);
+	ft_find_nb(print, i, format);
+	ft_save_input(print, ap, i);
 }
 
-void		ft_min_zero(t_print **print, va_list ap, int i, const char *format)
+void		ft_min_zero(t_print **print, int i, const char *format)
 {
 	while (format[i] != '\0' && format[i] != '%')
 	{
@@ -49,10 +49,10 @@ void		ft_min_zero(t_print **print, va_list ap, int i, const char *format)
 		(*print)->zero = 0;
 }
 
-void		ft_find_pre(t_print **print, va_list ap, int i, const char *format)
+void		ft_find_pre(t_print **print, int i, const char *format)
 {
 	if (format[i] == '.')
-		ft_precision(print, ap, i, format);
+		ft_precision(print, i, format);
 }
 
 void		ft_find_flag(t_print **print, va_list ap, int i, const char *format)
@@ -63,15 +63,12 @@ void		ft_find_flag(t_print **print, va_list ap, int i, const char *format)
 		(*print)->flag_str = ft_empty_str(print);
 		i++;
 		if (format[i] == '.')
-			ft_precision(print, ap, i, format);
+			ft_precision(print, i, format);
 	}
 }
 
-void		ft_find_nb(t_print **print, va_list ap, int i, const char *format)
+void		ft_find_nb(t_print **print, int i, const char *format)
 {
-	char	*str;
-	long	nb;
-
 	if (format[i] >= '1' && format[i] <= '9')
 	{
 		i = ft_save_nb(print, i, format);
@@ -82,7 +79,6 @@ void		ft_find_nb(t_print **print, va_list ap, int i, const char *format)
 		(*print)->width_nb = 0;
 		i++;
 		if (format[i] == '.')
-			ft_precision(print, ap, i, format);
+			ft_precision(print, i, format);
 	}
 }
-

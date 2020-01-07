@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/22 14:44:47 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/06 14:47:21 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/07 22:27:22 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void		ft_flag_str(t_print **print)
 	else if (s >= p)
 	{
 		if ((*print)->min == 1)
-			(*print)->flag_str = ft_flag_min(s, print, width);
+			(*print)->flag_str = ft_flag_min(print, width);
 		else if ((*print)->min != 1)
 			(*print)->flag_str = ft_flag_no(s, p, print, width);
 	}
@@ -45,7 +45,7 @@ void		ft_flag_str(t_print **print)
 	(*print)->flag_str_pre = NULL;
 }
 
-char		*ft_flag_min(long s, t_print **print, long width)
+char		*ft_flag_min(t_print **print, long width)
 {
 	char	*str;
 	char	*str_p;

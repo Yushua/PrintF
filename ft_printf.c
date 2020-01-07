@@ -6,7 +6,7 @@
 /*   By: ybakker <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/05 13:47:11 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/05 15:32:56 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/07 22:26:01 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,10 @@
 int		ft_printf(const char *format, ...)
 {
 	int			len;
-	char		**endstr;
-	char		str;
 	va_list		ap;
 
 	va_start(ap, format);
-	ft_printf_check(format, ap);
+	len = ft_printf_check(format, ap);
 	va_end(ap);
 	return (len);
 }
@@ -72,14 +70,13 @@ char	ft_convergence(t_print **print, int i, const char *format)
 int		ft_printf_check(const char *format, va_list ap)
 {
 	long		i;
-	int			len;
 	t_print		*print;
 
-	len = 0;
 	print = (t_print *)malloc(sizeof(t_print));
 	if (print == NULL)
 		return (0);
 	struct_zero(&print);
+	print->len = 0;
 	i = 0;
 	while (format[i] != '\0')
 	{
@@ -92,12 +89,11 @@ int		ft_printf_check(const char *format, va_list ap)
 		if (format[i] != '%')
 		{
 			write(1, &format[i], 1);
-			len++;
+			print->len++;
 		}
-		print->len = len += print->len;
 		struct_zero(&print);
 		i++;
 	}
 	//free everything
-	return (len);
+	return (print->len);
 }

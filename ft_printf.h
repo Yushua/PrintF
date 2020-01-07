@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 16:10:06 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/05 15:31:46 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/07 22:27:10 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,33 +40,33 @@ typedef struct	s_print
 int		ft_printf(const char *format, ...);
 int		ft_printf_check(const char *format, va_list ap);
 char	ft_convergence(t_print **print, int i, const char *format);
-char	*ft_long_itoa(long long n);
+char	*ft_long_itoa(unsigned long i);
 
 void	ft_print_f(t_print **print, va_list ap, int i, const char *format);
-void	ft_min_zero(t_print **print, va_list ap, int i, const char *format);
-void	ft_find_pre(t_print **print, va_list ap, int i, const char *format);
+void	ft_min_zero(t_print **print, int i, const char *format);
+void	ft_find_pre(t_print **print, int i, const char *format);
 void	ft_find_flag(t_print **print, va_list ap, int i, const char *format);
-void	ft_find_nb(t_print **print, va_list ap, int i, const char *format);
+void	ft_find_nb(t_print **print, int i, const char *format);
 
 void	struct_zero(t_print **print);
 char	*ft_find_nb_z(t_print **print);
 char	*ft_empty_str(t_print **print);
 int		ft_save_nb(t_print **print, int i, const char *format);
 
-void	ft_precision(t_print **print, va_list ap, int i, const char *format);
-void	ft_precision_nb(t_print **print, va_list ap, int i, const char *format);
+void	ft_precision(t_print **print, int i, const char *format);
+void	ft_precision_nb(t_print **print, int i, const char *format);
 
-void	ft_save_input(t_print **print, va_list ap, int i, const char *format);
-void	ft_print_c(t_print **print, va_list ap, int i, const char *format);
-void	ft_print_s(t_print **print, va_list ap, int i, const char *format);
-void	ft_print_i(t_print **print, va_list ap, int i, const char *format);
-void	ft_print_u(t_print **print, va_list ap, const char *format);
-void	ft_print_x(t_print **print, va_list ap, int i, const char *format);
-void	ft_print_p(t_print **print, va_list ap, const char *format);
+void	ft_save_input(t_print **print, va_list ap, int i);
+void	ft_print_c(t_print **print, va_list ap);
+void	ft_print_s(t_print **print, va_list ap);
+void	ft_print_i(t_print **print, va_list ap, int i);
+void	ft_print_u(t_print **print, va_list ap);
+void	ft_print_x(t_print **print, va_list ap, int i);
+void	ft_print_p(t_print **print, va_list ap);
 void	ft_write_string_1(t_print **print);
 
 void	ft_flag_str(t_print **print);
-char	*ft_flag_min(long s, t_print **print, long width);
+char	*ft_flag_min(t_print **print, long width);
 char	*ft_flag_no(long s, long p, t_print **print, long width);
 
 void	ft_write_str(t_print **print);
