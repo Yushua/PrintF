@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 16:10:06 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/07 22:27:10 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/07 22:50:08 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int		ft_printf(const char *format, ...);
 int		ft_printf_check(const char *format, va_list ap);
 char	ft_convergence(t_print **print, int i, const char *format);
 char	*ft_long_itoa(unsigned long i);
+void	ft_destruct_free(t_print **print);
 
 void	ft_print_f(t_print **print, va_list ap, int i, const char *format);
 void	ft_min_zero(t_print **print, int i, const char *format);
@@ -76,5 +77,9 @@ char	*ft_str_no(long s, long p, t_print **print, long width);
 char	*ft_hex(long i, long j, t_print **print);
 char	*ft_hex_two(char *str, t_print **print, long j, long i);
 char	ft_turn_hex(long remain, t_print **print);
+
+int		ft_atoi(const char *str);
+size_t	ft_strlen(const char *s);
+char	*ft_itoa(int n);
 
 #endif

@@ -6,13 +6,13 @@
 /*   By: ybakker <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/05 13:47:11 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/07 22:26:01 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/07 22:44:24 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_printf(const char *format, ...)
+int				ft_printf(const char *format, ...)
 {
 	int			len;
 	va_list		ap;
@@ -23,10 +23,10 @@ int		ft_printf(const char *format, ...)
 	return (len);
 }
 
-void		ft_print(t_print **print, va_list ap, int i, const char *format)
+void			ft_print(t_print **print, va_list ap, int i, const char *format)
 {
-	i++; //next character after the first %
-	(*print)->convergence = ft_convergence(print, i, format); //get the ending
+	i++;
+	(*print)->convergence = ft_convergence(print, i, format);
 	if ((*print)->convergence == '%')
 	{
 		write(1, &format[i], 1);
@@ -34,12 +34,12 @@ void		ft_print(t_print **print, va_list ap, int i, const char *format)
 	}
 	else if ((*print)->convergence != '\0')
 	{
-		ft_print_f(print, ap, i, format); //in flag_str
+		ft_print_f(print, ap, i, format);
 		(*print)->position = (*print)->end;
 	}
 }
 
-char	ft_convergence(t_print **print, int i, const char *format)
+char			ft_convergence(t_print **print, int i, const char *format)
 {
 	while (format[i] != '\0')
 	{
@@ -67,7 +67,14 @@ char	ft_convergence(t_print **print, int i, const char *format)
 	return (0);
 }
 
-int		ft_printf_check(const char *format, va_list ap)
+void		ft_destruct_free(t_print **print)
+{
+	free((*print)->flag_str);
+	free((*print)->flag_str_pre);
+	free((*print)->input_str);
+}
+
+int				ft_printf_check(const char *format, va_list ap)
 {
 	long		i;
 	t_print		*print;
@@ -94,6 +101,6 @@ int		ft_printf_check(const char *format, va_list ap)
 		struct_zero(&print);
 		i++;
 	}
-	//free everything
+	ft_destruct_free(&print);
 	return (print->len);
 }
