@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/13 16:27:34 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/07 22:21:29 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/08 22:01:55 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,12 @@ void		ft_print_f(t_print **print, va_list ap, int i, const char *format)
 {
 	(*print)->position = i;
 	ft_min_zero(print, i, format);
+	if ((*print)->min == 1)
+		(*print)->zero = 0;
 	i = (*print)->position;
-	ft_find_pre(print, i, format);
+	ft_find_pre(print, i, format, ap);
 	ft_find_flag(print, ap, i, format);
-	ft_find_nb(print, i, format);
+	ft_find_nb(print, i, format, ap);
 	ft_save_input(print, ap, i);
 }
 
@@ -45,14 +47,12 @@ void		ft_min_zero(t_print **print, int i, const char *format)
 		}
 		i++;
 	}
-	if ((*print)->min == 1)
-		(*print)->zero = 0;
 }
 
-void		ft_find_pre(t_print **print, int i, const char *format)
+void		ft_find_pre(t_print **print, int i, const char *format, va_list ap)
 {
 	if (format[i] == '.')
-		ft_precision(print, i, format);
+		ft_precision(print, i, format, ap);
 }
 
 void		ft_find_flag(t_print **print, va_list ap, int i, const char *format)
@@ -61,13 +61,14 @@ void		ft_find_flag(t_print **print, va_list ap, int i, const char *format)
 	{
 		(*print)->width_nb = (va_arg(ap, int));
 		(*print)->flag_str = ft_empty_str(print);
+		(*print)->width_nb = 0;
 		i++;
 		if (format[i] == '.')
-			ft_precision(print, i, format);
+			ft_precision(print, i, format, ap);
 	}
 }
 
-void		ft_find_nb(t_print **print, int i, const char *format)
+void		ft_find_nb(t_print **print, int i, const char *format, va_list ap)
 {
 	if (format[i] >= '1' && format[i] <= '9')
 	{
@@ -79,6 +80,6 @@ void		ft_find_nb(t_print **print, int i, const char *format)
 		(*print)->width_nb = 0;
 		i++;
 		if (format[i] == '.')
-			ft_precision(print, i, format);
+			ft_precision(print, i, format, ap);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/22 14:44:47 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/07 22:27:22 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/08 22:40:08 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@ void		ft_flag_str(t_print **print)
 {
 	char	*str;
 	char	*str_p;
-	long	s; //len str
-	long	p; //len str_p
-	long	width; //width to print
+	long	s;
+	long	p;
+	long	width;
 
 	str = (*print)->flag_str;
 	str_p = (*print)->flag_str_pre;
-	s = ft_strlen(str); //first, place where it begins
-	p = ft_strlen(str_p); //second
+	s = ft_strlen(str);
+	p = ft_strlen(str_p);
 	width = (*print)->width_nb;
 	if ((*print)->width_nb < -1)
 		(*print)->width_nb = -1;
@@ -31,7 +31,7 @@ void		ft_flag_str(t_print **print)
 		(*print)->input_str = NULL;
 	else if (s == 0 && p == 0)
 		(*print)->flag_str = NULL;
-	else if (s >= p)
+	else if (s >= p && p != 0)
 	{
 		if ((*print)->min == 1)
 			(*print)->flag_str = ft_flag_min(print, width);
@@ -40,8 +40,8 @@ void		ft_flag_str(t_print **print)
 	}
 	else if (s > 0 || p == 0)
 		(*print)->flag_str = str;
-	else if (p < s)
-		(*print)->flag_str = str_p;//now pointer flag string is it.
+	else if (p > s)
+		(*print)->flag_str = str_p;
 	(*print)->flag_str_pre = NULL;
 }
 
@@ -71,7 +71,7 @@ char		*ft_flag_no(long s, long p, t_print **print, long width)
 	str_p = (*print)->flag_str_pre;
 	if (p == 0)
 		return (str);
-	while (s != 0) //take a look at this
+	while (s != 0)
 	{
 		str[p] = str_p[width];
 		p -= 1;
@@ -79,3 +79,4 @@ char		*ft_flag_no(long s, long p, t_print **print, long width)
 	}
 	return (str);
 }
+

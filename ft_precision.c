@@ -6,36 +6,45 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/14 14:05:35 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/07 22:17:08 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/08 22:49:14 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		ft_precision(t_print **print, int i, const char *format)
+void		ft_precision(t_print **print, int i, const char *format,  va_list ap)
 {
 	(*print)->precision = i;
 	(*print)->pre_value = (*print)->width_nb;
-	ft_precision_nb(print, i, format);
+	ft_precision_nb(print, i, format, ap);
 }
 
-void		ft_precision_nb(t_print **print, int i,
-			const char *format)
+void		ft_precision_nb(t_print **print, int i, const char *format,  va_list ap)
 {
 	long	nb;
 
 	i++;
-	while (format[i] >= '0')
+	if (format[i] >= '*')
 	{
-		(*print)->width_nb = -1;
-		i++;
+		(*print)->width_nb = (va_arg(ap, int));
+		if ((*print)->width_nb == 0)
+			(*print)->width_nb = -1;
+		(*print)->flag_str_pre = ft_empty_str(print);
 	}
-	if (format[i] >= '1' || format[i] <= '9')
+	else
 	{
-		ft_save_nb(print, i, format);
-		nb = (*print)->width_nb;
-		(*print)->width = nb;
-		(*print)->flag_str_pre = ft_find_nb_z(print);
+		while (format[i] >= '0')
+		{
+			(*print)->width_nb = -1;
+			i++;
+		}
+		if (format[i] >= '1' || format[i] <= '9')
+		{
+			ft_save_nb(print, i, format);
+			nb = (*print)->width_nb;
+			(*print)->width = nb;
+			(*print)->flag_str_pre = ft_find_nb_z(print);
+		}
 	}
 }
 

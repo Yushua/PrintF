@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 16:10:06 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/07 23:25:12 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/08 23:00:56 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct	s_print
 	int			pre_value;
 	int			len;
 	int			start;
+	int			pp;
 }				t_print;
 
 int		ft_printf(const char *format, ...);
@@ -44,20 +45,21 @@ void	ft_destruct_free(t_print **print);
 
 void	ft_print_f(t_print **print, va_list ap, int i, const char *format);
 void	ft_min_zero(t_print **print, int i, const char *format);
-void	ft_find_pre(t_print **print, int i, const char *format);
+void	ft_find_pre(t_print **print, int i, const char *format, va_list ap);
 void	ft_find_flag(t_print **print, va_list ap, int i, const char *format);
-void	ft_find_nb(t_print **print, int i, const char *format);
+void	ft_find_nb(t_print **print, int i, const char *format, va_list ap);
 
 void	struct_zero(t_print **print);
 char	*ft_find_nb_z(t_print **print);
 char	*ft_empty_str(t_print **print);
 int		ft_save_nb(t_print **print, int i, const char *format);
 
-void	ft_precision(t_print **print, int i, const char *format);
-void	ft_precision_nb(t_print **print, int i, const char *format);
+void	ft_precision(t_print **print, int i, const char *format,  va_list ap);
+void	ft_precision_nb(t_print **print, int i, const char *format,  va_list ap);
 
 void	ft_save_input(t_print **print, va_list ap, int i);
 void	ft_print_c(t_print **print, va_list ap);
+void	ft_print_cc(t_print **print, va_list ap);
 void	ft_print_s(t_print **print, va_list ap);
 void	ft_print_i(t_print **print, va_list ap, int i);
 void	ft_print_u(t_print **print, va_list ap);
@@ -71,7 +73,7 @@ char	*ft_flag_no(long s, long p, t_print **print, long width);
 
 void	ft_write_str(t_print **print);
 char	*ft_str_min(long s, t_print **print, long width);
-char	*ft_str_no(long s, long p, t_print **print, long width);
+char	*ft_str_no(long s, long f, t_print **print, long width);
 
 char	*ft_hex(long i, long j, t_print **print);
 char	*ft_hex_two(char *str, t_print **print, long j, long i);

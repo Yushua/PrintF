@@ -6,7 +6,7 @@
 /*   By: ybakker <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 14:54:52 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/07 23:21:41 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/08 22:35:29 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,36 +31,34 @@
 */
 
 #define	INPUT "char: %c | str: %s | ptr: %p | int: %d | uit: %u | hex: %x | Hex: %X | epc: %%", c, str, &ptr, i, ui, hex, hhex
+//#define QUEST "%p", NULL
+//#define QUEST "%.d\n", 0
+#define QUEST "%.*s", 3, "hello"
 
 int     main(void)
 {
-	char			c;
-	char			*str;
-	int				ptr;
-	int				i;
-	unsigned int	ui;
-	int				hex;
-	int				hhex;
-
-	c = 'g';
-	str = "he";
-	ptr = 123;
-	i = 31415;
-	ui = -10;
-	hex = 276447232;
-	hhex = 1235445;
-	printf("Kashim a %i histoires à raconter", 1001);
+	//test 426
+	ft_printf("own\n");
+	ft_printf("|");
+	ft_printf(QUEST);
+	printf("|\n");
+	printf("printf\n|");
+	printf(QUEST);
+	printf("|");
 	printf("\n");
-	ft_printf("Kashim a %i histoires à raconter", 1001);
-
 	return (0);
 }
-
+//	if (width >= (*print)->width_str)
+//		width = (*print)->width_str;
 //everytime you write you increase th len
 
 //gcc libft/*.c *.c -g -fsanitize=address
 //gcc *.c -g
 //gcc *.c -g -fsanitize=address
+/*
+printf("|input|%s|\n", (*print)->input_str);
+printf("|empty|%s|\n", (*print)->flag_str);
+ */
 
 	//printf("hello \n");
 	//ft_printf("hello\n");
@@ -78,3 +76,20 @@ int     main(void)
 	//ft_printf("%%\n");
 	//printf("%c", "a");
 	//ft_printf("%c", "a");
+/*
+	char			c;
+	char			*str;
+	int				ptr;
+	int				i;
+	unsigned int	ui;
+	int				hex;
+	int				hhex;
+
+	c = 'g';
+	str = "he";
+	ptr = 123;
+	i = 31415;
+	ui = -10;
+	hex = 276447232;
+	hhex = 1235445;
+*/

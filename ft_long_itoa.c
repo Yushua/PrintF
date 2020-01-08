@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/09 14:18:07 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/07 21:58:04 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/08 19:04:51 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static unsigned long	ft_len(unsigned long nb)
 {
-	unsigned long	size;
+	long	size;
 
 	if (nb == 0)
 		return (nb + 1);
@@ -42,7 +42,7 @@ static unsigned long	ft_min(unsigned long n)
 char					*ft_long_itoa(unsigned long n)
 {
 	unsigned long	nn;
-	unsigned long	l;
+	long			l;
 	char			*str;
 
 	nn = n;
