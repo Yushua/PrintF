@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/14 14:05:35 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/10 14:54:05 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/10 15:50:14 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,16 @@ void		ft_precision_nb(t_print **print, int i, const char *format,  va_list ap)
 {
 	long	nb;
 
-	i++;
-	if (format[i] == '*')
+	i++;//after presicion
+	if (format[i] == (*print)->convergence)
+		(*print)->error = -1;
+	else if (format[i] == '*')
 	{
 		(*print)->p_width = (va_arg(ap, int));
 		(*print)->width_nb = (*print)->p_width;
 		(*print)->flag_str_pre = ft_empty_str(print);
 	}
-	else
+	else if (format[i] == '0')
 	{
 		while (format[i] == '0')
 		{
@@ -36,13 +38,13 @@ void		ft_precision_nb(t_print **print, int i, const char *format,  va_list ap)
 			(*print)->error = -1;
 			i++;
 		}
-		if (format[i] >= '1' || format[i] <= '9')
-		{
-			ft_save_nb(print, i, format);
-			(*print)->error = 0;
-			(*print)->p_width = (*print)->width_nb;
-			(*print)->flag_str_pre = ft_find_nb_z(print);
-		}
+	}
+	else //(format[i] >= '1' || format[i] <= '9')
+	{
+		ft_save_nb(print, i, format);
+		(*print)->error = 0;
+		(*print)->p_width = (*print)->width_nb;
+		(*print)->flag_str_pre = ft_find_nb_z(print);
 	}
 }
 
