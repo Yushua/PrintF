@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 16:10:06 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/10 13:01:18 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/10 15:02:50 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct	s_print
 	int			start;
 	int			w_width;
 	int			p_width;
+	int			error;
 }				t_print;
 
 int		ft_printf(const char *format, ...);
@@ -49,6 +50,7 @@ void	ft_min_zero(t_print **print, int i, const char *format);
 void	ft_find_pre(t_print **print, int i, const char *format, va_list ap);
 void	ft_find_flag(t_print **print, va_list ap, int i, const char *format);
 void	ft_find_nb(t_print **print, int i, const char *format, va_list ap);
+char	*ft_find_nb_z(t_print **print);
 
 void	struct_zero(t_print **print);
 char	*ft_find_nb_z(t_print **print);
@@ -83,5 +85,8 @@ char	ft_turn_hex(long remain, t_print **print);
 int		ft_atoi(const char *str);
 size_t	ft_strlen(char *s);
 char	*ft_itoa(int n);
+
+char	*ft_special_case_width(t_print **print, long f, char *str, char *str_f);
+char	*nwstr(void);
 
 #endif

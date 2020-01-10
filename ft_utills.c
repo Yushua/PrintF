@@ -1,33 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_struct_zero.c                                   :+:    :+:            */
+/*   ft_utills.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/01/07 22:27:56 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/10 14:53:38 by ybakker       ########   odam.nl         */
+/*   Created: 2020/01/10 15:01:08 by ybakker        #+#    #+#                */
+/*   Updated: 2020/01/10 15:04:25 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		struct_zero(t_print **print)
+char		*ft_find_nb_z(t_print **print)
 {
-	(*print)->end = 0;
-	(*print)->position = 0;
-	(*print)->convergence = '\0';
-	(*print)->min = 0;
-	(*print)->zero = 0;
-	(*print)->flag_str = NULL;
-	(*print)->flag_str_pre = NULL;
-	(*print)->input_str = NULL;
-	(*print)->width_nb = 0;
-	(*print)->width = 0;
-	(*print)->precision = 0;
-	(*print)->pre_value = 0;
-	(*print)->start = 0;
-	(*print)->w_width = 0;
-	(*print)->p_width = -1;
-	(*print)->error = 0;
+	char	*str;
+	int		nb;
+
+	nb = (*print)->width_nb;
+	str = ((char *)malloc(nb * sizeof(char)));
+	if (str == NULL)
+		return (NULL);
+	while (nb)
+	{
+		nb -= 1;
+		str[nb] = '0';
+	}
+	return (str);
+}
+
+char		*nwstr(void)
+{
+	char	*w_fd;
+
+	w_fd = (char *)malloc(sizeof(char));
+	if (!(w_fd))
+		return (0);
+	w_fd[0] = '\0';
+	return (w_fd);
 }

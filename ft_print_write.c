@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/02 15:19:07 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/10 13:00:49 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/10 15:02:25 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,13 @@ void		ft_write_str(t_print **print)
 	long	s;
 	long	f;
 	long	width;
+
+	if ((*print)->error == -1)
+		(*print)->input_str = nwstr();
 	str = (*print)->input_str;
 	str_f = (*print)->flag_str;
 	s = ft_strlen(str);
 	f = ft_strlen(str_f);
-// if precision is bigger than string, then emptyline with size of s and thats flag str
 	if (f == 0)
 	{
 		f = s;
@@ -84,16 +86,23 @@ char		*ft_str_no(long s, long f, t_print **print, long width)
 	i = 0;
 	str = (*print)->input_str;
 	str_f = (*print)->flag_str;
-	if (f <= 0 || f < s)
+	if (f < s && (*print)->p_width < 0)
+		return (str);
+	if (f <= 0 || (*print)->p_width > s)
 		return (str);
 	else
 	{
-		ff = f - s;
-		while (str_f[ff] != '\0' && str[i] != '\0' && ff != f && i <= s)
+		if ((*print)->p_width < s && (*print)->p_width > 0)
+			ft_special_case_width(print, f, str, str_f);
+		else
 		{
-			ff++;
-			str_f[ff] = str[i];
-			i++;
+			ff = f - s;
+			while (str_f[ff] != '\0' && str[i] != '\0' && ff != f && i <= s)
+			{
+				ff++;
+				str_f[ff] = str[i];
+				i++;
+			}
 		}
 		return (str_f);
 	}
@@ -109,4 +118,24 @@ size_t	ft_strlen(char *s)
 	while (s[i] != '\0')
 		i += 1;
 	return (i);
+}
+
+char	*ft_special_case_width(t_print **print, long f, char *str, char *str_f)
+{
+	int		i;
+	int		ff;
+	int		s;
+
+	i = 0;
+	s = (*print)->p_width;
+	s--;
+	ff = f - s;
+	s++;
+	while (i != s)
+	{
+		str_f[ff] = str[i];
+		i++;
+		ff++;
+	}
+	return (str_f);
 }
