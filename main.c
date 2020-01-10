@@ -6,7 +6,7 @@
 /*   By: ybakker <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 14:54:52 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/08 22:35:29 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/10 11:24:54 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,9 @@
 */
 
 #define	INPUT "char: %c | str: %s | ptr: %p | int: %d | uit: %u | hex: %x | Hex: %X | epc: %%", c, str, &ptr, i, ui, hex, hhex
-//#define QUEST "%p", NULL
+#define QUEST "%16s", "nark nark"
 //#define QUEST "%.d\n", 0
-#define QUEST "%.*s", 3, "hello"
-
+//#define QUEST "%09.*p", -15, 2764472 //when the second * s a min, then you just print input_str
 int     main(void)
 {
 	//test 426

@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 16:10:06 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/08 23:00:56 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/10 09:52:21 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ typedef struct	s_print
 	int			pre_value;
 	int			len;
 	int			start;
-	int			pp;
+	int			w_width;
+	int			p_width;
 }				t_print;
 
 int		ft_printf(const char *format, ...);
