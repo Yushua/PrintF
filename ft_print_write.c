@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/02 15:19:07 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/10 11:26:12 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/10 13:00:49 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ void		ft_write_str(t_print **print)
 	long	s;
 	long	f;
 	long	width;
-
 	str = (*print)->input_str;
 	str_f = (*print)->flag_str;
 	s = ft_strlen(str);
 	f = ft_strlen(str_f);
+// if precision is bigger than string, then emptyline with size of s and thats flag str
 	if (f == 0)
 	{
 		f = s;
@@ -46,24 +46,26 @@ void		ft_write_str(t_print **print)
 	}
 	f--;
 	if ((*print)->min == 1)
-		(*print)->input_str = ft_str_min(s, print, width);
+		(*print)->input_str = ft_str_min(s, f, print, width);
 	else if ((*print)->min != 1)
 		(*print)->input_str = ft_str_no(s, f, print, width);
 }
 
-char		*ft_str_min(long s, t_print **print, long width)
+char		*ft_str_min(long s, long f, t_print **print, long width)
 {
 	char	*str;
 	char	*str_f;
-	long	i;
+	long	ff;
+	int		i;
+
+	i = 0;
 	str = (*print)->input_str;
 	str_f = (*print)->flag_str;
-	i = 0;
-	if ((*print)->convergence == '%')
-		str_f[i] = '%';
+	if (f <= 0 || f < s)
+		return (str);
 	else
 	{
-		while (i != width)
+		while (str_f[i] != '\0' && str[i] != '\0')
 		{
 			str_f[i] = str[i];
 			i++;
