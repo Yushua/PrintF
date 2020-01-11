@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 16:10:06 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/11 18:05:46 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/11 19:02:44 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ char	*ft_flag_no(long s, long p, t_print **print);
 
 void	ft_write_str(t_print **print);
 char	*ft_str_min(long s, t_print **print);
-char	*ft_str_no(long s, t_print **print);
+char	*ft_str_no(long s, t_print **print, long p);
 
 char	*ft_hex(long i, long j, t_print **print);
 char	*ft_hex_two(char *str, t_print **print, long j, long i);

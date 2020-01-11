@@ -6,7 +6,7 @@
 /*   By: ybakker <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 14:54:52 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/11 18:24:11 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/11 18:59:50 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,29 +31,28 @@
 */
 
 #define	INPUT "char: %c | str: %s | ptr: %p | int: %d | uit: %u | hex: %x | Hex: %X | epc: %%", c, str, &ptr, i, ui, hex, hhex
-#define QUEST "%s", "testing testing"
- #define QUEST1 "%.s", "hello"
+#define QUEST "%.3s", "hello"
+// #define QUEST1 "%.3s%.2s", "holla", "bitch"
 // #define QUEST2 "%s%s", "hello", "world"
 // #define QUEST3 "..%s stuff %s", "a", "b"
 int     main(void)
 {
 	//test 426
 	ft_printf("own\n");
-	ft_printf("|");
 	ft_printf(QUEST);
 	printf("|\n");
-	printf("printf\n|");
+	printf("printf\n");
 	printf(QUEST);
 	printf("|");
 	printf("\n");
-	ft_printf("own\n");
-	ft_printf("|");
-	ft_printf(QUEST1);
-	printf("|\n");
-	printf("printf\n|");
-	printf(QUEST1);
-	printf("|");
-	printf("\n");
+	// ft_printf("own\n");
+	// ft_printf("|");
+	// ft_printf(QUEST1);
+	// printf("|\n");
+	// printf("printf\n|");
+	// printf(QUEST1);
+	// printf("|");
+	// printf("\n");
 	// ft_printf("own\n");
 	// ft_printf("|");
 	// ft_printf(QUEST2);

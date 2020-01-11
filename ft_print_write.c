@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/02 15:19:07 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/11 18:30:19 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/11 19:03:42 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,20 @@ void		ft_write_str(t_print **print)
 {
 	int		s;
 	int 	p;
+	int		e;
 
 	s = ft_strlen((*print)->input_str);
 	p = (*print)->p_width;
-	if (s == 0 || (*print)->error == -1)
+	if (s == 0)
 		(*print)->input_str = NULL;
 	else if (s > p && p != -1)
 		s = p;
 	if ((*print)->min == 1)
 		(*print)->input_str = ft_str_min(s, print);
 	else if ((*print)->min != 1)
-		(*print)->input_str = ft_str_no(s, print);
+		(*print)->input_str = ft_str_no(s, print, p);
+	if ((*print)->error == -1)
+		(*print)->input_str = NULL;
 }
 
 char		*ft_str_min(long s, t_print **print)
@@ -49,6 +52,7 @@ char		*ft_str_min(long s, t_print **print)
 	int		w;
 	int		i;
 
+	i = 0;
 	w = (*print)->w_width;
 	(*print)->flag_str = ft_empty_str(w);
 	if (w < s)
@@ -64,15 +68,17 @@ char		*ft_str_min(long s, t_print **print)
 	return ((*print)->flag_str);
 }
 
-char		*ft_str_no(long s, t_print **print)
+char		*ft_str_no(long s, t_print **print, long p)
 {
 	int		w;
 	int		i;
 
 	i = 0;
-	if (w == 0 && s > 0)
-		w = s;
 	w = (*print)->w_width;
+	if (w == 0 && s > 0 && (*print)->p_width == -1)
+		return ((*print)->input_str);
+	else if (w == 0)
+		w = s;
 	if ((*print)->zero == 1)
 		(*print)->flag_str = ft_fill_z(w);
 	else
