@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 16:10:06 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/10 15:55:12 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/11 16:22:55 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,10 @@ void	ft_min_zero(t_print **print, int i, const char *format);
 void	ft_find_pre(t_print **print, int i, const char *format, va_list ap);
 void	ft_find_flag(t_print **print, va_list ap, int i, const char *format);
 void	ft_find_nb(t_print **print, int i, const char *format, va_list ap);
-char	*ft_find_nb_z(t_print **print);
+char	*ft_fill_z(long nb); //malloc string with 0 in them
 
 void	struct_zero(t_print **print);
-char	*ft_find_nb_z(t_print **print);
-char	*ft_empty_str(t_print **print);
+char	*ft_empty_str(long nb);
 int		ft_save_nb(t_print **print, int i, const char *format);
 
 void	ft_precision(t_print **print, int i, const char *format,  va_list ap);
@@ -71,12 +70,12 @@ void	ft_print_p(t_print **print, va_list ap);
 void	ft_write_string_1(t_print **print);
 
 void	ft_flag_str(t_print **print);
-char	*ft_flag_min(t_print **print, long width);
-char	*ft_flag_no(long s, long p, t_print **print, long width);
+char	*ft_flag_min(t_print **print);
+char	*ft_flag_no(long s, long p, t_print **print);
 
 void	ft_write_str(t_print **print);
-char	*ft_str_min(long s, long f, t_print **print, long width);
-char	*ft_str_no(long s, long f, t_print **print, long width);
+char	*ft_str_min(long s, t_print **print);
+char	*ft_str_no(long s, t_print **print);
 
 char	*ft_hex(long i, long j, t_print **print);
 char	*ft_hex_two(char *str, t_print **print, long j, long i);
@@ -86,7 +85,6 @@ int		ft_atoi(const char *str);
 size_t	ft_strlen(char *s);
 char	*ft_itoa(int n);
 
-char	*ft_special_case_width(t_print **print, long f, char *str, char *str_f);
 char	*nwstr(void);
 
 #endif

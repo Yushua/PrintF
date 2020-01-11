@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/13 16:27:34 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/10 10:32:15 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/11 16:19:44 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 void		ft_print_f(t_print **print, va_list ap, int i, const char *format)
 {
 	(*print)->position = i;
-	ft_min_zero(print, i, format);
+	if (format[i] == '0' || format[i] == '-')
+	{
+		ft_min_zero(print, i, format);
+	}
 	if ((*print)->min == 1)
 		(*print)->zero = 0;
 	i = (*print)->position;
@@ -65,7 +68,6 @@ void		ft_find_flag(t_print **print, va_list ap, int i, const char *format)
 			(*print)->min = 1;
 			(*print)->width_nb *= -1;
 		}
-		(*print)->flag_str = ft_empty_str(print);
 		(*print)->w_width = (*print)->width_nb;
 		(*print)->width_nb = 0;
 		i++;
@@ -79,10 +81,6 @@ void		ft_find_nb(t_print **print, int i, const char *format, va_list ap)
 	if (format[i] >= '1' && format[i] <= '9')
 	{
 		i = ft_save_nb(print, i, format);
-		if ((*print)->zero == 1)
-			(*print)->flag_str = ft_find_nb_z(print);
-		else if ((*print)->zero == 0)
-			(*print)->flag_str = ft_empty_str(print);
 		(*print)->width_nb = 0;
 		i++;
 		if (format[i] == '.')
