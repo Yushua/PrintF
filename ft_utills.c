@@ -6,18 +6,45 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/10 15:01:08 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/10 15:55:07 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/11 16:11:32 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char		*ft_find_nb_z(t_print **print)
+int			ft_save_nb(t_print **print, int i, const char *format) //saves the number and puts it in width_nb
+{
+	int		e;
+	char	*nb;
+	int		j;
+	int		b;
+
+	e = (*print)->end;
+	b = i;
+	j = 0;
+	while (format[i] >= '0' && format[i] <= '9')
+	{
+		j++;
+		i++;
+	}
+	nb = ((char *)malloc(j * sizeof(char)));
+	if (nb == NULL)
+		return (0);
+	j = 0;
+	while (format[b] >= '0' && format[b] <= '9')
+	{
+		nb[j] = format[b];
+		j++;
+		b++;
+	}
+	(*print)->width_nb = ft_atoi(nb);
+	return (i);
+}
+
+char		*ft_fill_z(long nb) //malloc string with 0 in them
 {
 	char	*str;
-	int		nb;
 
-	nb = (*print)->width_nb;
 	str = ((char *)malloc(nb * sizeof(char)));
 	if (str == NULL)
 		return (NULL);
@@ -29,7 +56,7 @@ char		*ft_find_nb_z(t_print **print)
 	return (str);
 }
 
-char		*nwstr(void)
+char		*nwstr(void) //malloc 0 string with nul in it
 {
 	char	*w_fd;
 
@@ -38,4 +65,31 @@ char		*nwstr(void)
 		return (0);
 	w_fd[0] = '\0';
 	return (w_fd);
+}
+
+char		*ft_empty_str(long nb) //malloc string filled with nothing
+{
+	char	*str;
+
+	str = ((char *)malloc(nb * sizeof(char)));
+	if (str == NULL)
+		return (NULL);
+	while (nb)
+	{
+		nb -= 1;
+		str[nb] = ' ';
+	}
+	return (str);
+}
+
+size_t	ft_strlen(char *s)
+{
+	size_t i;
+
+	i = 0;
+	if (s == NULL)
+		return (0);
+	while (s[i] != '\0')
+		i += 1;
+	return (i);
 }

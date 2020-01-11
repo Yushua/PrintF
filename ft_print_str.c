@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/17 15:38:38 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/10 15:03:00 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/11 17:23:21 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,29 +45,19 @@ void	ft_print_c(t_print **print, va_list ap)
 
 void	ft_print_cc(t_print **print, va_list ap)
 {
-	char	*str;
-	int		i;
-
-	i = 0;
-	str = ((char *)malloc(1));
-	str[i] = '%';
-	(*print)->input_str = &str[i];
-	ft_flag_str(print);
-	ft_write_str(print);
+	ft_write_pro(print);
 	ft_write_string_1(print);
 }
 
 void	ft_print_s(t_print **print, va_list ap)
 {
 	(*print)->input_str  = (va_arg(ap, char *));
-	ft_flag_str(print);
 	ft_write_str(print);
 	ft_write_string_1(print);
 }
 
 void	ft_print_i(t_print **print, va_list ap, int i)
 {
-	ft_flag_str(print);
 	i = (va_arg(ap, int));
 	(*print)->input_str  = ft_itoa(i);
 	ft_write_str(print);
@@ -77,7 +67,6 @@ void	ft_print_i(t_print **print, va_list ap, int i)
 void	ft_print_u(t_print **print, va_list ap)
 {
 	(*print)->input_str  = ft_long_itoa((va_arg(ap, unsigned)));
-	ft_flag_str(print);
 	ft_write_str(print);
 	ft_write_string_1(print);
 }

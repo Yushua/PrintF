@@ -6,7 +6,7 @@
 /*   By: ybakker <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/05 13:47:11 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/10 11:01:49 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/11 17:12:18 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ char			ft_convergence(t_print **print, int i, const char *format)
 			return ('c');
 		else if (format[i] == 's')
 			return ('s');
+		else if (format[i] == '%')
+			return ('%');
 		else if (format[i] == 'p')
 			return ('p');
 		else if (format[i] == 'd')
@@ -64,8 +66,6 @@ char			ft_convergence(t_print **print, int i, const char *format)
 			return ('x');
 		else if (format[i] == 'X')
 			return ('X');
-		else if (format[i] == '%')
-			return ('%');
 		i++;
 	}
 	return ('\0');

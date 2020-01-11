@@ -6,7 +6,7 @@
 /*   By: ybakker <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 14:54:52 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/10 16:11:02 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/11 18:24:11 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,10 @@
 */
 
 #define	INPUT "char: %c | str: %s | ptr: %p | int: %d | uit: %u | hex: %x | Hex: %X | epc: %%", c, str, &ptr, i, ui, hex, hhex
-#define QUEST "%6.s", "hello"
-#define QUEST2 "%.07s", "hello"
-//#define QUEST "%09.*p", -15, 2764472 //when the second * s a min, then you just print input_str
+#define QUEST "%s", "testing testing"
+ #define QUEST1 "%.s", "hello"
+// #define QUEST2 "%s%s", "hello", "world"
+// #define QUEST3 "..%s stuff %s", "a", "b"
 int     main(void)
 {
 	//test 426
@@ -47,12 +48,28 @@ int     main(void)
 	printf("\n");
 	ft_printf("own\n");
 	ft_printf("|");
-	ft_printf(QUEST2);
+	ft_printf(QUEST1);
 	printf("|\n");
 	printf("printf\n|");
-	printf(QUEST2);
+	printf(QUEST1);
 	printf("|");
 	printf("\n");
+	// ft_printf("own\n");
+	// ft_printf("|");
+	// ft_printf(QUEST2);
+	// printf("|\n");
+	// printf("printf\n|");
+	// printf(QUEST2);
+	// printf("|");
+	// printf("\n");
+	// ft_printf("own\n");
+	// ft_printf("|");
+	// ft_printf(QUEST3);
+	// printf("|\n");
+	// printf("printf\n|");
+	// printf(QUEST3);
+	// printf("|");
+	// printf("\n");
 	return (0);
 }
 //	if (width >= (*print)->width_str)
@@ -62,9 +79,14 @@ int     main(void)
 //gcc libft/*.c *.c -g -fsanitize=address
 //gcc *.c -g
 //gcc *.c -g -fsanitize=address
+
+//printf("%i|\n|", (*print)->error);
+//printf("%i|\n|", (*print)->error);
 /*
 printf("|input|%s|\n", (*print)->input_str);
 printf("|empty|%s|\n", (*print)->flag_str);
+
+//printf("%s|\n|", (*print)->input_str);
  */
 
 	//printf("hello \n");
