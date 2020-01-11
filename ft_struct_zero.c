@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/07 22:27:56 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/11 21:16:05 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/11 23:18:59 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void		struct_zero(t_print **print)
 	(*print)->w_width = 0;
 	(*print)->p_width = -1;
 	(*print)->error = 0;
+	(*print)->neg = 0;
 }
 
 char	*ft_fill_w_null(t_print **print)
