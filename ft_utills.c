@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/10 15:01:08 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/11 18:52:39 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/11 19:15:51 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int			ft_save_nb(t_print **print, int i, const char *format) //saves the number 
 char		*ft_fill_z(long nb) //malloc string with 0 in them
 {
 	char	*str;
+	int		i;
 
 	str = ((char *)malloc(nb * sizeof(char)));
 	if (str == NULL)
@@ -70,7 +71,9 @@ char		*nwstr(void) //malloc 0 string with nul in it
 char		*ft_empty_str(long nb) //malloc string filled with nothing
 {
 	char	*str;
+	int		i;
 
+	i = nb;
 	str = ((char *)malloc(nb * sizeof(char)));
 	if (str == NULL)
 		return (NULL);
@@ -79,6 +82,7 @@ char		*ft_empty_str(long nb) //malloc string filled with nothing
 		nb -= 1;
 		str[nb] = ' ';
 	}
+	str[i] = '\0';
 	return (str);
 }
 

@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/02 15:19:07 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/11 19:03:42 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/11 20:51:01 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ char		*ft_str_min(long s, t_print **print)
 		return ((*print)->input_str);
 	else if ((*print)->error == -1)
 		return ((*print)->flag_str);
-	while ((*print)->input_str[i] != '\0' &&
+	while (i != s && (*print)->input_str[i] != '\0' &&
 			(*print)->flag_str[i] != '\0')
 	{
 		(*print)->flag_str[i] = (*print)->input_str[i];

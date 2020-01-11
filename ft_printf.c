@@ -6,7 +6,7 @@
 /*   By: ybakker <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/05 13:47:11 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/11 17:12:18 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/11 21:02:32 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,10 @@ char			ft_convergence(t_print **print, int i, const char *format)
 	return ('\0');
 }
 
-void			ft_destruct_free(t_print **print)
+void		ft_destruct_free(t_print **print)
 {
 	free((*print)->flag_str);
-	free((*print)->flag_str_pre);
+	free((*print)->null);
 	free((*print)->input_str);
 }
 

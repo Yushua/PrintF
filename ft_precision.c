@@ -6,26 +6,18 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/14 14:05:35 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/11 18:45:48 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/11 19:32:00 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		ft_precision(t_print **print, int i, const char *format,  va_list ap)
+void		ft_find_pre(t_print **print, int i, const char *format, va_list ap)
 {
-	int		j;
-
-	j = 0;
-	while (format[i] != '\0' && j == 0)
-	{
-		if (format[i] == '.')
-		{
-			ft_precision_nb(print, i, format, ap);
-			j++;
-		}
+	while (format[i] != '.' && format[i] != (*print)->convergence)
 		i++;
-	}
+	if (format[i] == '.')
+		ft_precision_nb(print, i, format, ap);
 }
 
 void		ft_precision_nb(t_print **print, int i, const char *format,  va_list ap)
