@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 16:10:06 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/11 23:48:26 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/12 00:48:11 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,8 +91,8 @@ void	ft_write_pro(t_print **print);
 char	*ft_fill_w_null(t_print **print);
 
 void	ft_write_int(t_print **print);
-char	*ft_int_min(long s, t_print **print);
-char	*ft_int_no(long s, t_print **print, long p);
+char		*ft_int_min(long s, int w, t_print **print);
+char		*ft_int_no(long s, int w, t_print **print, long p);
 void	ft_fill_z_int(t_print **print, int w, long p);
 char	*ft_empty_int(long nb, long s, t_print **print);
 char	*ft_fill_z(long nb, long s, t_print **print);

@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/02 15:19:07 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/12 00:42:45 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/12 01:22:05 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,31 @@ void		ft_write_int(t_print **print)
 {
 	int		s;
 	int 	p;
+	int		w;
 
+	w = (*print)->w_width;
+	if ((*print)->neg < 0)
+	{
+		w++;
+		ft_take_min(print);
+	}
 	s = ft_strlen((*print)->input_str);
 	p = (*print)->p_width;
-	if ((*print)->neg == 1 && s != 0)
-		s--;
+	if (p < s)
+		p = s;
 	if (s == 0)
 		(*print)->input_str = NULL;
 	if ((*print)->min == 1)
-		(*print)->input_str = ft_int_min(s, print);
+		(*print)->input_str = ft_int_min(s, w, print);
 	else if ((*print)->min != 1)
-		(*print)->input_str = ft_int_no(s, print, p);
+		(*print)->input_str = ft_int_no(s, w, print, p);
 }
 
-char		*ft_int_no(long s, t_print **print, long p)
+char		*ft_int_no(long s, int w, t_print **print, long p)
 {
-	int		w; //lengt of width
 	int		i;
 
 	i = 0;
-	w = (*print)->w_width;
 	if (w == 0)
 		w = s;
 	if ((*print)->zero == 1)
@@ -51,18 +56,21 @@ char		*ft_int_no(long s, t_print **print, long p)
 		i++;
 		w++;
 	}
-	if ((*print)->neg == 1)
+	if ((*print)->neg < 0 && p == 0)
 		((*print)->flag_str) = ft_strjoin("-", (*print)->flag_str);
+	else if ((*print)->neg < 0 && p > 0)
+	{
+		p = 10;
+		(*print)->flag_str[p] = '-';
+	}
 	return ((*print)->flag_str);
 }
 
-char		*ft_int_min(long s, t_print **print)
+char		*ft_int_min(long s, int w, t_print **print)
 {
-	int		w;
 	int		i;
 
 	i = 0;
-	w = (*print)->w_width;
 	while (i != s && (*print)->input_str[i] != '\0' &&
 			(*print)->flag_str[i] != '\0')
 	{
@@ -123,3 +131,6 @@ char		*ft_fill_z(long nb, long s, t_print **print)
 	}
 	return (str);
 }
+
+//min is taken away, make sure that the - is placed maybe combine the two, or something else simpler
+//negative stil has some issues, work on that
