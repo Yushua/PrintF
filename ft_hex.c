@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/03 15:30:09 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/11 15:37:30 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/13 22:25:15 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,16 +43,20 @@ char	*ft_hex_two(char *str, t_print **print, long j, long i)
 	long		remain;
 
 	jj = 0;
-	str[jj] = '0';
-	jj++;
-	str[jj] = 'x';
-	jj++;
+	if ((*print)->convergence == 'p')
+	{
+		str[jj] = '0';
+		jj++;
+		str[jj] = 'x';
+		jj++;
+	}
+	else
+		jj++;
 	while (i > 0)
 	{
 		j -= 1;
 		remain = i % 16;
 		i = i / 16;
-		jj = j + 2;
 		str[jj] = ft_turn_hex(remain, print);
 		jj -= 1;
 	}
@@ -81,7 +85,11 @@ void	ft_print_x(t_print **print, va_list ap, int i)
 	j = 0;
 	i = (va_arg(ap, unsigned long));
 	(*print)->input_str  = ft_hex(i, j, print);
-	ft_write_str(print);
+	if ((*print)->convergence == 'X')
+	{
+		(*print)->input_str = a_to_a(print);
+	}
+	ft_write_hex(print);
 	ft_write_string_1(print);
 }
 
@@ -94,21 +102,6 @@ void	ft_print_p(t_print **print, va_list ap)
 	j = 0;
 	ii = *(va_arg(ap, unsigned long *));
 	(*print)->input_str = ft_hex(ii, j, print); //changed str to (*print)->input_str
-	ft_write_str(print);
+	ft_write_hex(print);
 	ft_write_string_1(print);
 }
-
-/*
-	int		j;
-	unsigned long	ii;
-	char	*str;
-
-	j = 0;
-	if (atoi((va_arg(ap, unsigned long)) != NULL)
-	ii = (va_arg(ap, unsigned long) != NULL) ? (va_arg(ap, unsigned long) : 0;
-	if (ii == (unsigned long) NULL)
-		ii = 0;
-	str  = ft_hex(ii, j, print);
-	ft_write_str(print);
-	ft_write_string_1(print);
-	 */

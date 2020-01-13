@@ -6,7 +6,7 @@
 /*   By: ybakker <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 14:54:52 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/13 19:01:34 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/13 22:13:06 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@
 */
 
 #define	INPUT "char: %c | str: %s | ptr: %p | int: %d | uit: %u | hex: %x | Hex: %X | epc: %%", c, str, &ptr, i, ui, hex, hhex
-#define QUEST "%07.5i", 33
-#define QUEST1 "%i07", -33
-#define QUEST2 "%7.5i", -54
-#define QUEST3 "%.5i", -2
+#define QUEST "this %x number", 15 //smaller than 16
+#define QUEST1 "this %x number", 17
+// #define QUEST2 "%-5.0i", 0
+// #define QUEST3 "%-5.i", 0
 int     main(void)
 {
 	// test 426
@@ -43,29 +43,29 @@ int     main(void)
 	printf("|\nprintf\n");
 	printf(QUEST);
 	printf("|\n");
-	ft_printf("own\n");
-	ft_printf(QUEST1);
-	printf("|\n");
-	printf("printf\n");
-	printf(QUEST1);
-	printf("|");
-	printf("\n");
-	ft_printf("own\n");
-	ft_printf("|");
-	ft_printf(QUEST2);
-	printf("|\n");
-	printf("printf\n|");
-	printf(QUEST2);
-	printf("|");
-	printf("\n");
-	ft_printf("own\n");
-	ft_printf("|");
-	ft_printf(QUEST3);
-	printf("|\n");
-	printf("printf\n|");
-	printf(QUEST3);
-	printf("|");
-	printf("\n");
+	// ft_printf("own\n");
+	// ft_printf(QUEST1);
+	// printf("|\n");
+	// printf("printf\n");
+	// printf(QUEST1);
+	// printf("|");
+	// printf("\n");
+	// ft_printf("own\n");
+	// ft_printf("|");
+	// ft_printf(QUEST2);
+	// printf("|\n");
+	// printf("printf\n|");
+	// printf(QUEST2);
+	// printf("|");
+	// printf("\n");
+	// ft_printf("own\n");
+	// ft_printf("|");
+	// ft_printf(QUEST3);
+	// printf("|\n");
+	// printf("printf\n|");
+	// printf(QUEST3);
+	// printf("|");
+	// printf("\n");
 	return (0);
 }
 //	if (width >= (*print)->width_str)

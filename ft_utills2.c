@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/10 15:01:08 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/13 14:55:25 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/13 22:24:58 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,19 @@ void	ft_take_min(t_print **print)
 		j++;
 	}
 	(*print)->input_str[i] = '\0';
+}
+
+char	*a_to_a(t_print **print)
+{
+	char	*str;
+	int		i;
+
+	str = (*print)->input_str;
+	while (str[i] != '\0')
+	{
+		if (str[i] >= 'a' && str[i] <= 'z')
+			str[i] += 'A';
+		i++;
+	}
+	return (str);
 }

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_print_int_write.c                               :+:    :+:            */
+/*   ft_print_hex_write.c                               :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/01/02 15:19:07 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/13 21:55:34 by ybakker       ########   odam.nl         */
+/*   Created: 2020/01/13 21:51:18 by ybakker        #+#    #+#                */
+/*   Updated: 2020/01/13 21:53:14 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		ft_write_int(t_print **print)
+void		ft_write_hex(t_print **print)
 {
 	int		s;
 	int		p;
@@ -21,36 +21,22 @@ void		ft_write_int(t_print **print)
 	p = (*print)->p_width;
 	s = ft_strlen((*print)->input_str);
 	w = (*print)->w_width;
-	if ((*print)->zero == 1 && w > 0 && (*print)->pre != 1 && (*print)->neg != 0)
-		(*print)->input_str = ft_exemption1(print, w);
-	if ((*print)->input_str[0] == '0' && (*print)->input_str[1] == '\0' && p == 0 && w == 0)
+	if ((*print)->neg < 0)
+		ft_take_min(print);
+	if (p < s)
+		p = s;
+	ft_att_z(print, p, s);
+	if (w < s || w == 0)
+		w = s;
+	if (s == 0)
 		(*print)->input_str = NULL;
-	else if ((*print)->input_str[0] == '0' && (*print)->input_str[1] == '\0' && p == -1 && w == 0 && (*print)->pre == 1)
-		(*print)->input_str = NULL;
-	else
-	{
-		if ((*print)->neg < 0)
-			ft_take_min(print);
-		s = ft_strlen((*print)->input_str);
-		if (p < s)
-			p = s;
-		ft_att_z(print, p, s);
-		if ((*print)->neg != 0)
-			(*print)->input_str = ft_strjoin("-", (*print)->input_str);
-		s = ft_strlen((*print)->input_str);
-		w = (*print)->w_width;
-		if (w < s || w == 0)
-			w = s;
-		if (s == 0)
-			(*print)->input_str = NULL;
-		if ((*print)->min == 1)
-			(*print)->input_str = ft_int_min(s, w, print);
-		else if ((*print)->min != 1)
-			(*print)->input_str = ft_int_no(s, w, print, p);
-	}
+	if ((*print)->min == 1)
+		(*print)->input_str = ft_int_min(s, w, print);
+	else if ((*print)->min != 1)
+		(*print)->input_str = ft_int_no(s, w, print, p);
 }
 
-char		*ft_int_no(long s, int w, t_print **print, long p)
+char		*ft_hex_no(long s, int w, t_print **print, long p)
 {
 	int		i;
 	char	*str;
@@ -71,7 +57,7 @@ char		*ft_int_no(long s, int w, t_print **print, long p)
 	return ((*print)->flag_str);
 }
 
-char		*ft_int_min(long s, int w, t_print **print)
+char		*ft_hex_min(long s, int w, t_print **print)
 {
 	int		i;
 
@@ -89,6 +75,3 @@ char		*ft_int_min(long s, int w, t_print **print)
 	}
 	return ((*print)->flag_str);
 }
-
-//min is taken away, make sure that the - is placed maybe combine the two, or something else simpler
-//negative stil has some issues, work on that
