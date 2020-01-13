@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 16:10:06 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/13 17:09:41 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/13 18:52:27 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ typedef struct	s_print
 	char		*null;
 	char		*input_str;
 	int			width_nb;
-	int			width;
 	int			precision;
 	int			positive;
 	int			len;
@@ -38,6 +37,7 @@ typedef struct	s_print
 	int			p_width;
 	int			error;
 	int			neg;
+	int			pre;
 }				t_print;
 
 int		ft_printf(const char *format, ...);

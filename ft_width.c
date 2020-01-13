@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/13 16:27:34 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/11 19:28:49 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/13 18:50:40 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,6 @@ void		ft_find_flag(t_print **print, va_list ap, int i, const char *format)
 		}
 		(*print)->w_width = (*print)->width_nb;
 		(*print)->width_nb = 0;
-		i++;
-		if (format[i] == '.')
-			ft_precision_nb(print, i, format, ap);
 	}
 }
 

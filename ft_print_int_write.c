@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/02 15:19:07 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/13 17:39:23 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/13 19:04:04 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void		ft_write_int(t_print **print)
 	if (p < s)
 		p = s;
 	ft_att_z(print, p, s);
-	if ((*print)->neg < 0)
+	if ((*print)->neg != 0)
 		(*print)->input_str = ft_strjoin("-", (*print)->input_str);
 	s = ft_strlen((*print)->input_str);
 	w = (*print)->w_width;
@@ -38,6 +38,8 @@ void		ft_write_int(t_print **print)
 		(*print)->input_str = ft_int_min(s, w, print);
 	else if ((*print)->min != 1)
 		(*print)->input_str = ft_int_no(s, w, print, p);
+	// if ((*print)->neg != 0 && (*print)->pre == 0)
+	// 	(*print)->input_str = ft_strjoin("-", (*print)->input_str);
 }
 
 char		*ft_int_no(long s, int w, t_print **print, long p)
@@ -82,14 +84,12 @@ void		ft_att_z(t_print **print, int p, int s) // uses precision and add str on i
 	int		i;
 
 	i = 0;
-	str = (char *)malloc(p + 1);
+	str = ((char *)malloc(p * sizeof(char) + 1));
 	str[p] = '\0';
-	p--;
-	i = p;
-	while (i != 0)
+	while (i != p)
 	{
 		str[i] = '0';
-		i--;
+		i++;
 	}
 	i = 0;
 	p = p - s;
@@ -99,7 +99,7 @@ void		ft_att_z(t_print **print, int p, int s) // uses precision and add str on i
 		i++;
 		p++;
 	}
-	(*print)->flag_str = str;
+	(*print)->input_str = str;
 }
 
 char		*ft_empty_int(long w, long s, t_print **print)

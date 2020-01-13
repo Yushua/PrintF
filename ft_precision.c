@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/14 14:05:35 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/11 19:32:00 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/13 18:53:16 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,10 @@ void		ft_find_pre(t_print **print, int i, const char *format, va_list ap)
 	while (format[i] != '.' && format[i] != (*print)->convergence)
 		i++;
 	if (format[i] == '.')
+	{
+		(*print)->pre = 1;
 		ft_precision_nb(print, i, format, ap);
+	}
 }
 
 void		ft_precision_nb(t_print **print, int i, const char *format,  va_list ap)
