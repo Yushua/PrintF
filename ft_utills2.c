@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/10 15:01:08 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/11 23:57:10 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/13 14:55:25 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,33 +27,33 @@ void		ft_write_string_1(t_print **print)
 	}
 }
 
-char		*ft_strjoin(char *s1, char *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
-	size_t	count;
-	char	*join;
+	int		i;
+	int		len1;
+	int		len2;
+	char	*str;
 
-	if (!s1 || !s2)
-		return (NULL);
-	count = 0;
-	join = (char *)malloc((ft_strlen(s1) + ft_strlen(s2)) + 1);
-	if (join == NULL)
-		return (NULL);
-	while (*s1 != '\0')
+	if (s1 && s2)
 	{
-		*join = *s1;
-		join += 1;
-		s1 += 1;
-		count += 1;
+		len1 = ft_strlen(s1);
+		len2 = ft_strlen(s2);
+		str = (char*)malloc(sizeof(char) * (len1 + len2 + 1));
+		if (str == NULL)
+			return (NULL);
+		i = -1;
+		while (s1[++i])
+			str[i] = s1[i];
+		i = -1;
+		while (s2[++i])
+		{
+			str[len1] = s2[i];
+			len1++;
+		}
+		str[len1] = '\0';
+		return (str);
 	}
-	while (*s2 != '\0')
-	{
-		*join = *s2;
-		join += 1;
-		s2 += 1;
-		count += 1;
-	}
-	*join = '\0';
-	return (join - count);
+	return (NULL);
 }
 
 void	ft_take_min(t_print **print)
