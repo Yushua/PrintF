@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/07 22:27:56 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/13 18:52:23 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/14 19:39:13 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void		struct_zero(t_print **print)
 	(*print)->pre = 0;
 }
 
-char	*ft_fill_w_null(t_print **print)
+char		*ft_fill_w_null(t_print **print)
 {
 	char	*str;
 

@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/10 15:01:08 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/13 22:24:58 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/14 19:47:07 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void		ft_write_string_1(t_print **print)
 	}
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char		*ft_strjoin(char *s1, char *s2)
 {
 	int		i;
 	int		len1;
@@ -56,7 +56,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	return (NULL);
 }
 
-void	ft_take_min(t_print **print)
+void		ft_take_min(t_print **print)
 {
 	int	i;
 	int	j;
@@ -72,7 +72,7 @@ void	ft_take_min(t_print **print)
 	(*print)->input_str[i] = '\0';
 }
 
-char	*a_to_a(t_print **print)
+char		*a_to_a(t_print **print)
 {
 	char	*str;
 	int		i;

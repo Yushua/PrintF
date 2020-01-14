@@ -6,7 +6,7 @@
 /*   By: ybakker <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 14:54:52 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/14 19:26:03 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/14 19:49:09 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@
 */
 
 #define	INPUT "char: %c | str: %s | ptr: %p | int: %d | uit: %u | hex: %x | Hex: %X | epc: %%", c, str, &ptr, i, ui, hex, hhex
-#define QUEST "%.0x", 00
-#define QUEST1 "%.x", 00
+#define QUEST "%X", 4294967295
+#define QUEST1 "%x", 0
 #define QUEST2 "%5.0x", 0
 #define QUEST3 "%5.x", 0
 int     main(void)

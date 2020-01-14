@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/02 15:19:07 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/11 23:02:22 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/14 19:39:42 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ void		ft_write_pro(t_print **print)
 	}
 }
 
-char		*ft_fill_z_s(long nb) //malloc string with 0 in them
+char		*ft_fill_z_s(long nb)
 {
 	char	*str;
 	int		i;

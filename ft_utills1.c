@@ -6,13 +6,13 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/10 15:01:08 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/11 22:32:31 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/14 19:38:52 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int			ft_save_nb(t_print **print, int i, const char *format) //saves the number and puts it in width_nb
+int			ft_save_nb(t_print **print, int i, const char *format)
 {
 	int		e;
 	char	*nb;
@@ -41,7 +41,7 @@ int			ft_save_nb(t_print **print, int i, const char *format) //saves the number 
 	return (i);
 }
 
-char		*nwstr(void) //malloc 0 string with nul in it
+char		*nwstr(void)
 {
 	char	*w_fd;
 
@@ -52,7 +52,7 @@ char		*nwstr(void) //malloc 0 string with nul in it
 	return (w_fd);
 }
 
-char		*ft_empty_str(long nb) //malloc string filled with nothing
+char		*ft_empty_str(long nb)
 {
 	char	*str;
 	int		i;
@@ -70,7 +70,7 @@ char		*ft_empty_str(long nb) //malloc string filled with nothing
 	return (str);
 }
 
-size_t	ft_strlen(char *s)
+size_t		ft_strlen(char *s)
 {
 	size_t i;
 
