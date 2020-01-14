@@ -6,7 +6,7 @@
 /*   By: ybakker <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 14:54:52 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/13 22:13:06 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/14 19:26:03 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,41 +31,41 @@
 */
 
 #define	INPUT "char: %c | str: %s | ptr: %p | int: %d | uit: %u | hex: %x | Hex: %X | epc: %%", c, str, &ptr, i, ui, hex, hhex
-#define QUEST "this %x number", 15 //smaller than 16
-#define QUEST1 "this %x number", 17
-// #define QUEST2 "%-5.0i", 0
-// #define QUEST3 "%-5.i", 0
+#define QUEST "%.0x", 00
+#define QUEST1 "%.x", 00
+#define QUEST2 "%5.0x", 0
+#define QUEST3 "%5.x", 0
 int     main(void)
 {
 	// test 426
-	ft_printf("own\n");
+	ft_printf("own0\n");
 	ft_printf(QUEST);
 	printf("|\nprintf\n");
 	printf(QUEST);
 	printf("|\n");
-	// ft_printf("own\n");
-	// ft_printf(QUEST1);
-	// printf("|\n");
-	// printf("printf\n");
-	// printf(QUEST1);
-	// printf("|");
-	// printf("\n");
-	// ft_printf("own\n");
-	// ft_printf("|");
-	// ft_printf(QUEST2);
-	// printf("|\n");
-	// printf("printf\n|");
-	// printf(QUEST2);
-	// printf("|");
-	// printf("\n");
-	// ft_printf("own\n");
-	// ft_printf("|");
-	// ft_printf(QUEST3);
-	// printf("|\n");
-	// printf("printf\n|");
-	// printf(QUEST3);
-	// printf("|");
-	// printf("\n");
+	ft_printf("own1\n");
+	ft_printf(QUEST1);
+	printf("|\n");
+	printf("printf\n");
+	printf(QUEST1);
+	printf("|");
+	printf("\n");
+	ft_printf("own2\n");
+	ft_printf("|");
+	ft_printf(QUEST2);
+	printf("|\n");
+	printf("printf\n|");
+	printf(QUEST2);
+	printf("|");
+	printf("\n");
+	ft_printf("own3\n");
+	ft_printf("|");
+	ft_printf(QUEST3);
+	printf("|\n");
+	printf("printf\n|");
+	printf(QUEST3);
+	printf("|");
+	printf("\n");
 	return (0);
 }
 //	if (width >= (*print)->width_str)

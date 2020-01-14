@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/22 14:44:47 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/10 10:12:44 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/11 15:16:03 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,23 +24,19 @@ void		ft_flag_str(t_print **print)
 	str_p = (*print)->flag_str_pre;
 	s = ft_strlen(str);
 	p = ft_strlen(str_p);
-	width = (*print)->width_nb;
-	if ((*print)->width_nb < -1)
-		(*print)->width_nb = -1;
-	if ((*print)->width_nb == -1)
-		(*print)->input_str = NULL;
-		printf("|%s.|\n", (*print)->input_str );
-	else if (s == 0 && p == 0)
-		(*print)->input_str = NULL;
-	else if (s > p)
-		(*print)->input_str = str;
-	else
+	width = 0;
+	if (str == NULL)
 	{
-		if ((*print)->min == 1)
-			(*print)->flag_str = ft_flag_min(print, width);
-		else if ((*print)->min != 1)
-			(*print)->flag_str = ft_flag_no(s, p, print, width);
+		(*print)->flag_str = (*print)->flag_str_pre;
+		str = (*print)->flag_str_pre;
+		width = ft_strlen(str);
 	}
+	if (str_p == NULL)
+		(*print)->flag_str = str;
+	else if ((*print)->min == 1)
+		(*print)->flag_str = ft_flag_min(print, width);
+	else if ((*print)->min != 1)
+		(*print)->flag_str = ft_flag_no(s, p, print, width);
 }
 
 char		*ft_flag_min(t_print **print, long width)
@@ -67,14 +63,18 @@ char		*ft_flag_no(long s, long p, t_print **print, long width)
 
 	str = (*print)->flag_str;
 	str_p = (*print)->flag_str_pre;
+	if (width == 0)
+	{
+		width = p;
+		width--;
+	}
 	if (p == 0)
 		return (str);
-	while (s != 0)
+	while (s != 0 && str_p[width] != '\0')
 	{
-		str[p] = str_p[width];
-		p -= 1;
+		str[s] = str_p[width];
+		s -= 1;
 		width -= 1;
 	}
 	return (str);
 }
-

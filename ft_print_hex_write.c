@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/13 21:51:18 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/13 21:53:14 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/14 19:31:48 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,28 @@ void		ft_write_hex(t_print **print)
 	p = (*print)->p_width;
 	s = ft_strlen((*print)->input_str);
 	w = (*print)->w_width;
-	if ((*print)->neg < 0)
-		ft_take_min(print);
-	if (p < s)
-		p = s;
-	ft_att_z(print, p, s);
-	if (w < s || w == 0)
-		w = s;
-	if (s == 0)
+	if ((*print)->zero == 1 && w > 0 && (*print)->pre != 1 && (*print)->neg != 0)
+		(*print)->input_str = ft_exemption1(print, w);
+	if ((*print)->input_str[0] == '0' && (*print)->input_str[1] == '\0' && p == 0 && w == 0)
 		(*print)->input_str = NULL;
-	if ((*print)->min == 1)
-		(*print)->input_str = ft_int_min(s, w, print);
-	else if ((*print)->min != 1)
-		(*print)->input_str = ft_int_no(s, w, print, p);
+	else if ((*print)->input_str[0] == '0' && (*print)->input_str[1] == '\0' && p == -1 && w == 0 && (*print)->pre == 1)
+		(*print)->input_str = NULL;
+	else
+	{
+		if (p < s)
+			p = s;
+		ft_att_z(print, p, s);
+		if (s < p)
+			s = p;
+		if (w < s || w == 0)
+			w = s;
+		if (s == 0)
+			(*print)->input_str = NULL;
+		if ((*print)->min == 1)
+			(*print)->input_str = ft_hex_min(s, w, print);
+		else if ((*print)->min != 1)
+			(*print)->input_str = ft_hex_no(s, w, print, p);
+	}
 }
 
 char		*ft_hex_no(long s, int w, t_print **print, long p)

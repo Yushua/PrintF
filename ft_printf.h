@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 16:10:06 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/13 22:23:56 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/14 17:38:04 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	ft_print_cc(t_print **print, va_list ap);
 void	ft_print_s(t_print **print, va_list ap);
 void	ft_print_i(t_print **print, va_list ap, int i);
 void	ft_print_u(t_print **print, va_list ap);
-void	ft_print_x(t_print **print, va_list ap, int i);
+void	ft_print_x(t_print **print, va_list ap);
 void	ft_print_p(t_print **print, va_list ap);
 void	ft_write_string_1(t_print **print);
 char	*ft_fill_z_s(long nb);
@@ -78,9 +78,9 @@ void	ft_write_str(t_print **print);
 char	*ft_str_min(long s, t_print **print);
 char	*ft_str_no(long s, t_print **print, long p);
 
-char	*ft_hex(long i, long j, t_print **print);
-char	*ft_hex_two(char *str, t_print **print, long j, long i);
-char	ft_turn_hex(long remain, t_print **print);
+char	*ft_hex(unsigned long, unsigned long j, t_print **print);
+char	*ft_hex_two(char *str, t_print **print, unsigned long j, unsigned long i);
+char	ft_turn_hex(unsigned long remain, t_print **print);
 
 int		ft_atoi(const char *str);
 size_t	ft_strlen(char *s);

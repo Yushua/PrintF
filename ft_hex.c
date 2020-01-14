@@ -6,16 +6,18 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/03 15:30:09 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/13 22:25:15 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/14 19:19:41 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_hex(long i, long j, t_print **print)
+#define LOWER_HEX "0123456789abcdef"
+
+char	*ft_hex(unsigned long i, unsigned long j, t_print **print)
 {
-	long		nb;
-	char		*str;
+	unsigned long	nb;
+	char			*str;
 
 	nb = i;
 	if (i <= 16)
@@ -23,13 +25,13 @@ char	*ft_hex(long i, long j, t_print **print)
 	else
 	{
 		nb = i;
-		while (i != 0)
+		while (i > 0)
 		{
 			i = i / 16;
 			j++;
 		}
 	}
-	str = ((char *)malloc(j * sizeof(char)));
+	str = (char *)malloc(sizeof(char) * (j + 1));
 	if (str == NULL)
 		return (NULL);
 	i = nb;
@@ -37,10 +39,10 @@ char	*ft_hex(long i, long j, t_print **print)
 	return (str);
 }
 
-char	*ft_hex_two(char *str, t_print **print, long j, long i)
+char	*ft_hex_two(char *str, t_print **print, unsigned long j, unsigned long i)
 {
-	long		jj;
-	long		remain;
+	unsigned long		jj;
+	unsigned long		remain;
 
 	jj = 0;
 	if ((*print)->convergence == 'p')
@@ -49,53 +51,48 @@ char	*ft_hex_two(char *str, t_print **print, long j, long i)
 		jj++;
 		str[jj] = 'x';
 		jj++;
+		j += 2;
 	}
+	j--;
+	if (i <= 16)
+		str[j] = LOWER_HEX[i];
 	else
-		jj++;
-	while (i > 0)
 	{
-		j -= 1;
-		remain = i % 16;
-		i = i / 16;
-		str[jj] = ft_turn_hex(remain, print);
-		jj -= 1;
+		while (i != 0)
+		{
+			remain = i % 16;
+			i = i / 16;
+			str[j] = LOWER_HEX[remain];
+			j--;
+		}
 	}
 	return (str);
 }
 
-char	ft_turn_hex(long remain, t_print **print)
+void	ft_print_x(t_print **print, va_list ap)
 {
-	char	c;
-	char	con;
-
-	con = (*print)->convergence;
-	if (remain >= 0 && remain <= 9)
-		c = (remain + '0');
-	else if (con == 'x' || con == 'p')
-		c = (remain + 'a' - 10);
-	else
-		c = (remain + 'A' - 10);
-	return (c);
-}
-
-void	ft_print_x(t_print **print, va_list ap, int i)
-{
-	int		j;
+	unsigned long	j;
+	unsigned long	i;
 
 	j = 0;
 	i = (va_arg(ap, unsigned long));
 	(*print)->input_str  = ft_hex(i, j, print);
-	if ((*print)->convergence == 'X')
-	{
-		(*print)->input_str = a_to_a(print);
-	}
 	ft_write_hex(print);
+	// if ((*print)->convergence == 'X')
+	// {
+	// 	i = 'X' - 'x';
+	// 	while ((*print)->input_str[j] != '\0')
+	// 	{
+	// 		(*print)->input_str[j] = (*print)->input_str[j] - i;
+	// 		j++;
+	// 	}
+	// }
 	ft_write_string_1(print);
 }
 
 void	ft_print_p(t_print **print, va_list ap)
 {
-	int				j;
+	unsigned long	j;
 	unsigned long	ii;
 	char			*str;
 

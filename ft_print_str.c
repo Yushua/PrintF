@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/17 15:38:38 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/13 21:25:57 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/14 17:39:17 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_save_input(t_print **print, va_list ap, int i)
 	else if (c == 'p')
 		ft_print_p(print, ap);
 	else if (c == 'x' || c == 'X')
-		ft_print_x(print, ap, i);
+		ft_print_x(print, ap);
 }
 
 void	ft_print_c(t_print **print, va_list ap)
