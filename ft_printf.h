@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 16:10:06 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/15 18:48:58 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/15 20:50:16 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int		ft_printf(const char *format, ...);
 int		ft_printf_check(const char *format, va_list ap);
 char	ft_convergence(t_print **print, int i, const char *format);
 char	*ft_long_itoa(unsigned long i);
-void	ft_destruct_free(t_print **print);
+void	ft_destruct_free(t_print *print);
 
 void	ft_print_f(t_print **print, va_list ap, int i, const char *format);
 void	ft_min_zero(t_print **print, int i, const char *format);
@@ -62,7 +62,6 @@ void	ft_precision_nb(t_print **print, int i, const char *format,
 
 void	ft_save_input(t_print **print, va_list ap, int i);
 void	ft_print_c(t_print **print, va_list ap);
-void	ft_print_cc(t_print **print, va_list ap);
 void	ft_print_s(t_print **print, va_list ap);
 void	ft_print_i(t_print **print, va_list ap, int i);
 void	ft_print_u(t_print **print, va_list ap);
@@ -81,7 +80,7 @@ char	*ft_str_no(long s, t_print **print, long p);
 
 char	*ft_hex(unsigned long i, unsigned long j, t_print **print);
 char	*ft_hex_two(char *str, t_print **print, unsigned long j, unsigned long i);
-char	ft_turn_hex(unsigned long remain, t_print **print);
+char	ft_turn_hex(unsigned long i, unsigned long j, t_print **print);
 
 int		ft_atoi(const char *str);
 size_t	ft_strlen(char *s);

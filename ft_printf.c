@@ -6,7 +6,7 @@
 /*   By: ybakker <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/05 13:47:11 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/11 21:02:32 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/15 20:49:26 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,17 +71,17 @@ char			ft_convergence(t_print **print, int i, const char *format)
 	return ('\0');
 }
 
-void		ft_destruct_free(t_print **print)
+void		ft_destruct_free(t_print *print)
 {
-	free((*print)->flag_str);
-	free((*print)->null);
-	free((*print)->input_str);
+	free(print->flag_str);
+	free(print->input_str);
+	free(print);
 }
 
 int				ft_printf_check(const char *format, va_list ap)
 {
-	long		i;
-	t_print		*print;
+	long				i;
+	t_print				*print;
 
 	print = (t_print *)malloc(sizeof(t_print));
 	if (print == NULL)
@@ -105,6 +105,6 @@ int				ft_printf_check(const char *format, va_list ap)
 		}
 		struct_zero(&print);
 	}
-	ft_destruct_free(&print);
+	ft_destruct_free(print);
 	return (print->len);
 }

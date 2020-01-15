@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/14 14:05:35 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/15 18:40:58 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/15 20:39:10 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void		ft_precision_nb(t_print **print, int i, const char *format,  va_list ap)
 {
 	long	nb;
 
-	i++;//after presicion
+	i++;
 	if (format[i] == (*print)->convergence)
 		(*print)->error = -1;
 	else if (format[i] == '*')

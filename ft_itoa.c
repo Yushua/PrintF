@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.42.fr>              +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/09 14:18:07 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/07 22:50:45 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/15 19:15:12 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char		*ft_itoa(int n)
 	l = ft_len(nn);
 	if (l == 0)
 		l = 1;
-	str = (char *)malloc((l + 1) * sizeof(char));
+	str = (char *)malloc(sizeof(char) * (l + 1));
 	if (!str)
 		return (NULL);
 	str[l] = '\0';

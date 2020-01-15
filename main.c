@@ -6,7 +6,7 @@
 /*   By: ybakker <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 14:54:52 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/15 18:46:38 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/15 19:41:47 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,52 +30,37 @@
 ** - = takes it on the left instead on the right
 */
 	
-// #define	INPUT "char: %c | str: %s | ptr: %p | int: %d | uit: %u | hex: %x | Hex: %X | epc: %%", c, str, &ptr, i, ui, hex, hhex
-#define QUEST "%0*i", -7, -54
-#define QUEST1 "Kashim a %c histoires à raconter", 1001
-// #define QUEST2 "%2.p", NULL
-// #define QUEST3 "%5.x", 0
+#define	INPUT "char: %c | str: %s | ptr: %p | int: %d | uit: %u | Hex: %X | hex: %x | epc: %%", c, str, &ptr, i, ui, hex, hhex
+// #define QUEST "%0*i", -7, -54
 int     main(void)
 {
-	// test 426
+	char			c;
+	char			*str;
+	int				ptr;
+	int				i;
+	unsigned int	ui;
+	int				hex;
+	int				hhex;
+
+	c = 'g';
+	str = "he";
+	ptr = 123;
+	i = 31415;
+	ui = -10;
+	hex = 276447232;
+	hhex = 276447232;
 	ft_printf("own\n");
-	ft_printf(QUEST);
+	ft_printf(INPUT);
 	printf("|\nprintf\n");
-	printf(QUEST);
+	printf(INPUT);
 	printf("|\n");
-	ft_printf("own0\n");
-	ft_printf(QUEST1);
-	printf("|\nprintf\n");
-	printf(QUEST1);
-	printf("|\n");
-	// ft_printf("own1\n");
-	// ft_printf(QUEST1);
-	// printf("|\n");
-	// printf("printf\n");
-	// printf(QUEST1);
-	// printf("|");
-	// printf("\n");
-	// ft_printf("own2\n");
-	// ft_printf("|");
-	// ft_printf(QUEST2);
-	// printf("|\n");
-	// printf("printf\n|");
-	// printf(QUEST2);
-	// printf("|");
-	// printf("\n");
-	// ft_printf("own3\n");
-	// ft_printf("|");
-	// ft_printf(QUEST3);
-	// printf("|\n");
-	// printf("printf\n|");
-	// printf(QUEST3);
-	// printf("|");
-	// printf("\n");
+	while (i)
+	{
+		hex = 0;
+	}
 	return (0);
+
 }
-//	if (width >= (*print)->width_str)
-//		width = (*print)->width_str;
-//everytime you write you increase th len
 
 //gcc libft/*.c *.c -g -fsanitize=address
 //gcc *.c -g
@@ -88,25 +73,7 @@ printf("|input|%s|\n", (*print)->input_str);
 printf("|empty|%s|\n", (*print)->flag_str);
 
 //printf("%s|\n|", (*print)->input_str);
- */
 
-	//printf("hello \n");
-	//ft_printf("hello\n");
-	//printf("%.3i\n%3.i\n%3.3i%.03i\n", 10, 10, 10, 10);
-	//printf("precision1\n");
-	//printf("%-6i\n%-06.i\n%-*.20i\n%.20i\n", 10, 10, 5, 10, 10);
-	//printf("min\n");
-	//printf("%*.i\n", 10, 10); //first - and 0 then the rest
-	//printf("%-03.i\n", 10);
-	//printf("width, no more -, zero and numbers\n");
-	//printf("%01.10i\n", 10);// for min, check if ther ei somethign ebhind dot
-	//printf("%*i\n%*.20i\n\n%5.i\n%5.10i\n\n%5i\n", 10, 10, 10, 10, 10, 10, 10);
-	//ft_printf("%%\nhello\n", 10);
-	//ft_printf("%5.10i\n", 10, 10);
-	//ft_printf("%%\n");
-	//printf("%c", "a");
-	//ft_printf("%c", "a");
-/*
 	char			c;
 	char			*str;
 	int				ptr;

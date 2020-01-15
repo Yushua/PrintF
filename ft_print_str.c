@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/17 15:38:38 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/15 18:48:23 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/15 20:41:12 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ void	ft_save_input(t_print **print, va_list ap, int i)
 	if (c == 'c')
 		ft_print_c(print, ap);
 	else if (c == '%')
-		ft_print_cc(print, ap);
+	{
+		ft_write_pro(print);
+		ft_write_string_1(print);		
+	}
 	else if (c == 's')
 		ft_print_s(print, ap);
 	else if (c == 'i' || c == 'd')
@@ -59,12 +62,6 @@ void	ft_print_c(t_print **print, va_list ap)
 		write(1, &c, 1);
 		(*print)->len++;
 	}
-}
-
-void	ft_print_cc(t_print **print, va_list ap)
-{
-	ft_write_pro(print);
-	ft_write_string_1(print);
 }
 
 void	ft_print_s(t_print **print, va_list ap)
