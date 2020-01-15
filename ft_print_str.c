@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/17 15:38:38 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/14 17:39:17 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/15 18:48:23 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,29 @@ void	ft_save_input(t_print **print, va_list ap, int i)
 void	ft_print_c(t_print **print, va_list ap)
 {
 	char	c;
+	int		w;
+	int		i;
 
-	(*print)->input_str = NULL;
+	i = (*print)->min;
+	w = (*print)->w_width;
 	c = (va_arg(ap, int));
-	write(1, &c, 1);
-	(*print)->len++;
+	w--;
+	if (i == 1)
+	{
+		write(1, &c, 1);
+		(*print)->len++;
+	}
+	while (w > 0)
+	{
+		write(1, " ", 1);
+		(*print)->len++;
+		w--;
+	}
+	if (i == 0)
+	{
+		write(1, &c, 1);
+		(*print)->len++;
+	}
 }
 
 void	ft_print_cc(t_print **print, va_list ap)

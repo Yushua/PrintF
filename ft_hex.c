@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/03 15:30:09 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/14 19:51:04 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/15 16:40:46 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,8 +98,9 @@ void	ft_print_p(t_print **print, va_list ap)
 	char			*str;
 
 	j = 0;
-	ii = *(va_arg(ap, unsigned long *));
+	ii = va_arg(ap, unsigned long);
+	(*print)->ii = ii;
 	(*print)->input_str = ft_hex(ii, j, print); //changed str to (*print)->input_str
-	ft_write_hex(print);
+	ft_write_p(print);
 	ft_write_string_1(print);
 }

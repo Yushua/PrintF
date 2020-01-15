@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/13 16:27:34 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/13 18:50:40 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/15 18:52:39 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,10 @@ void		ft_find_flag(t_print **print, va_list ap, int i, const char *format)
 	{
 		(*print)->positive = 1;
 		(*print)->width_nb = (va_arg(ap, int));
-		if ((*print)->width_nb <= 0)
+		if ((*print)->width_nb < 0)
 		{
 			(*print)->min = 1;
+			(*print)->zero = 0;
 			(*print)->width_nb *= -1;
 		}
 		(*print)->w_width = (*print)->width_nb;

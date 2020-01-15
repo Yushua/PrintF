@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 16:10:06 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/14 17:38:04 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/15 18:48:58 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct	s_print
 	int			error;
 	int			neg;
 	int			pre;
+	int			ii;
 }				t_print;
 
 int		ft_printf(const char *format, ...);
@@ -78,7 +79,7 @@ void	ft_write_str(t_print **print);
 char	*ft_str_min(long s, t_print **print);
 char	*ft_str_no(long s, t_print **print, long p);
 
-char	*ft_hex(unsigned long, unsigned long j, t_print **print);
+char	*ft_hex(unsigned long i, unsigned long j, t_print **print);
 char	*ft_hex_two(char *str, t_print **print, unsigned long j, unsigned long i);
 char	ft_turn_hex(unsigned long remain, t_print **print);
 
@@ -106,5 +107,12 @@ void	ft_write_hex(t_print **print);
 char	*ft_hex_no(long s, int w, t_print **print, long p);
 char	*ft_hex_min(long s, int w, t_print **print);
 char	*a_to_a(t_print **print);
+
+void	ft_write_p(t_print **print);
+char	*ft_p_no(long s, int w, t_print **print, long p);
+char	*ft_p_min(long s, int w, t_print **print);
+
+char	*ft_strdup(char *s1);
+size_t	ft_strlcpy(char *dst, char *src, size_t dstsize);
 
 #endif

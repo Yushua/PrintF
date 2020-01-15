@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/02 15:19:07 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/14 19:39:42 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/15 18:42:39 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,22 @@
 void		ft_write_str(t_print **print)
 {
 	int		s;
-	int 	p;
+	int		p;
 	int		e;
 
-	if ((*print)->convergence == 'i')
-		(*print)->error = 0;
 	s = ft_strlen((*print)->input_str);
 	p = (*print)->p_width;
-	if (s == 0)
+	if (s == 0 || (p == -1 && (*print)->pre == 1))
 		(*print)->input_str = NULL;
+	s = ft_strlen((*print)->input_str);
+	if ((*print)->pre < 0)
+		p = s;
 	else if (s > p && p != -1)
 		s = p;
 	if ((*print)->min == 1)
 		(*print)->input_str = ft_str_min(s, print);
 	else if ((*print)->min != 1)
 		(*print)->input_str = ft_str_no(s, print, p);
-	if ((*print)->error == -1)
-		(*print)->input_str = NULL;
 }
 
 char		*ft_str_min(long s, t_print **print)
@@ -62,9 +61,7 @@ char		*ft_str_no(long s, t_print **print, long p)
 
 	i = 0;
 	w = (*print)->w_width;
-	if (w == 0 && s > 0 && (*print)->p_width == -1)
-		return ((*print)->input_str);
-	else if (w == 0)
+	if (w == 0)
 		w = s;
 	if ((*print)->zero == 1)
 		(*print)->flag_str = ft_fill_z_s(w);
@@ -72,7 +69,7 @@ char		*ft_str_no(long s, t_print **print, long p)
 		(*print)->flag_str = ft_empty_str(w);
 	if (w < s)
 		return ((*print)->input_str);
-	else if ((*print)->error == -1)
+	else if ((*print)->error == -1 || (*print)->input_str == NULL)
 		return ((*print)->flag_str);
 	w = w - s;
 	while (i != s && (*print)->input_str[i] != '\0' &&
