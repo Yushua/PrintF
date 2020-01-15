@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 16:10:06 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/15 20:50:16 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/15 23:38:15 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ typedef struct	s_print
 	int			min;
 	int			zero;
 	char		*flag_str;
-	char		*null;
 	char		*input_str;
+	char		*input_str_2;
 	int			width_nb;
 	int			precision;
 	int			positive;
@@ -55,7 +55,7 @@ void	ft_find_nb(t_print **print, int i, const char *format, va_list ap);
 
 void	struct_zero(t_print **print);
 char	*ft_empty_str(long nb);
-int		ft_save_nb(t_print **print, int i, const char *format);
+void	ft_save_nb(t_print **print, int i, const char *format);
 
 void	ft_precision_nb(t_print **print, int i, const char *format,
 			va_list ap);

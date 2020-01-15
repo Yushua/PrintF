@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/13 21:51:18 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/15 20:39:09 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/16 00:12:03 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void		ft_write_hex(t_print **print)
 		else if ((*print)->min != 1)
 			(*print)->input_str = ft_hex_no(s, w, print, p);
 	}
+	free((*print)->flag_str);
 }
 
 char		*ft_hex_no(long s, int w, t_print **print, long p)

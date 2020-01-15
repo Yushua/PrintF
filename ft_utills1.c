@@ -6,13 +6,13 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/10 15:01:08 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/15 20:39:03 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/16 00:21:15 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int			ft_save_nb(t_print **print, int i, const char *format)
+void			ft_save_nb(t_print **print, int i, const char *format)
 {
 	int		e;
 	char	*nb;
@@ -28,17 +28,18 @@ int			ft_save_nb(t_print **print, int i, const char *format)
 		i++;
 	}
 	nb = ((char *)malloc(j * sizeof(char)));
-	if (nb == NULL)
-		return (0);
+	e = j;
 	j = 0;
-	while (format[b] >= '0' && format[b] <= '9')
+	while (e != -1)
 	{
 		nb[j] = format[b];
 		j++;
 		b++;
+		e--;
 	}
 	(*print)->width_nb = ft_atoi(nb);
-	return (i);
+	nb = NULL;
+	free(nb);
 }
 
 char		*nwstr(void)

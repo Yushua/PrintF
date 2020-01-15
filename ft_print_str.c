@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/17 15:38:38 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/15 20:41:12 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/15 23:23:59 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_save_input(t_print **print, va_list ap, int i)
 	else if (c == '%')
 	{
 		ft_write_pro(print);
-		ft_write_string_1(print);		
+		ft_write_string_1(print);
 	}
 	else if (c == 's')
 		ft_print_s(print, ap);

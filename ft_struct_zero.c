@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/07 22:27:56 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/15 20:39:05 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/15 22:04:50 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void		struct_zero(t_print **print)
 	(*print)->min = 0;
 	(*print)->zero = 0;
 	(*print)->flag_str = NULL;
-	(*print)->null = NULL;
 	(*print)->input_str = NULL;
+	(*print)->input_str_2 = NULL;
 	(*print)->width_nb = 0;
 	(*print)->precision = 0;
 	(*print)->positive = 0;

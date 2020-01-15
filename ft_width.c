@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/13 16:27:34 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/15 20:38:56 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/15 23:38:34 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,8 @@ void		ft_find_nb(t_print **print, int i, const char *format, va_list ap)
 	if (format[i] >= '1' && format[i] <= '9')
 	{
 		(*print)->positive = 1;
-		i = ft_save_nb(print, i, format);
+		ft_save_nb(print, i, format);
 		(*print)->w_width = (*print)->width_nb;
 		(*print)->width_nb = 0;
-		i++;
 	}
 }

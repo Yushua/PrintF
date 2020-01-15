@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/02 15:19:07 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/15 20:39:15 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/15 22:36:50 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void		ft_write_str(t_print **print)
 		(*print)->input_str = ft_str_min(s, print);
 	else if ((*print)->min != 1)
 		(*print)->input_str = ft_str_no(s, print, p);
+	free((*print)->flag_str);
 }
 
 char		*ft_str_min(long s, t_print **print)

@@ -6,7 +6,7 @@
 /*   By: ybakker <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 14:54:52 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/15 19:41:47 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/16 00:22:27 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@
 ** - = takes it on the left instead on the right
 */
 	
-#define	INPUT "char: %c | str: %s | ptr: %p | int: %d | uit: %u | Hex: %X | hex: %x | epc: %%", c, str, &ptr, i, ui, hex, hhex
-// #define QUEST "%0*i", -7, -54
+// #define	INPUT "Hex: %X | hex: %x | epc: %%", hex, hhex
+#define INPUT "|%3i|%-3i|\n", 42, 42
 int     main(void)
 {
 	char			c;
@@ -47,21 +47,21 @@ int     main(void)
 	ptr = 123;
 	i = 31415;
 	ui = -10;
-	hex = 276447232;
-	hhex = 276447232;
+	hex = 276447232u;
+	hhex = 276447232u;
 	ft_printf("own\n");
 	ft_printf(INPUT);
-	printf("|\nprintf\n");
+	printf("\nown\n");
 	printf(INPUT);
-	printf("|\n");
+	printf("\n");
 	while (i)
 	{
 		hex = 0;
 	}
 	return (0);
-
 }
 
+//		printf("\n|%i|\n|", (*print)->width_nb);
 //gcc libft/*.c *.c -g -fsanitize=address
 //gcc *.c -g
 //gcc *.c -g -fsanitize=address
