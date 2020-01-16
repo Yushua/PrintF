@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/13 21:51:18 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/16 00:12:03 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/16 22:30:43 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ void		ft_write_hex(t_print **print)
 			(*print)->input_str = ft_hex_min(s, w, print);
 		else if ((*print)->min != 1)
 			(*print)->input_str = ft_hex_no(s, w, print, p);
+		free((*print)->flag_str);
 	}
-	free((*print)->flag_str);
 }
 
 char		*ft_hex_no(long s, int w, t_print **print, long p)
@@ -62,6 +62,7 @@ char		*ft_hex_no(long s, int w, t_print **print, long p)
 		s--;
 		w--;
 	}
+	free((*print)->input_str);
 	return ((*print)->flag_str);
 }
 
@@ -81,5 +82,6 @@ char		*ft_hex_min(long s, int w, t_print **print)
 		(*print)->flag_str[i] = (*print)->input_str[i];
 		i++;
 	}
+	free((*print)->input_str);
 	return ((*print)->flag_str);
 }

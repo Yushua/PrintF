@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/10 15:01:08 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/16 00:21:15 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/16 20:56:53 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void			ft_save_nb(t_print **print, int i, const char *format)
 		e--;
 	}
 	(*print)->width_nb = ft_atoi(nb);
-	nb = NULL;
 	free(nb);
 }
 

@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/10 15:01:08 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/15 23:21:21 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/16 21:22:24 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void		ft_att_z(t_print **print, int p, int s)
 		i++;
 		p++;
 	}
+	free((*print)->input_str);
 	(*print)->input_str = str;
 }
 

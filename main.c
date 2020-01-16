@@ -6,7 +6,7 @@
 /*   By: ybakker <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 14:54:52 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/16 00:22:27 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/16 22:50:01 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,27 +31,31 @@
 */
 	
 // #define	INPUT "Hex: %X | hex: %x | epc: %%", hex, hhex
-#define INPUT "|%3i|%-3i|\n", 42, 42
+#define INPUT "%-70p%-70p%-70p%-70p%-70p%-70p%-70p%-70p%-70p%-70p%-70p%-70p",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10,&a11,&a12
+
 int     main(void)
 {
-	char			c;
-	char			*str;
-	int				ptr;
+	static char	a01;
+	static unsigned char a02;
+	static short a03;
+	static unsigned short a04;
+	static int a05;
+	static unsigned int a06;
+	static long a07;
+	static unsigned long a08;
+	static long long a09;
+	static unsigned long long a10;
+	static char *a11;
+	static void *a12;
 	int				i;
-	unsigned int	ui;
 	int				hex;
-	int				hhex;
 
-	c = 'g';
-	str = "he";
-	ptr = 123;
 	i = 31415;
-	ui = -10;
-	hex = 276447232u;
-	hhex = 276447232u;
+	hex = 276447232;
+
 	ft_printf("own\n");
 	ft_printf(INPUT);
-	printf("\nown\n");
+	printf("\nprintf\n");
 	printf(INPUT);
 	printf("\n");
 	while (i)

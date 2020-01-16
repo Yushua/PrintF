@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/10 15:01:08 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/15 22:28:56 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/16 22:34:45 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,9 @@ void		ft_write_string_1(t_print **print)
 	long	i;
 
 	i = 0;
-	str = (*print)->input_str;
-	while (str != NULL && str[i] != '\0')
+	while ((*print)->input_str != NULL && (*print)->input_str[i] != '\0')
 	{
-		write(1, &str[i], 1);
+		write(1, &(*print)->input_str[i], 1);
 		i++;
 		(*print)->len++;
 	}

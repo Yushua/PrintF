@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/03 15:30:09 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/15 20:50:47 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/16 22:20:00 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ char	*ft_hex(unsigned long i, unsigned long j, t_print **print)
 	nb = i;
 	if (i <= 16)
 		j++;
-	else
+	if (i > 16)
 	{
 		nb = i;
 		while (i > 0)
@@ -67,7 +67,7 @@ char	*ft_hex(unsigned long i, unsigned long j, t_print **print)
 			j++;
 		}
 	}
-	str = (char *)malloc(sizeof(char) * (j + 1));
+	str = (char *)ft_calloc(j, sizeof(char));
 	if (str == NULL)
 		return (NULL);
 	i = nb;
@@ -91,7 +91,9 @@ char	*ft_hex_two(char *str, t_print **print, unsigned long j, unsigned long i)
 	}
 	j--;
 	if (i <= 16)
+	{
 		str[j] = LOWER_HEX[i];
+	}
 	else
 	{
 		while (i != 0)

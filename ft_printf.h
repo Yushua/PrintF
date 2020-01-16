@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 16:10:06 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/15 23:38:15 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/16 21:50:05 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdarg.h>
 # include <stdio.h>
 
+//make a struct like a cache and put str in there
 typedef struct	s_print
 {
 	int			end;
@@ -83,6 +84,7 @@ char	*ft_hex_two(char *str, t_print **print, unsigned long j, unsigned long i);
 char	ft_turn_hex(unsigned long i, unsigned long j, t_print **print);
 
 int		ft_atoi(const char *str);
+void	*ft_calloc(size_t count, size_t size);
 size_t	ft_strlen(char *s);
 char	*ft_itoa(int n);
 
