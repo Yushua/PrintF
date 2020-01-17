@@ -6,7 +6,7 @@
 /*   By: ybakker <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/05 13:47:11 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/16 21:12:06 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/16 23:10:17 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,6 @@ char			ft_convergence(t_print **print, int i, const char *format)
 
 void		ft_destruct_free(t_print *print)
 {
-	print->flag_str = NULL;
-	print->input_str = NULL;
 	free(print->flag_str);
 	free(print->input_str);
 	free(print);

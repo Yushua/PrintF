@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/13 21:51:18 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/16 22:18:59 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/17 03:00:15 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,6 @@ char		*ft_p_min(long s, int w, t_print **print)
 		(*print)->flag_str[i] = (*print)->input_str[i];
 		i++;
 	}
-	free((*print)->input_str);
+	// free((*print)->input_str); //someting wrong?
 	return ((*print)->flag_str);
 }
