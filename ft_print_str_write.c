@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/02 15:19:07 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/17 02:47:25 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/18 16:45:47 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void		ft_write_str(t_print **print)
 		p = s;
 	else if (s > p && p != -1)
 		s = p;
+	if ((*print)->w_width < p && p != -1 && (*print)->input_str != '\0')
+		(*print)->w_width = s;
 	if ((*print)->min == 1)
 		(*print)->input_str = ft_str_min(s, print);
 	else if ((*print)->min != 1)
@@ -70,7 +72,7 @@ char		*ft_str_no(long s, t_print **print, long p)
 		(*print)->flag_str = ft_empty_str(w);
 	if (w < s)
 		return ((*print)->input_str);
-	else if ((*print)->error == -1 || (*print)->input_str == NULL)
+	if ((*print)->error == -1 || (*print)->input_str == NULL)
 		return ((*print)->flag_str);
 	w = w - s;
 	while (i != s && (*print)->input_str[i] != '\0' &&
@@ -82,6 +84,7 @@ char		*ft_str_no(long s, t_print **print, long p)
 	}
 	return ((*print)->flag_str);
 }
+
 
 void		ft_write_pro(t_print **print)
 {
@@ -97,13 +100,17 @@ void		ft_write_pro(t_print **print)
 	}
 	else
 	{
-		w--;
+		if (w != 0)
+			w--;
 		if ((*print)->zero == 1)
 			(*print)->input_str = ft_fill_z_s(w);
 		else
 			(*print)->input_str = ft_empty_str(w);
 		(*print)->input_str[w] = '%';
+		w++;
+		(*print)->input_str[w] = '\0';
 	}
+	free((*print)->input_str);
 }
 
 char		*ft_fill_z_s(long nb)

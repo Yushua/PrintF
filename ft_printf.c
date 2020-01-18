@@ -6,7 +6,7 @@
 /*   By: ybakker <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/05 13:47:11 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/16 23:10:17 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/18 15:17:33 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,13 @@ int				ft_printf(const char *format, ...)
 void			ft_print(t_print **print, va_list ap, int i, const char *format)
 {
 	i++;
+	if (format[i] == ' ')
+	{
+		while (format[i] == ' ')
+		{
+			i++;
+		}
+	}
 	if (format[i] == '%')
 	{
 		write(1, &format[i], 1);
