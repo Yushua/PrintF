@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 16:10:06 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/16 21:50:05 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/18 21:26:08 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct	s_print
 	int			zero;
 	char		*flag_str;
 	char		*input_str;
-	char		*input_str_2;
+	char		*null_str;
 	int			width_nb;
 	int			precision;
 	int			positive;

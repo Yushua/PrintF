@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/13 21:51:18 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/16 23:37:45 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/19 15:49:59 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,15 @@ void		ft_write_hex(t_print **print)
 	s = ft_strlen((*print)->input_str);
 	w = (*print)->w_width;
 	if ((*print)->input_str[0] == '0' && (*print)->input_str[1] == '\0' && p == 0 && w == 0)
+	{
+		free((*print)->input_str);
 		(*print)->input_str = NULL;
+	}
 	else if ((*print)->input_str[0] == '0' && (*print)->input_str[1] == '\0' && p == -1 && w == 0 && (*print)->pre == 1)
+	{
+		free((*print)->input_str);
 		(*print)->input_str = NULL;
+	}
 	else
 	{
 		if (p < s)

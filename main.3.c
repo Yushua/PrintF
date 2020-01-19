@@ -6,7 +6,7 @@
 /*   By: ybakker <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 14:54:52 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/18 17:11:14 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/19 17:02:15 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ int     main(void)
 	ft_printf("|");
 	printf("p4 %.5s\n", "aaaaa");
 	ft_printf("\n|");
-	ft_printf("p5 %.3d\n", 100);
-	ft_printf("|");
-	printf("p5 %.3d\n", 100);
-	ft_printf("\n|");
+	ft_printf("p5 %.3d\n", 100);//lea
+	ft_printf("|");//lea
+	printf("p5 %.3d\n", 100);//lea
+	ft_printf("\n|");//lea
 	ft_printf("p6 %.0d\n", 100);
 	ft_printf("|");
 	printf("p6 %.0d\n", 100);
@@ -71,10 +71,10 @@ int     main(void)
 	ft_printf("|");
 	printf("p11 %.3d\n", 100);
 	ft_printf("\n|");
-	ft_printf("p12 %.0d\n", 0);
-	ft_printf("|");
-	printf("p12 %.0d\n", 0);
-	ft_printf("\n|");
+	ft_printf("p12 %.0d\n", 0);//lea
+	ft_printf("|");//lea
+	printf("p12 %.0d\n", 0);//lea
+	ft_printf("\n|");//lea
 	ft_printf("p13 %.3i\n", 100);
 	ft_printf("|");
 	printf("p13 %.3i\n", 100);
@@ -103,10 +103,10 @@ int     main(void)
 	ft_printf("|");
 	printf("p19 %.3x\n", 100);
 	ft_printf("\n|");
-	ft_printf("p20 %.0x\n", 0);
-	ft_printf("|");
-	printf("p20 %.0x\n", 0);
-	ft_printf("\n|");
+	ft_printf("p20 %.0x\n", 0);//lea
+	ft_printf("|");//lea
+	printf("p20 %.0x\n", 0);//lea
+	ft_printf("\n|");//lea
 	ft_printf("p21 %.3x\n", 100);
 	ft_printf("|");
 	printf("p21 %.3x\n", 100);
@@ -135,10 +135,10 @@ int     main(void)
 	ft_printf("|");
 	printf("p27 %.3x\n", 100);
 	ft_printf("\n|");
-	ft_printf("p28 %.0x\n", 0);
-	ft_printf("|");
-	printf("p28 %.0x\n", 0);
-	ft_printf("\n|");
+	ft_printf("p28 %.0x\n", 0);//lea
+	ft_printf("|");//lea
+	printf("p28 %.0x\n", 0);//lea
+	ft_printf("\n|");//lea
 	ft_printf("p29 %.3u\n", 100);
 	ft_printf("|");
 	printf("p29 %.3u\n", 100);
@@ -167,11 +167,11 @@ int     main(void)
 	ft_printf("|");
 	printf("p35 %.3u\n", 100);
 	ft_printf("\n|");
-	ft_printf("p36 %.0u\n", 0);
-	ft_printf("|");
-	printf("p36 %.0u\n", 0);
-	ft_printf("\n|");
-	ft_printf("%%\n");
+	ft_printf("p36 %.0u\n", 0);//lea
+	ft_printf("|");//lea
+	printf("p36 %.0u\n", 0);//lea
+	ft_printf("\n|");//lea
+	ft_printf("%%\n");//lea
 	ft_printf("|");
 	printf("%%\n");
 	ft_printf("\n|");
@@ -199,33 +199,33 @@ int     main(void)
 	ft_printf("|");
 	printf("%x\n", 0);
 	ft_printf("\n|");
+	ft_printf("%-15x\n", 0);
+	ft_printf("|");
+	printf("%-15x\n", 0);
+	ft_printf("\n|");
 	ft_printf("%010x\n", 0);
 	ft_printf("|");
 	printf("%010x\n", 0);
 	ft_printf("\n|");
-	ft_printf("%010x\n", 20);
-	ft_printf("|");
-	printf("%010x\n", 20);
-	ft_printf("\n|");
-	ft_printf("%010x\n", -20);
-	ft_printf("|");
-	printf("%010x\n", -20);
-	ft_printf("\n|");
-	ft_printf("%10x\n", 20);
-	ft_printf("|");
-	printf("%10x\n", 20);
-	ft_printf("\n|");
-	ft_printf("%10.2x\n", -20);
-	ft_printf("|");
-	printf("%10.2x\n", -20);
-	ft_printf("\n|");
+	// ft_printf("%010x\n", 20);
+	// ft_printf("|");
+	// printf("%010x\n", 20);
+	// ft_printf("\n|");
+	// ft_printf("%010x\n", -20);
+	// ft_printf("|");
+	// printf("%010x\n", -20);
+	// ft_printf("\n|");
+	// ft_printf("%10x\n", 20);
+	// ft_printf("|");
+	// printf("%10x\n", 20);
+	// ft_printf("\n|");
+	// ft_printf("%10.2x\n", -20);
+	// ft_printf("|");
+	// printf("%10.2x\n", -20);
+	// ft_printf("\n|");
 	ft_printf("%-10x\n", 50);
 	ft_printf("|");
 	printf("%-10x\n", 50);
-	ft_printf("\n|");
-	ft_printf("%-15x\n", 0);
-	ft_printf("|");
-	printf("%-15x\n", 0);
 	ft_printf("\n|");
 	ft_printf("%.1x\n", 500);
 	ft_printf("|");
@@ -331,41 +331,41 @@ int     main(void)
 	ft_printf("|");
     printf("ret = %d\n", printf("%%p::[%0100.50d]\n", 8473));
 	ft_printf("\n|");
-	ft_printf("%c", 'a');
+	ft_printf("%c\n", 'a');
 	ft_printf("|");
-	printf("%c", 'a');
+	printf("%c\n", 'a');
 	ft_printf("\n|");
-	ft_printf("%10c", 't');
+	ft_printf("%10c\n", 't');
 	ft_printf("|");
-	printf("%10c", 't');
+	printf("%10c\n", 't');
 	ft_printf("\n|");
-	ft_printf("%1c", 'y');
+	ft_printf("%1c\n", 'y');
 	ft_printf("|");
-	printf("%1c", 'y');
+	printf("%1c\n", 'y');
 	ft_printf("\n|");
-	ft_printf("%50.2s", "Coucou");
+	ft_printf("%50.2s\n", "Coucou");
 	ft_printf("|");
-	printf("%50.2s", "Coucou");
+	printf("%50.2s\n", "Coucou");
 	ft_printf("\n|");
-	ft_printf("%50.2s", NULL);
+	ft_printf("%50.2s\n", NULL);
 	ft_printf("|");
-	printf("%50.2s", NULL);
+	printf("%50.2s\n", NULL);
 	ft_printf("\n|");
-	ft_printf("%5.0s", "Hello");
+	ft_printf("%5.0s\n", "Hello");
 	ft_printf("|");
-	printf("%5.0s", "Hello");
+	printf("%5.0s\n", "Hello");
 	ft_printf("\n|");
-	ft_printf("%.1s", "Test");
+	ft_printf("%.1s\n", "Test");
 	ft_printf("|");
-	printf("%.1s", "Test");
+	printf("%.1s\n", "Test");
 	ft_printf("\n|");
-	ft_printf("%10s", NULL);
+	ft_printf("%10s\n", NULL);
 	ft_printf("|");
-	printf("%10s", NULL);
+	printf("%10s\n", NULL);
 	ft_printf("\n|");
-	ft_printf("%10s", "Ok");
+	ft_printf("%10s\n", "Ok");
 	ft_printf("|");
-	printf("%10s", "Ok");
+	printf("%10s\n", "Ok");
 	ft_printf("\n|");
 	ft_printf("%d\n", printf("Les bornes :  %d, %d\n", -2147483648, 2147483647));
 	ft_printf("|");
@@ -375,9 +375,9 @@ int     main(void)
 	ft_printf("|");
     printf("%d\n", printf("Les bornes :  %u, %u\n", 0, 4294967295));
 	ft_printf("\n|");
-	ft_printf("%d\n", printf("Les bornes :  %x, %x\n", 0, 4294967295));
+	// ft_printf("%d\n", printf("Les bornes :  %x, %x\n", 0, 4294967295));
 	ft_printf("|");
-	printf("%d\n", printf("Les bornes :  %x, %x\n", 0, 4294967295));
+	// printf("%d\n", printf("Les bornes :  %x, %x\n", 0, 4294967295));
 	ft_printf("\n|");
 	ft_printf("%d\n", printf("1chiffre 1 %d chiffre 2 %d\n", 42, -42));
 	ft_printf("|");
@@ -447,14 +447,14 @@ int     main(void)
 	ft_printf("|");
 	printf("t10 %2.2d\n", -10);
 	ft_printf("\n|");
-	ft_printf("t12 %.0d\n", 0);
-	ft_printf("|");
-	printf("t12 %.0d\n", 0);
-	ft_printf("\n|");
-	ft_printf("t13 %01d\n", -20);
-	ft_printf("|");
-	printf("t13 %01d\n", -20);
-	ft_printf("\n|");
+	ft_printf("t12 %.0d\n", 0);//lea
+	ft_printf("|");//lea
+	printf("t12 %.0d\n", 0);//lea
+	ft_printf("\n|");//lea
+	ft_printf("t13 %01d\n", -20);//lea
+	ft_printf("|");//lea
+	printf("t13 %01d\n", -20);//lea
+	ft_printf("\n|");//lea
 	ft_printf("t14 %10d\n", 1000);
 	ft_printf("|");
 	printf("t14 %10d\n", 1000);
@@ -567,10 +567,10 @@ int     main(void)
 	ft_printf("|");
 	printf("04 Test de chiffre sans h : %d, et %d\n", 432767, -432767);
 	ft_printf("\n|");
-	ft_printf("31 This is an int : %.0d\n", 0);
-	ft_printf("|");
-	printf("31 This is an int : %.0d\n", 0);
-	ft_printf("\n|");
+	ft_printf("31 This is an int : %.0d\n", 0);//lea
+	ft_printf("|");//lea
+	printf("31 This is an int : %.0d\n", 0);//lea
+	ft_printf("\n|");//lea
 	ft_printf("32 This is an int : %0d\n", 0);
 	ft_printf("|");
 	printf("32 This is an int : %0d\n", 0);
@@ -679,10 +679,10 @@ int     main(void)
 	ft_printf("|");
 	printf("st13 %*d\n", 0, 0);
 	ft_printf("\n|");
-	ft_printf("st14 %.*d\n", 0, 0);
-	ft_printf("|");
-	printf("st14 %.*d\n", 0, 0);
-	ft_printf("\n|");
+	ft_printf("st14 %.*d\n", 0, 1);//lea
+	ft_printf("|");//lea
+	printf("st14 %.*d\n", 0, 1);//lea
+	ft_printf("\n|");//lea
 	ft_printf("st15 %*d\n", 50, 5);
 	ft_printf("|");
 	printf("st15 %*d\n", 50, 5);

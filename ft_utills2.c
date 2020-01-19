@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/10 15:01:08 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/16 22:34:45 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/19 16:58:09 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ char		*ft_strjoin(char *s1, char *s2)
 		str[len1] = '\0';
 		return (str);
 	}
+	free(s1);
+	free(s2);
 	return (NULL);
 }
 

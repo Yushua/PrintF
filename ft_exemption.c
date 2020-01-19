@@ -6,11 +6,43 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/13 20:34:11 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/15 20:39:12 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/19 17:00:43 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static char		*ft_strjoin_e(char *s1, char *s2)
+{
+	int		i;
+	int		len1;
+	int		len2;
+	char	*str;
+
+	if (s1 && s2)
+	{
+		len1 = ft_strlen(s1);
+		len2 = ft_strlen(s2);
+		str = (char*)malloc(sizeof(char) * (len1 + len2 + 1));
+		if (str == NULL)
+			return (NULL);
+		i = -1;
+		while (s1[++i])
+			str[i] = s1[i];
+		i = -1;
+		while (s2[++i])
+		{
+			str[len1] = s2[i];
+			len1++;
+		}
+		str[len1] = '\0';
+		free(s2);
+		return (str);
+	}
+	free(s1);
+	free(s2);
+	return (NULL);
+}
 
 char	*ft_exemption1(t_print **print, int w)
 {
@@ -30,6 +62,8 @@ char	*ft_exemption1(t_print **print, int w)
 		w--;
 		s--;
 	}
-	(*print)->flag_str = ft_strjoin("-", (*print)->flag_str);
+	(*print)->flag_str = ft_strjoin_e("-", (*print)->flag_str);
+	free((*print)->input_str);
+	(*print)->input_str = NULL;
 	return ((*print)->flag_str);
 }
