@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/10 15:01:08 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/18 15:18:21 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/20 11:43:46 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void			ft_save_nb(t_print **print, int i, const char *format)
 	free(nb);
 }
 
-char		*nwstr(void)
+char			*nwstr(void)
 {
 	char	*w_fd;
 
@@ -52,7 +52,7 @@ char		*nwstr(void)
 	return (w_fd);
 }
 
-char		*ft_empty_str(long nb)
+char			*ft_empty_str(long nb)
 {
 	char	*str;
 	int		i;
@@ -70,7 +70,7 @@ char		*ft_empty_str(long nb)
 	return (str);
 }
 
-size_t		ft_strlen(char *s)
+size_t			ft_strlen(char *s)
 {
 	size_t i;
 

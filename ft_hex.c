@@ -6,14 +6,14 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/03 15:30:09 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/18 21:26:03 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/20 14:36:11 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #define LOWER_HEX "0123456789abcdef"
 
-void	ft_print_x(t_print **print, va_list ap)
+void			ft_print_x(t_print **print, va_list ap)
 {
 	unsigned long	j;
 	unsigned long	i;
@@ -21,7 +21,7 @@ void	ft_print_x(t_print **print, va_list ap)
 	j = 0;
 	i = 0;
 	i = (va_arg(ap, unsigned int));
-	(*print)->input_str  = ft_hex(i, j, print);
+	(*print)->input_str = ft_hex(i, j, print);
 	if ((*print)->convergence == 'X' && (*print)->input_str != NULL)
 	{
 		i = 'x' - 'X';
@@ -36,7 +36,7 @@ void	ft_print_x(t_print **print, va_list ap)
 	ft_write_string_1(print);
 }
 
-void	ft_print_p(t_print **print, va_list ap)
+void			ft_print_p(t_print **print, va_list ap)
 {
 	unsigned long	j;
 	unsigned long	ii;
@@ -50,7 +50,7 @@ void	ft_print_p(t_print **print, va_list ap)
 	ft_write_string_1(print);
 }
 
-char	*ft_hex(unsigned long i, unsigned long j, t_print **print)
+char			*ft_hex(unsigned long i, unsigned long j, t_print **print)
 {
 	unsigned long	nb;
 	char			*str;
@@ -67,15 +67,31 @@ char	*ft_hex(unsigned long i, unsigned long j, t_print **print)
 			j++;
 		}
 	}
-	str = (char *)ft_calloc(j, sizeof(char));
+	str = (char *)ft_calloc(j + 1, sizeof(char));
 	if (str == NULL)
 		return (NULL);
 	i = nb;
 	str = ft_hex_two(str, print, j, i);
+	j += 2;
+	str[j] = '\0';
 	return (str);
 }
 
-char	*ft_hex_two(char *str, t_print **print, unsigned long j, unsigned long i)
+static char		*ft_hex_three(unsigned long remain, unsigned long i,
+								unsigned long j, char *str)
+{
+	while (i != 0)
+	{
+		remain = i % 16;
+		i = i / 16;
+		str[j] = LOWER_HEX[remain];
+		j--;
+	}
+	return (str);
+}
+
+char			*ft_hex_two(char *str, t_print **print,
+							unsigned long j, unsigned long i)
 {
 	unsigned long		jj;
 	unsigned long		remain;
@@ -95,14 +111,6 @@ char	*ft_hex_two(char *str, t_print **print, unsigned long j, unsigned long i)
 		str[j] = LOWER_HEX[i];
 	}
 	else
-	{
-		while (i != 0)
-		{
-			remain = i % 16;
-			i = i / 16;
-			str[j] = LOWER_HEX[remain];
-			j--;
-		}
-	}
+		ft_hex_three(remain, i, j, str);
 	return (str);
 }

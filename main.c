@@ -6,7 +6,7 @@
 /*   By: ybakker <marvin@codam.nl>                    +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/12/07 14:54:52 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/16 22:50:01 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/20 14:31:41 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,38 +31,56 @@
 */
 	
 // #define	INPUT "Hex: %X | hex: %x | epc: %%", hex, hhex
-#define INPUT "%-70p%-70p%-70p%-70p%-70p%-70p%-70p%-70p%-70p%-70p%-70p%-70p",&a01,&a02,&a03,&a04,&a05,&a06,&a07,&a08,&a09,&a10,&a11,&a12
-
+#define INPUT "%-70p%-70p%-70p%-70p%-70p%-70p%-70p%-70p%-70p%-70p%-70p%-70p",&u01,&u02,&u03,&u04,&u05,&u06,&u07,&u08,&u09,&u10,&u11,&u12
+#define INPUT1 "%60p%60p%60p%60p%60p%60p%60p%60p%60p%60p%60p%60p",&u01,&u02,&u03,&u04,&u05,&u06,&u07,&u08,&u09,&u10,&u11,&u12
+#define INPUT2 "|%32p|%32p|%32p|%32p|%32p|%32p|%32p|%32p|%32p|%32p|%32p|%32p|",&u01,&u02,&u03,&u04,&u05,&u06,&u07,&u08,&u09,&u10,&u11,&u12
+#define INPUT3 "%32p%32p%32p%32p%32p%32p%32p%32p%32p%32p%32p%32p",&u01,&u02,&u03,&u04,&u05,&u06,&u07,&u08,&u09,&u10,&u11,&u12
+// #define INPUT4
 int     main(void)
 {
-	static char	a01;
-	static unsigned char a02;
-	static short a03;
-	static unsigned short a04;
-	static int a05;
-	static unsigned int a06;
-	static long a07;
-	static unsigned long a08;
-	static long long a09;
-	static unsigned long long a10;
-	static char *a11;
-	static void *a12;
-	int				i;
-	int				hex;
 
-	i = 31415;
-	hex = 276447232;
+	static char	u01;
+	static unsigned char u02;
+	static short u03;
+	static unsigned short u04;
+	static int u05;
+	static unsigned int u06;
+	static long u07;
+	static unsigned long u08;
+	static long long u09;
+	static unsigned long long u10;
+	static char *u11;
+	static void *u12;
 
-	ft_printf("own\n");
+	ft_printf("|");
 	ft_printf(INPUT);
-	printf("\nprintf\n");
+	ft_printf("]\n|");
 	printf(INPUT);
-	printf("\n");
-	while (i)
+	ft_printf("]\n");
+	ft_printf("|");
+	ft_printf(INPUT1);
+	ft_printf("]\n|");
+	printf(INPUT1);
+	ft_printf("]\n");
+	ft_printf("|");
+	ft_printf(INPUT2);
+	ft_printf("]\n|");
+	printf(INPUT2);
+	ft_printf("]\n");
+	ft_printf("|");
+	ft_printf(INPUT3);
+	ft_printf("]\n|");
+	printf(INPUT3);
+	ft_printf("]\n");
+	// ft_printf("|");
+	// ft_printf(input4);
+	// ft_printf("|\n|");
+	// printf(input4);
+	// ft_printf("|\n");
+	while (1)
 	{
-		hex = 0;
+		0;
 	}
-	return (0);
 }
 
 //		printf("\n|%i|\n|", (*print)->width_nb);

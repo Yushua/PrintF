@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/02 15:19:07 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/18 19:01:10 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/20 13:31:24 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ void		ft_write_str(t_print **print)
 		p = s;
 	else if (s > p && p != -1)
 		s = p;
-	if ((*print)->w_width < p && p != -1 && (*print)->input_str != '\0' && (*print)->w_width < s)
+	if ((*print)->w_width < p && p != -1 && (*print)->input_str != '\0' &&
+		(*print)->w_width < s)
 		(*print)->w_width = s;
 	if ((*print)->min == 1)
 		(*print)->input_str = ft_str_min(s, print);

@@ -6,13 +6,31 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/13 21:51:18 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/19 15:49:59 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/20 12:10:02 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		ft_write_hex(t_print **print)
+static void		ft_write_hexx(t_print **print, int p, int w, int s)
+{
+	if (p < s)
+		p = s;
+	ft_att_z(print, p, s);
+	if (s < p)
+		s = p;
+	if (w < s || w == 0)
+		w = s;
+	if (s == 0)
+		(*print)->input_str = NULL;
+	if ((*print)->min == 1)
+		(*print)->input_str = ft_hex_min(s, w, print);
+	else if ((*print)->min != 1)
+		(*print)->input_str = ft_hex_no(s, w, print, p);
+	free((*print)->flag_str);
+}
+
+void			ft_write_hex(t_print **print)
 {
 	int		s;
 	int		p;
@@ -21,36 +39,23 @@ void		ft_write_hex(t_print **print)
 	p = (*print)->p_width;
 	s = ft_strlen((*print)->input_str);
 	w = (*print)->w_width;
-	if ((*print)->input_str[0] == '0' && (*print)->input_str[1] == '\0' && p == 0 && w == 0)
+	if ((*print)->input_str[0] == '0' && (*print)->input_str[1] == '\0' &&
+		p == 0 && w == 0)
 	{
 		free((*print)->input_str);
 		(*print)->input_str = NULL;
 	}
-	else if ((*print)->input_str[0] == '0' && (*print)->input_str[1] == '\0' && p == -1 && w == 0 && (*print)->pre == 1)
+	else if ((*print)->input_str[0] == '0' && (*print)->input_str[1] == '\0' &&
+			p == -1 && w == 0 && (*print)->pre == 1)
 	{
 		free((*print)->input_str);
 		(*print)->input_str = NULL;
 	}
 	else
-	{
-		if (p < s)
-			p = s;
-		ft_att_z(print, p, s);
-		if (s < p)
-			s = p;
-		if (w < s || w == 0)
-			w = s;
-		if (s == 0)
-			(*print)->input_str = NULL;
-		if ((*print)->min == 1)
-			(*print)->input_str = ft_hex_min(s, w, print);
-		else if ((*print)->min != 1)
-			(*print)->input_str = ft_hex_no(s, w, print, p);
-		free((*print)->flag_str);
-	}
+		ft_write_hexx(print, p, w, s);
 }
 
-char		*ft_hex_no(long s, int w, t_print **print, long p)
+char			*ft_hex_no(long s, int w, t_print **print, long p)
 {
 	int		i;
 	char	*str;
@@ -60,7 +65,8 @@ char		*ft_hex_no(long s, int w, t_print **print, long p)
 		(*print)->flag_str = ft_fill_z(w, print);
 	else
 		(*print)->flag_str = ft_empty_int(w, s, print);
-	if ((*print)->input_str[0] == '0' && (*print)->input_str[1] == '\0' && (*print)->pre == 1)
+	if ((*print)->input_str[0] == '0' && (*print)->input_str[1] == '\0' &&
+		(*print)->pre == 1)
 		return ((*print)->flag_str);
 	while (s != -1)
 	{
@@ -72,7 +78,7 @@ char		*ft_hex_no(long s, int w, t_print **print, long p)
 	return ((*print)->flag_str);
 }
 
-char		*ft_hex_min(long s, int w, t_print **print)
+char			*ft_hex_min(long s, int w, t_print **print)
 {
 	int		i;
 
@@ -81,9 +87,11 @@ char		*ft_hex_min(long s, int w, t_print **print)
 		(*print)->flag_str = ft_fill_z(w, print);
 	else
 		(*print)->flag_str = ft_empty_int(w, s, print);
-	if ((*print)->input_str[0] == '0' && (*print)->input_str[1] == '\0' && (*print)->pre == 1)
+	if ((*print)->input_str[0] == '0' && (*print)->input_str[1] == '\0' &&
+		(*print)->pre == 1)
 		return ((*print)->flag_str);
-	while (i != s && (*print)->input_str[i] != '\0' && (*print)->flag_str[i] != '\0')
+	while (i != s && (*print)->input_str[i] != '\0' &&
+			(*print)->flag_str[i] != '\0')
 	{
 		(*print)->flag_str[i] = (*print)->input_str[i];
 		i++;

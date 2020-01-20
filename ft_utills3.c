@@ -6,7 +6,7 @@
 /*   By: ybakker <ybakker@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/01/10 15:01:08 by ybakker        #+#    #+#                */
-/*   Updated: 2020/01/17 01:34:39 by ybakker       ########   odam.nl         */
+/*   Updated: 2020/01/20 12:34:19 by ybakker       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,32 @@ char		*ft_fill_z(long w, t_print **print)
 		i++;
 	}
 	return (str);
+}
+
+char		ft_convergence(t_print **print, int i, const char *format)
+{
+	while (format[i] != '\0')
+	{
+		(*print)->end = i;
+		if (format[i] == 'c')
+			return ('c');
+		else if (format[i] == 's')
+			return ('s');
+		else if (format[i] == '%')
+			return ('%');
+		else if (format[i] == 'p')
+			return ('p');
+		else if (format[i] == 'd')
+			return ('d');
+		else if (format[i] == 'i')
+			return ('i');
+		else if (format[i] == 'u')
+			return ('u');
+		else if (format[i] == 'x')
+			return ('x');
+		else if (format[i] == 'X')
+			return ('X');
+		i++;
+	}
+	return ('\0');
 }
